@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MyRealVet – Homepage</title>
 
-  <!-- FONT IMPORT -->
+  <!-- FONT OPTIMIZED IMPORT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500&family=Quicksand:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  </noscript>
 
   <style>
     /* WRAPPER per isolare gli stili da Payhip */
@@ -228,7 +231,7 @@
     .mrv-homepage .reveal {opacity:0;transform:translateY(40px);transition:all .8s ease}
     .mrv-homepage .reveal.active {opacity:1;transform:translateY(0)}
   </style>
-  
+
 <!-- IMPORTA CSS e JS PER REGALO -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/footer-payhip/regalo/mrv-regalo.css">
 <script src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@5c83d33/footer-payhip/regalo/mrv-regalo.js"></script>
@@ -299,7 +302,7 @@
 
   <!-- CHI SIAMO -->
   <section class="about container reveal">
-    <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/fotoprofilo.jpg" alt="Dott.ssa Angelica Spaccini">
+    <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/fotoprofilo.jpg" alt="Dott.ssa Angelica Spaccini" loading="lazy" decoding="async">
     <div class="about-text">
       <h2>Chi è la Dott.ssa Angelica Spaccini</h2>
       <p>Medico veterinario con master in comportamento animale e competenze in alimentazione e cure naturali.</p>
@@ -342,17 +345,17 @@
       <h2>🌟 In evidenza</h2>
       <div class="product-grid">
         <div class="product">
-          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/primo-soccorso.png" alt="Corso di Pronto Soccorso">
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/primo-soccorso.png" alt="Corso di Pronto Soccorso" loading="lazy" decoding="async">
           <h3>Corso di Pronto Soccorso Canino</h3>
           <a href="https://angelica-spaccini.myrealvet.it/b/pronto-soccorso-canino" class="btn btn-primary">Scopri di più</a>
         </div>
         <div class="product">
-          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/corso-alimentazione.png" alt="Alimentazione naturale del cane">
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/corso-alimentazione.png" alt="Alimentazione naturale del cane" loading="lazy" decoding="async">
           <h3>Alimentazione Naturale del Cane</h3>
           <a href="https://angelica-spaccini.myrealvet.it/b/corso-alimentazione-cane" class="btn btn-primary">Scopri il corso</a>
         </div>
         <div class="product">
-          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/cosa-vuole-davvero-un-gatto.png" alt="Cosa vuole davvero un gatto">
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/cosa-vuole-davvero-un-gatto.png" alt="Cosa vuole davvero un gatto" loading="lazy" decoding="async">
           <h3>Cosa vuole davvero un gatto</h3>
           <a href="https://angelica-spaccini.myrealvet.it/b/cosa-vuole-davvero-un-gatto" class="btn btn-primary">Scopri l’ebook</a>
         </div>
