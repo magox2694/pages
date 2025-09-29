@@ -1,537 +1,1254 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Corso di Pronto Soccorso Canino – MyRealVet</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Corso di Pronto Soccorso Canino – MyRealVet</title>
 
-  <!--- FONT IMPORT --->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    /* WRAPPER: isola tutto da Payhip */
-    .mrv-pscorso{all:initial;display:block}
-    .mrv-pscorso *{all:unset;display:revert;box-sizing:border-box}
+    <!--- FONT IMPORT --->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500&family=Quicksand:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* WRAPPER: isola tutto da Payhip */
+      .mrv-pscorso {
+        all: initial;
+        display: block;
+      }
+      .mrv-pscorso * {
+        all: unset;
+        display: revert;
+        box-sizing: border-box;
+      }
 
-    /* THEME VARS */
-    /*.mrv-pscorso:root{} /* evita warning */
-    .mrv-pscorso{
-      --brand:#1697c7;
-      --brand-2:#28a745;
-      --dark:#0c1117;
-      --text:#0b1220;
-      --muted:#5b677a;
-      --bg:#f6f9fc;
-      --card:#ffffff;
-      --shadow:0 10px 30px rgba(2,12,27,.08);
-      --radius:16px;
-      --focus:0 0 0 3px rgba(22,151,199,.25);
-      font-family:'Lato',system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,Arial,sans-serif;
-      line-height:1.6;color:var(--text);background:var(--bg);
-      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-    }
-    .mrv-pscorso img{max-width:100%;height:auto;display:block}
-    .mrv-pscorso a{text-decoration:none;color:inherit}
-    .mrv-pscorso .container{width:min(1120px,92%);margin:0 auto}
+      /* THEME VARS */
+      /*.mrv-pscorso:root{} /* evita warning */
+      .mrv-pscorso {
+        --brand: #1697c7;
+        --brand-2: #28a745;
+        --dark: #0c1117;
+        --text: #0b1220;
+        --muted: #5b677a;
+        --bg: #f6f9fc;
+        --card: #ffffff;
+        --shadow: 0 10px 30px rgba(2, 12, 27, 0.08);
+        --radius: 16px;
+        --focus: 0 0 0 3px rgba(22, 151, 199, 0.25);
+        font-family: "Lato", system-ui, -apple-system, Segoe UI, Roboto, Inter,
+          Ubuntu, Arial, sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background: var(--bg);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .mrv-pscorso img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      .mrv-pscorso a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .mrv-pscorso .container {
+        width: min(1120px, 92%);
+        margin: 0 auto;
+      }
 
-    /* BUTTONS */
-    .mrv-pscorso .btn{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:16px 28px;border-radius:999px;border:0;cursor:pointer;
-      font-family:'Quicksand',sans-serif;font-weight:700;
-      box-shadow:var(--shadow);transition:all .2s ease;font-size:18px;
-    }
-    .mrv-pscorso .btn-primary{background:var(--brand);color:#fff}
-    .mrv-pscorso .btn-primary:hover{background:#127aa0}
-    .mrv-pscorso .btn-outline{background:#fff;color:var(--brand);border:2px solid var(--brand)}
-    .mrv-pscorso .btn-outline:hover{background:var(--brand);color:#fff}
-    .mrv-pscorso .btn-lg{font-size:20px;padding:18px 32px}
-    .mrv-pscorso .btn:focus-visible{outline:none;box-shadow:var(--focus)}
+      /* BUTTONS */
+      .mrv-pscorso .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 28px;
+        border-radius: 999px;
+        border: 0;
+        cursor: pointer;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 700;
+        box-shadow: var(--shadow);
+        transition: all 0.2s ease;
+        font-size: 18px;
+      }
+      .mrv-pscorso .btn-primary {
+        background: var(--brand);
+        color: #fff;
+      }
+      .mrv-pscorso .btn-primary:hover {
+        background: #127aa0;
+      }
+      .mrv-pscorso .btn-outline {
+        background: #fff;
+        color: var(--brand);
+        border: 2px solid var(--brand);
+      }
+      .mrv-pscorso .btn-outline:hover {
+        background: var(--brand);
+        color: #fff;
+      }
+      .mrv-pscorso .btn-lg {
+        font-size: 20px;
+        padding: 18px 32px;
+      }
+      .mrv-pscorso .btn:focus-visible {
+        outline: none;
+        box-shadow: var(--focus);
+      }
 
-    /* HEADINGS & TEXT */
-    .mrv-pscorso h1,.mrv-pscorso h2,.mrv-pscorso h3{
-      font-family:'Quicksand',sans-serif;font-weight:700;line-height:1.2;margin:12px 0;
-    }
-    .mrv-pscorso h1{font-size:clamp(28px,6vw,48px);text-align:center;color:var(--brand)}
-    .mrv-pscorso h2{font-size:clamp(22px,4vw,32px);text-align:center;color:var(--brand);margin-bottom:16px}
-    .mrv-pscorso h3{font-size:20px;color:var(--brand)}
-    .mrv-pscorso p.lead{font-size:clamp(16px,4vw,20px);color:var(--muted);margin:12px 0 24px;text-align:center}
+      /* HEADINGS & TEXT */
+      .mrv-pscorso h1,
+      .mrv-pscorso h2,
+      .mrv-pscorso h3 {
+        font-family: "Quicksand", sans-serif;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 12px 0;
+      }
+      .mrv-pscorso h1 {
+        font-size: clamp(28px, 6vw, 48px);
+        text-align: center;
+        color: var(--brand);
+      }
+      .mrv-pscorso h2 {
+        font-size: clamp(22px, 4vw, 32px);
+        text-align: center;
+        color: var(--brand);
+        margin-bottom: 16px;
+      }
+      .mrv-pscorso h3 {
+        font-size: 20px;
+        color: var(--brand);
+      }
+      .mrv-pscorso p.lead {
+        font-size: clamp(16px, 4vw, 20px);
+        color: var(--muted);
+        margin: 12px 0 24px;
+        text-align: center;
+      }
 
-    /* HERO */
-    .mrv-pscorso .hero{background:linear-gradient(180deg,#f7fbff,#eef6fb);padding:40px 20px}
-    .mrv-pscorso .hero-inner{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
+      /* HERO */
+      .mrv-pscorso .hero {
+        background: linear-gradient(180deg, #f7fbff, #eef6fb);
+        padding: 40px 20px;
+      }
+      .mrv-pscorso .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+      }
 
-    /* CAROUSEL */
-    .mrv-pscorso .carousel{position:relative;max-width:780px;margin:32px auto 0;overflow:hidden}
-    .mrv-pscorso .carousel-track{display:flex;transition:transform .6s ease}
-    .mrv-pscorso .carousel-track img{flex:0 0 100%;width:100%;object-fit:contain;border-radius:12px;box-shadow:0 8px 16px rgba(0,0,0,.12)}
-    .mrv-pscorso .carousel-btn-slide3 {
-      position: absolute;
-      bottom: -30px;  /* scende sotto l’immagine */
-      left: 50%;
-      transform: translateX(-50%);
-      display: none; /* di default nascosto */
-      z-index: 2;
-      font-size: 16px;       /* più piccolo */
-      padding: 10px 20px;    /* più compatto */
-      white-space: nowrap;   /* sempre su una riga */
-    }
-    .mrv-pscorso .carousel-dots{display:flex;justify-content:center;gap:10px;margin-top:16px}
-    .mrv-pscorso .carousel-dots button{width:10px;height:10px;border-radius:999px;border:2px solid rgba(0,0,0,.25);background:rgba(255,255,255,.65);box-shadow:0 2px 6px rgba(0,0,0,.15);cursor:pointer;transition:.2s}
-    .mrv-pscorso .carousel-dots button.active{background:linear-gradient(135deg,var(--brand-2),var(--brand));border-color:transparent;transform:scale(1.25)}
-    @media (max-width:600px){.mrv-pscorso .carousel{max-width:100%}}
-
-    /* INTRO LIST */
-    .mrv-pscorso .bullets{display:grid;gap:14px;margin:28px auto;max-width:720px}
-    .mrv-pscorso .bullet{display:flex;align-items:flex-start;gap:12px;font-size:17px}
-    .mrv-pscorso .bullet svg{flex-shrink:0;width:22px;height:22px;color:var(--brand-2)}
-
-    /* FEATURE GRID */
-    .mrv-pscorso .features{padding:56px 0}
-    .mrv-pscorso .feature-grid{display:grid;gap:18px}
-    @media(min-width:900px){.mrv-pscorso .feature-grid{grid-template-columns:repeat(3,1fr)}}
-    .mrv-pscorso .feature{padding:24px;border-radius:var(--radius);background:#fff;border:1px solid #eef3f8;text-align:center;box-shadow:var(--shadow)}
-    .mrv-pscorso .feature p{margin:0;color:var(--muted)}
-
-    /* CURRICULUM */
-    .mrv-pscorso .curriculum{padding:56px 0;background:linear-gradient(180deg,#eef6fb,#f7fbff)}
-    .mrv-pscorso .course-curriculum-section-list{list-style:none;padding:0;margin:0}
-    .mrv-pscorso .course-curriculum-section-item{margin-bottom:18px;border:1px solid #e5eef5;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.05);overflow:hidden;background:#fff}
-    .mrv-pscorso .course-curriculum-section-item-number{display:inline-block;font-weight:700;color:#fff;background:#1697c7;border-radius:50%;width:26px;height:26px;text-align:center;line-height:26px;margin:12px}
-    .mrv-pscorso .course-curriculum-section-item-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#f7fbff;cursor:pointer}
-    .mrv-pscorso .course-curriculum-section-item-title{font-weight:600;color:#1697c7}
-    .mrv-pscorso .course-curriculum-section-item-header-toggle button{background:none;border:0;font-size:18px;color:#1697c7;cursor:pointer;transition:transform .3s ease}
-    .mrv-pscorso .course-curriculum-section-item.open .course-curriculum-section-item-header-toggle button{transform:rotate(180deg)}
-    .mrv-pscorso .course-curriculum-section-item-content{display:none;padding:0;margin:0}
-    .mrv-pscorso .course-curriculum-section-item-content li{border-top:1px solid #f0f4f8;padding:10px 16px}
-    .mrv-pscorso .course-curriculum-section-item-content li a{display:block;color:#0b1220;font-weight:500;text-decoration:none}
-    .mrv-pscorso .lesson-title{font-weight:500;color:var(--text)}
-    .mrv-pscorso .lesson-free-preview-badge{display:inline-flex;align-items:center;gap:6px;margin-top:4px;background:#28a745;color:#fff;font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px}
-    .mrv-pscorso .lesson-free-preview-badge::before{content:"▶";display:inline-flex;justify-content:center;align-items:center;width:16px;height:16px;font-size:10px;background:rgba(255,255,255,0.25);border-radius:50%;color:#fff}
-    .mrv-pscorso .course-curriculum-section-item.open .course-curriculum-section-item-content{display:block}
-
-    /* CTA MID */
-    .mrv-pscorso .cta-mid{padding:60px 0;background:#f7fbff;text-align:center}
-    .mrv-pscorso .cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px}
-    .mrv-pscorso .trust-row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:14px;color:var(--muted);font-size:14px}
-    .mrv-pscorso .trust-row li{list-style:none;position:relative;padding-left:18px}
-    .mrv-pscorso .trust-row li::before{content:"";position:absolute;left:0;top:.45em;width:8px;height:8px;border-radius:50%;background:var(--brand-2)}
-
-    /* REVIEWS */
-    .mrv-pscorso .reviews{padding:60px 0;background:#fff}
-    .mrv-pscorso .review-grid{display:grid;gap:18px}
-    @media(min-width:900px){.mrv-pscorso .review-grid{grid-template-columns:repeat(3,1fr)}}
-    .mrv-pscorso .review{padding:20px;border-radius:16px;background:#f9fcff;border:1px solid #eef3f8;box-shadow:var(--shadow)}
-    .mrv-pscorso .review .stars{display:flex;gap:4px;margin-bottom:8px;color:#f5a623}
-    .mrv-pscorso .review .stars svg{width:18px;height:18px;fill:currentColor}
-    .mrv-pscorso .review blockquote{margin:0;color:var(--text)}
-    .mrv-pscorso .review footer{margin-top:10px;color:var(--muted);font-weight:600}
-
-    /* RECAP */
-    .mrv-pscorso .recap-offer{padding:40px 0;text-align:center}
-    .mrv-pscorso .recap-figure{max-width:520px;margin:0 auto}
-    .mrv-pscorso .recap-figure img{width:100%;height:auto;border-radius:16px;box-shadow:var(--shadow)}
-    .mrv-pscorso .recap-cta{margin-top:16px}
-    .mrv-pscorso .small{font-size:13px}.mrv-pscorso .muted{color:var(--muted)}
-
-    /* FINAL CTA */
-    .mrv-pscorso .final-cta{padding:56px 0;background:linear-gradient(180deg,#eef6fb,#f7fbff);text-align:center}
-    .mrv-pscorso .why-list{max-width:680px;margin:12px auto 18px;padding:0;list-style:none;text-align:left;color:var(--text)}
-    .mrv-pscorso .why-list li{padding-left:22px;position:relative;margin:8px 0}
-    .mrv-pscorso .why-list li::before{content:"✓";position:absolute;left:0;top:0;color:var(--brand-2);font-weight:700}
-  </style>
-</head>
-<body>
-<div class="mrv-pscorso">
-  <main>
-    <!-- HERO -->
-    <header class="hero">
-      <div class="container hero-inner">
-        <h1>Corso di Pronto Soccorso Canino</h1>
-        <p class="lead">Ogni secondo può fare la differenza: impara a intervenire con calma e sicurezza nelle emergenze del tuo cane.</p>
-        <a class="btn btn-primary btn-lg" href="#" aria-label="Acquista il corso di pronto soccorso canino">👉 Iscriviti ora</a>
-      </div>
-    </header>
-
-    <!-- CAROUSEL -->
-    <div class="carousel">
-      <div class="carousel-track">
-        <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-pronto-soccorso/slide-1-pronto-soccorso.png" alt="Slide 1 - pronto soccorso canino" loading="lazy" decoding="async">
-        <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-pronto-soccorso/slide-2-pronto-soccorso-v2.png" alt="Slide 2 - pronto soccorso canino" loading="lazy" decoding="async">
-        <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-pronto-soccorso/slide-3-pronto-soccorso.png" alt="Slide 3 - pronto soccorso canino" loading="lazy" decoding="async">
-      </div>
-      <div class="carousel-btn-slide3">
-          <a href="#curriculum" class="btn btn-primary btn-lg">
-            👉 Guarda il programma completo
-          </a>
-        </div>
-      <div class="carousel-dots" aria-label="Navigazione carosello"></div>
-    </div>
-
-    <!-- INTRO -->
-    <div class="container hero-inner" style="margin-top:40px;gap:30px;flex-direction:row;flex-wrap:wrap;justify-content:center">
-      <div style="flex:1;min-width:280px;max-width:600px">
-        <h2>Perché essere preparati</h2>
-        <p class="lead">Avvelenamenti, ferite, crisi respiratorie, convulsioni: quando succede, il tuo cane conta su di te. Qui impari cosa fare, minuto per minuto.</p>
-
-        <div class="bullets">
-          <div class="bullet">
-            <!-- check icon -->
-            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.485 1.929a.75.75 0 011.06 1.06l-8.25 8.25a.75.75 0 01-1.06 0l-4-4a.75.75 0 111.06-1.06L5.75 9.189z"/></svg>
-            <div><strong>Interventi corretti</strong> nei primi minuti critici.</div>
-          </div>
-          <div class="bullet">
-            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.485 1.929a.75.75 0 011.06 1.06l-8.25 8.25a.75.75 0 01-1.06 0l-4-4a.75.75 0 111.06-1.06L5.75 9.189z"/></svg>
-            <div><strong>Quando chiamare il veterinario</strong> e come comunicare le informazioni utili.</div>
-          </div>
-          <div class="bullet">
-            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.485 1.929a.75.75 0 011.06 1.06l-8.25 8.25a.75.75 0 01-1.06 0l-4-4a.75.75 0 111.06-1.06L5.75 9.189z"/></svg>
-            <div><strong>Kit di pronto soccorso</strong> e checklist pronte all’uso.</div>
-          </div>
-        </div>
-
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;justify-content:center">
-          <a class="btn btn-primary btn-lg" href="#">👉 Inizia ora</a>
-          <a class="btn btn-outline" href="#curriculum">Guarda il programma</a>
-        </div>
-      </div>
-
-      <!-- MOCKUP -->
-      <div style="flex:1;min-width:260px;max-width:500px">
-        <img src="img/mockup.png" alt="Mockup del corso Pronto Soccorso Canino" style="border-radius:16px;box-shadow:var(--shadow)" loading="lazy" decoding="async">
-        <p class="muted" style="margin-top:10px;text-align:center">Accesso immediato, su qualsiasi dispositivo.</p>
-      </div>
-    </div>
-
-    <!-- FEATURES -->
-    <section class="features container">
-      <h2>Cosa imparerai subito</h2>
-      <div class="feature-grid" style="margin-top:18px">
-        <div class="feature"><h3>Emergenze comuni</h3><p>Avvelenamenti, ferite, colpo di calore, ipotermia, crisi respiratorie e neurologiche.</p></div>
-        <div class="feature"><h3>Azioni pratiche</h3><p>Quando intervenire, come agire in sicurezza, come trasportare il cane, cosa dire al veterinario.</p></div>
-        <div class="feature"><h3>Strumenti utili</h3><p>Kit di pronto soccorso, documenti e checklist sempre pronte, PDF e slide.</p></div>
-      </div>
-    </section>
-
-    <!-- CURRICULUM -->
-    <section id="curriculum" class="curriculum">
-      <div class="container">
-        <h2>Programma del corso</h2>
-        <ul class="course-curriculum-section-list">
-
-          <!-- MODULO 1 -->
-          <li class="course-curriculum-section-item open" id="mod-1">
-            <div class="course-curriculum-section-item-content-wrapper">
-              <span class="course-curriculum-section-item-number">1</span>
-              <div class="course-curriculum-section-item-header">
-                <div class="course-curriculum-section-item-title">Modulo 1 – Benvenuti</div>
-                <span class="course-curriculum-section-item-header-toggle">
-                  <button tabindex="0" aria-expanded="true" aria-controls="mod-1-content">▼</button>
-                </span>
-              </div>
-              <ul class="course-curriculum-section-item-content" id="mod-1-content">
-                <li>
-                  <a href="#" target="_blank" rel="noopener">
-                    <div class="lesson-title">Introduzione</div>
-                    <div class="lesson-free-preview-badge">Anteprima gratuita</div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_blank" rel="noopener">
-                    <div class="lesson-title">Slide Intro</div>
-                    <div class="lesson-free-preview-badge">Anteprima gratuita</div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-
-          <!-- MODULO 2 -->
-          <li class="course-curriculum-section-item" id="mod-2">
-            <div class="course-curriculum-section-item-content-wrapper">
-              <span class="course-curriculum-section-item-number">2</span>
-              <div class="course-curriculum-section-item-header">
-                <div class="course-curriculum-section-item-title">Modulo 2 – Cos’è il pronto soccorso</div>
-                <span class="course-curriculum-section-item-header-toggle">
-                  <button tabindex="0" aria-expanded="false" aria-controls="mod-2-content">▼</button>
-                </span>
-              </div>
-              <ul class="course-curriculum-section-item-content" id="mod-2-content">
-                <li><span class="lesson-title">Lezione 1 – Cos’è il pronto soccorso</span></li>
-                <li><span class="lesson-title">Lezione 2 – Quando intervenire</span></li>
-                <li><span class="lesson-title">Lezione 3 – Agire in sicurezza</span></li>
-                <li><span class="lesson-title">Lezione 4 – Kit di pronto soccorso</span></li>
-                <li>
-                  <a href="#" target="_blank" rel="noopener">
-                    <div class="lesson-title">Slide modulo 2</div>
-                    <div class="lesson-free-preview-badge">Anteprima gratuita</div>
-                  </a>
-                </li>
-                <li><span class="lesson-title">Video illustrativo</span></li>
-              </ul>
-            </div>
-          </li>
-
-          <!-- MODULO 3 -->
-          <li class="course-curriculum-section-item" id="mod-3">
-            <div class="course-curriculum-section-item-content-wrapper">
-              <span class="course-curriculum-section-item-number">3</span>
-              <div class="course-curriculum-section-item-header">
-                <div class="course-curriculum-section-item-title">Modulo 3 – Emergenze principali</div>
-                <span class="course-curriculum-section-item-header-toggle">
-                  <button tabindex="0" aria-expanded="false" aria-controls="mod-3-content">▼</button>
-                </span>
-              </div>
-              <ul class="course-curriculum-section-item-content" id="mod-3-content">
-                <li><span class="lesson-title">Lezione 1 – Ferite e sanguinamenti</span></li>
-                <li>
-                  <a href="#" target="_blank" rel="noopener">
-                    <div class="lesson-title">Lezione 2 – Avvelenamento</div>
-                    <div class="lesson-free-preview-badge">Anteprima gratuita</div>
-                  </a>
-                </li>
-                <li><span class="lesson-title">Lezione 3 – Piante pericolose</span></li>
-                <li><span class="lesson-title">Lezione 4 – Colpo di calore</span></li>
-                <li><span class="lesson-title">Lezione 5 – Ipotermia</span></li>
-                <li>
-                  <a href="#" target="_blank" rel="noopener">
-                    <div class="lesson-title">Lezione 6 – Morso di insetto, vipera, shock anafilattico</div>
-                    <div class="lesson-free-preview-badge">Anteprima gratuita</div>
-                  </a>
-                </li>
-                <li><span class="lesson-title">Lezione 7 – Vomito e diarrea</span></li>
-                <li><span class="lesson-title">Lezione 8 – Torsione gastrica</span></li>
-                <li><span class="lesson-title">Lezione 9 – Convulsioni e crisi neurologiche</span></li>
-                <li><span class="lesson-title">Lezione 10 – Crisi respiratorie</span></li>
-                <li><span class="lesson-title">Lezione 11 – Emorragie interne</span></li>
-                <li>
-                  <a href="#" target="_blank" rel="noopener">
-                    <div class="lesson-title">Slide modulo 3</div>
-                    <div class="lesson-free-preview-badge">Anteprima gratuita</div>
-                  </a>
-                </li>
-                <li><span class="lesson-title">Video illustrativo 1</span></li>
-                <li><span class="lesson-title">Video illustrativo 2</span></li>
-              </ul>
-            </div>
-          </li>
-
-          <!-- MODULO 4 -->
-          <li class="course-curriculum-section-item" id="mod-4">
-            <div class="course-curriculum-section-item-content-wrapper">
-              <span class="course-curriculum-section-item-number">4</span>
-              <div class="course-curriculum-section-item-header">
-                <div class="course-curriculum-section-item-title">Modulo 4 – Trasporto e comunicazione</div>
-                <span class="course-curriculum-section-item-header-toggle">
-                  <button tabindex="0" aria-expanded="false" aria-controls="mod-4-content">▼</button>
-                </span>
-              </div>
-              <ul class="course-curriculum-section-item-content" id="mod-4-content">
-                <li><span class="lesson-title">Lezione 1 – Trasporto in sicurezza</span></li>
-                <li><span class="lesson-title">Lezione 2 – Comunicare con il veterinario</span></li>
-                <li><span class="lesson-title">Lezione 3 – Documenti, cartella clinica, informazioni</span></li>
-                <li><span class="lesson-title">Lezione 4 – Punti chiave</span></li>
-                <li>
-                  <a href="#" target="_blank" rel="noopener">
-                    <div class="lesson-title">Slide modulo 4</div>
-                    <div class="lesson-free-preview-badge">Anteprima gratuita</div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-
-          <!-- MODULO 5 -->
-          <li class="course-curriculum-section-item" id="mod-5">
-            <div class="course-curriculum-section-item-content-wrapper">
-              <span class="course-curriculum-section-item-number">5</span>
-              <div class="course-curriculum-section-item-header">
-                <div class="course-curriculum-section-item-title">Modulo 5 – Conclusione</div>
-                <span class="course-curriculum-section-item-header-toggle"></span>
-              </div>
-              <ul class="course-curriculum-section-item-content" id="mod-5-content">
-                <li><span class="lesson-title">Domande frequenti</span></li>
-                <li><span class="lesson-title">Grazie!</span></li>
-                <li><span class="lesson-title">Slide modulo 5</span></li>
-              </ul>
-            </div>
-          </li>
-
-          <!-- EXTRA -->
-          <li class="course-curriculum-section-item" id="mod-extra">
-            <div class="course-curriculum-section-item-content-wrapper">
-              <span class="course-curriculum-section-item-number">★</span>
-              <div class="course-curriculum-section-item-header">
-                <div class="course-curriculum-section-item-title">Materiale Extra</div>
-                <span class="course-curriculum-section-item-header-toggle"></span>
-              </div>
-              <ul class="course-curriculum-section-item-content" id="mod-extra-content" style="display:block">
-                <li><span class="lesson-title">PDF – Kit di pronto soccorso</span></li>
-                <li><span class="lesson-title">PDF – Sostanze tossiche per il cane</span></li>
-              </ul>
-            </div>
-          </li>
-
-        </ul>
-      </div>
-    </section>
-
-    <!-- CTA MID -->
-    <section class="cta-mid">
-      <div class="container">
-        <h2>Pronto ad agire con sicurezza?</h2>
-        <p class="lead">Procedure chiare, esempi pratici, materiali pronti: diventa il punto fermo del tuo cane nelle emergenze.</p>
-        <div class="cta-actions">
-          <a class="btn btn-primary btn-lg" href="#">Registrati ora</a>
-          <a class="btn btn-outline" href="#curriculum">Rivedi il programma</a>
-        </div>
-        <ul class="trust-row" aria-label="Punti di fiducia">
-          <li>Accesso immediato</li>
-          <li>Materiali scaricabili</li>
-          <li>Aggiornamenti inclusi</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- REVIEWS -->
-    <section class="reviews">
-      <div class="container">
-        <h2>La parola a chi ha già iniziato</h2>
-        <div class="review-grid">
-          <article class="review" aria-label="Recensione 1">
-            <div class="stars" aria-label="Valutazione: 5 su 5">
-              <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
-              <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
-              <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
-              <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
-              <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
-            </div>
-            <blockquote>“Durante un’emergenza ho saputo cosa fare senza panico: corso utilissimo.”</blockquote>
-            <footer>— Elisa M.</footer>
-          </article>
-
-          <article class="review">
-            <div class="stars" aria-label="5 su 5">
-              <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
-            </div>
-            <blockquote>“Mi sento davvero più sicuro nelle uscite e in casa: spiegazioni chiare.”</blockquote>
-            <footer>— Marco R.</footer>
-          </article>
-
-          <article class="review">
-            <div class="stars" aria-label="5 su 5">
-              <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
-            </div>
-            <blockquote>“Angelica spiega in modo semplice anche i casi complessi. Consigliatissimo.”</blockquote>
-            <footer>— Sara L.</footer>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- RECAP OFFERTA -->
-    <section class="recap-offer">
-      <div class="container">
-        <figure class="recap-figure">
-          <img src="img/recap.png" alt="Recap offerta corso pronto soccorso" loading="lazy" decoding="async">
-        </figure>
-        <div class="recap-cta">
-          <a class="btn btn-primary btn-lg" href="#">👉 Inizia ora</a>
-          <p class="small muted" style="margin-top:10px;">Offerta valida fino al 01/01/2026.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="final-cta">
-      <div class="container">
-        <h2>Perché funziona</h2>
-        <ul class="why-list">
-          <li>Metodo veterinario: teoria essenziale → pratica applicabile.</li>
-          <li>PDF, slide e checklist sempre a portata di mano.</li>
-          <li>Accesso immediato su qualsiasi dispositivo.</li>
-        </ul>
-        <a class="btn btn-primary btn-lg" href="#">Voglio essere pronto nelle emergenze</a>
-      </div>
-    </section>
-  </main>
-
-  <!-- SCRIPTS (scoped) -->
-  <script>
-    // CAROUSEL
-    (function(){
-      const root=document.querySelector('.mrv-pscorso');
-      const track=root.querySelector('.carousel-track');
-      const slides=Array.from(track.children);
-      const dotsContainer=root.querySelector('.carousel-dots');
-      let index=0, autoplay;
-
-      slides.forEach((_,i)=>{
-        const dot=document.createElement('button');
-        dot.setAttribute('aria-label','Vai alla slide '+(i+1));
-        if(i===0) dot.classList.add('active');
-        dot.addEventListener('click',()=>{ index=i; update(); reset(); });
-        dotsContainer.appendChild(dot);
-      });
-      const dots=Array.from(dotsContainer.children);
-
-      function update(){
-        track.style.transform=`translateX(-${index*100}%)`;
-        dots.forEach(d=>d.classList.remove('active'));
-        dots[index].classList.add('active');
-
-        const btnSlide3 = document.querySelector('.carousel-btn-slide3');
-        const carousel = document.querySelector('.carousel');
-
-        if(index === 2){
-          btnSlide3.style.display = 'block';
-          carousel.style.paddingBottom = '60px'; // aggiunge spazio solo alla slide 3
-        } else {
-          btnSlide3.style.display = 'none';
-          carousel.style.paddingBottom = '0'; // resetta per le altre
+      /* CAROUSEL */
+      .mrv-pscorso .carousel {
+        position: relative;
+        max-width: 780px;
+        margin: 32px auto 0;
+        overflow: hidden;
+      }
+      .mrv-pscorso .carousel-track {
+        display: flex;
+        transition: transform 0.6s ease;
+      }
+      .mrv-pscorso .carousel-track img {
+        flex: 0 0 100%;
+        width: 100%;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+      }
+      .mrv-pscorso .carousel-btn-slide3 {
+        position: absolute;
+        bottom: -30px; /* scende sotto l’immagine */
+        left: 50%;
+        transform: translateX(-50%);
+        display: none; /* di default nascosto */
+        z-index: 2;
+        font-size: 16px; /* più piccolo */
+        padding: 10px 20px; /* più compatto */
+        white-space: nowrap; /* sempre su una riga */
+      }
+      .mrv-pscorso .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 16px;
+      }
+      .mrv-pscorso .carousel-dots button {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        border: 2px solid rgba(0, 0, 0, 0.25);
+        background: rgba(255, 255, 255, 0.65);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .mrv-pscorso .carousel-dots button.active {
+        background: linear-gradient(135deg, var(--brand-2), var(--brand));
+        border-color: transparent;
+        transform: scale(1.25);
+      }
+      @media (max-width: 600px) {
+        .mrv-pscorso .carousel {
+          max-width: 100%;
         }
       }
 
-      function start(){ autoplay=setInterval(()=>{ index=(index+1)%slides.length; update(); }, 5400); }
-      function reset(){ clearInterval(autoplay); start(); }
-      start();
+      /* INTRO LIST */
+      .mrv-pscorso .bullets {
+        display: grid;
+        gap: 14px;
+        margin: 28px auto;
+        max-width: 720px;
+      }
+      .mrv-pscorso .bullet {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 17px;
+      }
+      .mrv-pscorso .bullet svg {
+        flex-shrink: 0;
+        width: 22px;
+        height: 22px;
+        color: var(--brand-2);
+      }
 
-      // swipe mobile
-      let startX=0;
-      track.addEventListener('touchstart',e=>startX=e.touches[0].clientX,{passive:true});
-      track.addEventListener('touchend',e=>{
-        const diff=e.changedTouches[0].clientX-startX;
-        if(diff>50){ index=(index-1+slides.length)%slides.length; update(); reset(); }
-        if(diff<-50){ index=(index+1)%slides.length; update(); reset(); }
-      },{passive:true});
-    })();
-
-    // CURRICULUM accordion accessibile
-    (function(){
-      const root=document.querySelector('.mrv-pscorso');
-      root.querySelectorAll('.course-curriculum-section-item').forEach(item=>{
-        const header=item.querySelector('.course-curriculum-section-item-header');
-        const btn=item.querySelector('.course-curriculum-section-item-header-toggle button');
-        function toggle(){
-          const open=item.classList.contains('open');
-          root.querySelectorAll('.course-curriculum-section-item').forEach(i=>{
-            i.classList.remove('open');
-            const b=i.querySelector('.course-curriculum-section-item-header-toggle button');
-            if(b) b.setAttribute('aria-expanded','false');
-          });
-          if(!open){
-            item.classList.add('open');
-            if(btn) btn.setAttribute('aria-expanded','true');
-          }
+      /* FEATURE GRID */
+      .mrv-pscorso .features {
+        padding: 56px 0;
+      }
+      .mrv-pscorso .feature-grid {
+        display: grid;
+        gap: 18px;
+      }
+      @media (min-width: 900px) {
+        .mrv-pscorso .feature-grid {
+          grid-template-columns: repeat(3, 1fr);
         }
-        if(btn) btn.addEventListener('click',e=>{e.stopPropagation();toggle();});
-        header.addEventListener('click',e=>{
-          if(!e.target.closest('button')) toggle();
-        });
-      });
-    })();
-  </script>
-</div>
-</body>
+      }
+      .mrv-pscorso .feature {
+        padding: 24px;
+        border-radius: var(--radius);
+        background: #fff;
+        border: 1px solid #eef3f8;
+        text-align: center;
+        box-shadow: var(--shadow);
+      }
+      .mrv-pscorso .feature p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      /* CURRICULUM */
+      .mrv-pscorso .curriculum {
+        padding: 56px 0;
+        background: linear-gradient(180deg, #eef6fb, #f7fbff);
+      }
+      .mrv-pscorso .course-curriculum-section-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .mrv-pscorso .course-curriculum-section-item {
+        margin-bottom: 18px;
+        border: 1px solid #e5eef5;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        background: #fff;
+      }
+      .mrv-pscorso .course-curriculum-section-item-number {
+        display: inline-block;
+        font-weight: 700;
+        color: #fff;
+        background: #1697c7;
+        border-radius: 50%;
+        width: 26px;
+        height: 26px;
+        text-align: center;
+        line-height: 26px;
+        margin: 12px;
+      }
+      .mrv-pscorso .course-curriculum-section-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        background: #f7fbff;
+        cursor: pointer;
+      }
+      .mrv-pscorso .course-curriculum-section-item-title {
+        font-weight: 600;
+        color: #1697c7;
+      }
+      .mrv-pscorso .course-curriculum-section-item-header-toggle button {
+        background: none;
+        border: 0;
+        font-size: 18px;
+        color: #1697c7;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+      .mrv-pscorso
+        .course-curriculum-section-item.open
+        .course-curriculum-section-item-header-toggle
+        button {
+        transform: rotate(180deg);
+      }
+      .mrv-pscorso .course-curriculum-section-item-content {
+        display: none;
+        padding: 0;
+        margin: 0;
+      }
+      .mrv-pscorso .course-curriculum-section-item-content li {
+        border-top: 1px solid #f0f4f8;
+        padding: 10px 16px;
+      }
+      .mrv-pscorso .course-curriculum-section-item-content li a {
+        display: block;
+        color: #0b1220;
+        font-weight: 500;
+        text-decoration: none;
+      }
+      .mrv-pscorso .lesson-title {
+        font-weight: 500;
+        color: var(--text);
+      }
+      .mrv-pscorso .lesson-free-preview-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 4px;
+        background: #28a745;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 2px 10px;
+        border-radius: 999px;
+      }
+      .mrv-pscorso .lesson-free-preview-badge::before {
+        content: "▶";
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 50%;
+        color: #fff;
+      }
+      .mrv-pscorso
+        .course-curriculum-section-item.open
+        .course-curriculum-section-item-content {
+        display: block;
+      }
+
+      /* CTA MID */
+      .mrv-pscorso .cta-mid {
+        padding: 60px 0;
+        background: #f7fbff;
+        text-align: center;
+      }
+      .mrv-pscorso .cta-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+      .mrv-pscorso .trust-row {
+        display: flex;
+        gap: 18px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .mrv-pscorso .trust-row li {
+        list-style: none;
+        position: relative;
+        padding-left: 18px;
+      }
+      .mrv-pscorso .trust-row li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.45em;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--brand-2);
+      }
+
+      /* REVIEWS */
+      .mrv-pscorso .reviews {
+        padding: 60px 0;
+        background: #fff;
+      }
+      .mrv-pscorso .review-grid {
+        display: grid;
+        gap: 18px;
+      }
+      @media (min-width: 900px) {
+        .mrv-pscorso .review-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .mrv-pscorso .review {
+        padding: 20px;
+        border-radius: 16px;
+        background: #f9fcff;
+        border: 1px solid #eef3f8;
+        box-shadow: var(--shadow);
+      }
+      .mrv-pscorso .review .stars {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 8px;
+        color: #f5a623;
+      }
+      .mrv-pscorso .review .stars svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+      }
+      .mrv-pscorso .review blockquote {
+        margin: 0;
+        color: var(--text);
+      }
+      .mrv-pscorso .review footer {
+        margin-top: 10px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      /* RECAP */
+      .mrv-pscorso .recap-offer {
+        padding: 40px 0;
+        text-align: center;
+      }
+      .mrv-pscorso .recap-figure {
+        max-width: 520px;
+        margin: 0 auto;
+      }
+      .mrv-pscorso .recap-figure img {
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+      }
+      .mrv-pscorso .recap-cta {
+        margin-top: 16px;
+      }
+      .mrv-pscorso .small {
+        font-size: 13px;
+      }
+      .mrv-pscorso .muted {
+        color: var(--muted);
+      }
+
+      /* FINAL CTA */
+      .mrv-pscorso .final-cta {
+        padding: 56px 0;
+        background: linear-gradient(180deg, #eef6fb, #f7fbff);
+        text-align: center;
+      }
+      .mrv-pscorso .why-list {
+        max-width: 680px;
+        margin: 12px auto 18px;
+        padding: 0;
+        list-style: none;
+        text-align: left;
+        color: var(--text);
+      }
+      .mrv-pscorso .why-list li {
+        padding-left: 22px;
+        position: relative;
+        margin: 8px 0;
+      }
+      .mrv-pscorso .why-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: var(--brand-2);
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mrv-pscorso">
+      <main>
+        <!-- HERO -->
+        <header class="hero">
+          <div class="container hero-inner">
+            <h1>Corso di Pronto Soccorso Canino</h1>
+            <p class="lead">
+              Ogni secondo può fare la differenza: impara a intervenire con
+              calma e sicurezza nelle emergenze del tuo cane.
+            </p>
+            <a
+              class="btn btn-primary btn-lg"
+              href="#"
+              aria-label="Acquista il corso di pronto soccorso canino"
+              >👉 Iscriviti ora</a
+            >
+          </div>
+        </header>
+
+        <!-- CAROUSEL -->
+        <div class="carousel">
+          <div class="carousel-track">
+            <img
+              src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-pronto-soccorso/slide-1-pronto-soccorso.png"
+              alt="Slide 1 - pronto soccorso canino"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-pronto-soccorso/slide-2-pronto-soccorso-v2.png"
+              alt="Slide 2 - pronto soccorso canino"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-pronto-soccorso/slide-3-pronto-soccorso.png"
+              alt="Slide 3 - pronto soccorso canino"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="carousel-btn-slide3">
+            <a href="#curriculum" class="btn btn-primary btn-lg">
+              👉 Guarda il programma completo
+            </a>
+          </div>
+          <div class="carousel-dots" aria-label="Navigazione carosello"></div>
+        </div>
+
+        <!-- INTRO -->
+        <div
+          class="container hero-inner"
+          style="
+            margin-top: 40px;
+            gap: 30px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+          "
+        >
+          <div style="flex: 1; min-width: 280px; max-width: 600px">
+            <h2>Perché essere preparati</h2>
+            <p class="lead">
+              Avvelenamenti, ferite, crisi respiratorie, convulsioni: quando
+              succede, il tuo cane conta su di te. Qui impari cosa fare, minuto
+              per minuto.
+            </p>
+
+            <div class="bullets">
+              <div class="bullet">
+                <!-- check icon -->
+                <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M13.485 1.929a.75.75 0 011.06 1.06l-8.25 8.25a.75.75 0 01-1.06 0l-4-4a.75.75 0 111.06-1.06L5.75 9.189z"
+                  />
+                </svg>
+                <div>
+                  <strong>Interventi corretti</strong> nei primi minuti critici.
+                </div>
+              </div>
+              <div class="bullet">
+                <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M13.485 1.929a.75.75 0 011.06 1.06l-8.25 8.25a.75.75 0 01-1.06 0l-4-4a.75.75 0 111.06-1.06L5.75 9.189z"
+                  />
+                </svg>
+                <div>
+                  <strong>Quando chiamare il veterinario</strong> e come
+                  comunicare le informazioni utili.
+                </div>
+              </div>
+              <div class="bullet">
+                <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M13.485 1.929a.75.75 0 011.06 1.06l-8.25 8.25a.75.75 0 01-1.06 0l-4-4a.75.75 0 111.06-1.06L5.75 9.189z"
+                  />
+                </svg>
+                <div>
+                  <strong>Kit di pronto soccorso</strong> e checklist pronte
+                  all’uso.
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+                margin-top: 10px;
+                justify-content: center;
+              "
+            >
+              <a class="btn btn-primary btn-lg" href="#">👉 Inizia ora</a>
+              <a class="btn btn-outline" href="#curriculum"
+                >Guarda il programma</a
+              >
+            </div>
+          </div>
+
+          <!-- MOCKUP -->
+          <div style="flex: 1; min-width: 260px; max-width: 500px">
+            <img
+              src="img/mockup.png"
+              alt="Mockup del corso Pronto Soccorso Canino"
+              style="border-radius: 16px; box-shadow: var(--shadow)"
+              loading="lazy"
+              decoding="async"
+            />
+            <p class="muted" style="margin-top: 10px; text-align: center">
+              Accesso immediato, su qualsiasi dispositivo.
+            </p>
+          </div>
+        </div>
+
+        <!-- FEATURES -->
+        <section class="features container">
+          <h2>Cosa imparerai subito</h2>
+          <div class="feature-grid" style="margin-top: 18px">
+            <div class="feature">
+              <h3>Emergenze comuni</h3>
+              <p>
+                Avvelenamenti, ferite, colpo di calore, ipotermia, crisi
+                respiratorie e neurologiche.
+              </p>
+            </div>
+            <div class="feature">
+              <h3>Azioni pratiche</h3>
+              <p>
+                Quando intervenire, come agire in sicurezza, come trasportare il
+                cane, cosa dire al veterinario.
+              </p>
+            </div>
+            <div class="feature">
+              <h3>Strumenti utili</h3>
+              <p>
+                Kit di pronto soccorso, documenti e checklist sempre pronte, PDF
+                e slide.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CURRICULUM -->
+        <section id="curriculum" class="curriculum">
+          <div class="container">
+            <h2>Programma del corso</h2>
+            <ul class="course-curriculum-section-list">
+              <!-- MODULO 1 -->
+              <li class="course-curriculum-section-item open" id="mod-1">
+                <div class="course-curriculum-section-item-content-wrapper">
+                  <span class="course-curriculum-section-item-number">1</span>
+                  <div class="course-curriculum-section-item-header">
+                    <div class="course-curriculum-section-item-title">
+                      Modulo 1 – Benvenuti
+                    </div>
+                    <span class="course-curriculum-section-item-header-toggle">
+                      <button
+                        tabindex="0"
+                        aria-expanded="true"
+                        aria-controls="mod-1-content"
+                      >
+                        ▼
+                      </button>
+                    </span>
+                  </div>
+                  <ul
+                    class="course-curriculum-section-item-content"
+                    id="mod-1-content"
+                  >
+                    <li>
+                      <a href="#" target="_blank" rel="noopener">
+                        <div class="lesson-title">Introduzione</div>
+                        <div class="lesson-free-preview-badge">
+                          Anteprima gratuita
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" target="_blank" rel="noopener">
+                        <div class="lesson-title">Slide Intro</div>
+                        <div class="lesson-free-preview-badge">
+                          Anteprima gratuita
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- MODULO 2 -->
+              <li class="course-curriculum-section-item" id="mod-2">
+                <div class="course-curriculum-section-item-content-wrapper">
+                  <span class="course-curriculum-section-item-number">2</span>
+                  <div class="course-curriculum-section-item-header">
+                    <div class="course-curriculum-section-item-title">
+                      Modulo 2 – Cos’è il pronto soccorso
+                    </div>
+                    <span class="course-curriculum-section-item-header-toggle">
+                      <button
+                        tabindex="0"
+                        aria-expanded="false"
+                        aria-controls="mod-2-content"
+                      >
+                        ▼
+                      </button>
+                    </span>
+                  </div>
+                  <ul
+                    class="course-curriculum-section-item-content"
+                    id="mod-2-content"
+                  >
+                    <li>
+                      <span class="lesson-title"
+                        >Lezione 1 – Cos’è il pronto soccorso</span
+                      >
+                    </li>
+                    <li>
+                      <span class="lesson-title"
+                        >Lezione 2 – Quando intervenire</span
+                      >
+                    </li>
+                    <li>
+                      <span class="lesson-title"
+                        >Lezione 3 – Agire in sicurezza</span
+                      >
+                    </li>
+                    <li>
+                      <span class="lesson-title"
+                        >Lezione 4 – Kit di pronto soccorso</span
+                      >
+                    </li>
+                    <li>
+                      <a href="#" target="_blank" rel="noopener">
+                        <div class="lesson-title">Slide modulo 2</div>
+                        <div class="lesson-free-preview-badge">
+                          Anteprima gratuita
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <span class="lesson-title">Video illustrativo</span>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- MODULO 3 -->
+              <li class="course-curriculum-section-item" id="mod-3">
+                <div class="course-curriculum-section-item-content-wrapper">
+                  <span class="course-curriculum-section-item-number">3</span>
+                  <div class="course-curriculum-section-item-header">
+                    <div class="course-curriculum-section-item-title">
+                      Modulo 3 – Emergenze principali
+                    </div>
+                    <span class="course-curriculum-section-item-header-toggle">
+                      <button
+                        tabindex="0"
+                        aria-expanded="false"
+                        aria-controls="mod-3-content"
+                      >
+                        ▼
+                      </button>
+                    </span>
+                  </div>
+                  <ul
+                    class="course-curriculum-section-item-content"
+                    id="mod-3-content"
+                  >
+                    <li>
+                      <span class="lesson-title"
+                        >Lezione 1 – Ferite e sanguinamenti</span
+                      >
+                    </li>
+                    <li>
+                      <a href="#" target="_blank" rel="noopener">
+                        <div class="lesson-title">
+                          Lezione 2 – Avvelenamento
+                        </div>
+                        <div class="lesson-free-preview-badge">
+                          Anteprima gratuita
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <span class="lesson-title"
+                        >Lezione 3 – Piante pericolose</span
+                      >
+                    </li>
+                    <li>
+                      <span class="lesson-title"
+                        >Lezione 4 – Colpo di calore</span
+                      >
+                    </li>
+                    <li>
+                      <span class="lesson-title">Lezione 5 – Ipotermia</span>
+                    </li>
+                    <li>
+                      <a href="#" target="_blank" rel="noopener">
+                        <div class="lesson-title">
+                          Lezione 6 – Morso di insetto, vipera, shock
+                          anafilattico
+                        </div>
+                        <div class="lesson-free-preview-badge">
+                          Anteprima gratuita
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <span class="lesson-title"
+                        >Lezione 7 – Vomito e diarrea</span
+                      >
+                    </li>
+                    <li>
+                      <span class="lesson-title"
+                        >Lezione 8 – Torsione gastrica</span
+                      >
+                    </li>
+                    <li>
+                      <span class="lesson-title"
+                        >Lezione 9 – Convulsioni e crisi neurologiche</span
+                      >
+                    </li>
+                    <li>
+                      <span class="lesson-title"
+                        >Lezione 10 – Crisi respiratorie</span
+                      >
+                    </li>
+                    <li>
+                      <span class="lesson-title"
+                        >Lezione 11 – Emorragie interne</span
+                      >
+                    </li>
+                    <li>
+                      <a href="#" target="_blank" rel="noopener">
+                        <div class="lesson-title">Slide modulo 3</div>
+                        <div class="lesson-free-preview-badge">
+                          Anteprima gratuita
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <span class="lesson-title">Video illustrativo 1</span>
+                    </li>
+                    <li>
+                      <span class="lesson-title">Video illustrativo 2</span>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- MODULO 4 -->
+              <li class="course-curriculum-section-item" id="mod-4">
+                <div class="course-curriculum-section-item-content-wrapper">
+                  <span class="course-curriculum-section-item-number">4</span>
+                  <div class="course-curriculum-section-item-header">
+                    <div class="course-curriculum-section-item-title">
+                      Modulo 4 – Trasporto e comunicazione
+                    </div>
+                    <span class="course-curriculum-section-item-header-toggle">
+                      <button
+                        tabindex="0"
+                        aria-expanded="false"
+                        aria-controls="mod-4-content"
+                      >
+                        ▼
+                      </button>
+                    </span>
+                  </div>
+                  <ul
+                    class="course-curriculum-section-item-content"
+                    id="mod-4-content"
+                  >
+                    <li>
+                      <span class="lesson-title"
+                        >Lezione 1 – Trasporto in sicurezza</span
+                      >
+                    </li>
+                    <li>
+                      <span class="lesson-title"
+                        >Lezione 2 – Comunicare con il veterinario</span
+                      >
+                    </li>
+                    <li>
+                      <span class="lesson-title"
+                        >Lezione 3 – Documenti, cartella clinica,
+                        informazioni</span
+                      >
+                    </li>
+                    <li>
+                      <span class="lesson-title">Lezione 4 – Punti chiave</span>
+                    </li>
+                    <li>
+                      <a href="#" target="_blank" rel="noopener">
+                        <div class="lesson-title">Slide modulo 4</div>
+                        <div class="lesson-free-preview-badge">
+                          Anteprima gratuita
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- MODULO 5 -->
+              <li class="course-curriculum-section-item" id="mod-5">
+                <div class="course-curriculum-section-item-content-wrapper">
+                  <span class="course-curriculum-section-item-number">5</span>
+                  <div class="course-curriculum-section-item-header">
+                    <div class="course-curriculum-section-item-title">
+                      Modulo 5 – Conclusione
+                    </div>
+                    <span
+                      class="course-curriculum-section-item-header-toggle"
+                    ></span>
+                  </div>
+                  <ul
+                    class="course-curriculum-section-item-content"
+                    id="mod-5-content"
+                  >
+                    <li><span class="lesson-title">Domande frequenti</span></li>
+                    <li><span class="lesson-title">Grazie!</span></li>
+                    <li><span class="lesson-title">Slide modulo 5</span></li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- EXTRA -->
+              <li class="course-curriculum-section-item" id="mod-extra">
+                <div class="course-curriculum-section-item-content-wrapper">
+                  <span class="course-curriculum-section-item-number">★</span>
+                  <div class="course-curriculum-section-item-header">
+                    <div class="course-curriculum-section-item-title">
+                      Materiale Extra
+                    </div>
+                    <span
+                      class="course-curriculum-section-item-header-toggle"
+                    ></span>
+                  </div>
+                  <ul
+                    class="course-curriculum-section-item-content"
+                    id="mod-extra-content"
+                    style="display: block"
+                  >
+                    <li>
+                      <span class="lesson-title"
+                        >PDF – Kit di pronto soccorso</span
+                      >
+                    </li>
+                    <li>
+                      <span class="lesson-title"
+                        >PDF – Sostanze tossiche per il cane</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- CTA MID -->
+        <section class="cta-mid">
+          <div class="container">
+            <h2>Pronto ad agire con sicurezza?</h2>
+            <p class="lead">
+              Procedure chiare, esempi pratici, materiali pronti: diventa il
+              punto fermo del tuo cane nelle emergenze.
+            </p>
+            <div class="cta-actions">
+              <a class="btn btn-primary btn-lg" href="#">Registrati ora</a>
+              <a class="btn btn-outline" href="#curriculum"
+                >Rivedi il programma</a
+              >
+            </div>
+            <ul class="trust-row" aria-label="Punti di fiducia">
+              <li>Accesso immediato</li>
+              <li>Materiali scaricabili</li>
+              <li>Aggiornamenti inclusi</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- REVIEWS -->
+        <section class="reviews">
+          <div class="container">
+            <h2>La parola a chi ha già iniziato</h2>
+            <div class="review-grid">
+              <article class="review" aria-label="Recensione 1">
+                <div class="stars" aria-label="Valutazione: 5 su 5">
+                  <svg viewBox="0 0 20 20">
+                    <path
+                      d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
+                    />
+                  </svg>
+                  <svg viewBox="0 0 20 20">
+                    <path
+                      d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
+                    />
+                  </svg>
+                  <svg viewBox="0 0 20 20">
+                    <path
+                      d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
+                    />
+                  </svg>
+                  <svg viewBox="0 0 20 20">
+                    <path
+                      d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
+                    />
+                  </svg>
+                  <svg viewBox="0 0 20 20">
+                    <path
+                      d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
+                    />
+                  </svg>
+                </div>
+                <blockquote>
+                  “Durante un’emergenza ho saputo cosa fare senza panico: corso
+                  utilissimo.”
+                </blockquote>
+                <footer>— Elisa M.</footer>
+              </article>
+
+              <article class="review">
+                <div class="stars" aria-label="5 su 5">
+                  <svg viewBox="0 0 20 20">
+                    <path
+                      d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
+                    /></svg
+                  ><svg viewBox="0 0 20 20">
+                    <path
+                      d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
+                    /></svg
+                  ><svg viewBox="0 0 20 20">
+                    <path
+                      d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
+                    /></svg
+                  ><svg viewBox="0 0 20 20">
+                    <path
+                      d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
+                    /></svg
+                  ><svg viewBox="0 0 20 20">
+                    <path
+                      d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
+                    />
+                  </svg>
+                </div>
+                <blockquote>
+                  “Mi sento davvero più sicuro nelle uscite e in casa:
+                  spiegazioni chiare.”
+                </blockquote>
+                <footer>— Marco R.</footer>
+              </article>
+
+              <article class="review">
+                <div class="stars" aria-label="5 su 5">
+                  <svg viewBox="0 0 20 20">
+                    <path
+                      d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
+                    /></svg
+                  ><svg viewBox="0 0 20 20">
+                    <path
+                      d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
+                    /></svg
+                  ><svg viewBox="0 0 20 20">
+                    <path
+                      d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
+                    /></svg
+                  ><svg viewBox="0 0 20 20">
+                    <path
+                      d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
+                    /></svg
+                  ><svg viewBox="0 0 20 20">
+                    <path
+                      d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
+                    />
+                  </svg>
+                </div>
+                <blockquote>
+                  “Angelica spiega in modo semplice anche i casi complessi.
+                  Consigliatissimo.”
+                </blockquote>
+                <footer>— Sara L.</footer>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- RECAP OFFERTA -->
+        <section class="recap-offer">
+          <div class="container">
+            <figure class="recap-figure">
+              <img
+                src="img/recap.png"
+                alt="Recap offerta corso pronto soccorso"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <div class="recap-cta">
+              <a class="btn btn-primary btn-lg" href="#">👉 Inizia ora</a>
+              <p class="small muted" style="margin-top: 10px">
+                Offerta valida fino al 01/01/2026.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="final-cta">
+          <div class="container">
+            <h2>Perché funziona</h2>
+            <ul class="why-list">
+              <li>
+                Metodo veterinario: teoria essenziale → pratica applicabile.
+              </li>
+              <li>PDF, slide e checklist sempre a portata di mano.</li>
+              <li>Accesso immediato su qualsiasi dispositivo.</li>
+            </ul>
+            <a class="btn btn-primary btn-lg" href="#"
+              >Voglio essere pronto nelle emergenze</a
+            >
+          </div>
+        </section>
+      </main>
+
+      <!-- SCRIPTS (scoped) -->
+      <script>
+        // CAROUSEL
+        (function () {
+          const root = document.querySelector(".mrv-pscorso");
+          const track = root.querySelector(".carousel-track");
+          const slides = Array.from(track.children);
+          const dotsContainer = root.querySelector(".carousel-dots");
+          let index = 0,
+            autoplay;
+
+          slides.forEach((_, i) => {
+            const dot = document.createElement("button");
+            dot.setAttribute("aria-label", "Vai alla slide " + (i + 1));
+            if (i === 0) dot.classList.add("active");
+            dot.addEventListener("click", () => {
+              index = i;
+              update();
+              reset();
+            });
+            dotsContainer.appendChild(dot);
+          });
+          const dots = Array.from(dotsContainer.children);
+
+          function update() {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((d) => d.classList.remove("active"));
+            dots[index].classList.add("active");
+
+            const btnSlide3 = document.querySelector(".carousel-btn-slide3");
+            const carousel = document.querySelector(".carousel");
+
+            if (index === 2) {
+              btnSlide3.style.display = "block";
+              carousel.style.paddingBottom = "60px"; // aggiunge spazio solo alla slide 3
+            } else {
+              btnSlide3.style.display = "none";
+              carousel.style.paddingBottom = "0"; // resetta per le altre
+            }
+          }
+
+          function start() {
+            autoplay = setInterval(() => {
+              index = (index + 1) % slides.length;
+              update();
+            }, 5400);
+          }
+          function reset() {
+            clearInterval(autoplay);
+            start();
+          }
+          start();
+
+          // swipe mobile
+          let startX = 0;
+          track.addEventListener(
+            "touchstart",
+            (e) => (startX = e.touches[0].clientX),
+            { passive: true }
+          );
+          track.addEventListener(
+            "touchend",
+            (e) => {
+              const diff = e.changedTouches[0].clientX - startX;
+              if (diff > 50) {
+                index = (index - 1 + slides.length) % slides.length;
+                update();
+                reset();
+              }
+              if (diff < -50) {
+                index = (index + 1) % slides.length;
+                update();
+                reset();
+              }
+            },
+            { passive: true }
+          );
+        })();
+
+        // CURRICULUM accordion accessibile
+        (function () {
+          const root = document.querySelector(".mrv-pscorso");
+          root
+            .querySelectorAll(".course-curriculum-section-item")
+            .forEach((item) => {
+              const header = item.querySelector(
+                ".course-curriculum-section-item-header"
+              );
+              const btn = item.querySelector(
+                ".course-curriculum-section-item-header-toggle button"
+              );
+              function toggle() {
+                const open = item.classList.contains("open");
+                root
+                  .querySelectorAll(".course-curriculum-section-item")
+                  .forEach((i) => {
+                    i.classList.remove("open");
+                    const b = i.querySelector(
+                      ".course-curriculum-section-item-header-toggle button"
+                    );
+                    if (b) b.setAttribute("aria-expanded", "false");
+                  });
+                if (!open) {
+                  item.classList.add("open");
+                  if (btn) btn.setAttribute("aria-expanded", "true");
+                }
+              }
+              if (btn)
+                btn.addEventListener("click", (e) => {
+                  e.stopPropagation();
+                  toggle();
+                });
+              header.addEventListener("click", (e) => {
+                if (!e.target.closest("button")) toggle();
+              });
+            });
+        })();
+      </script>
+    </div>
+  </body>
 </html>

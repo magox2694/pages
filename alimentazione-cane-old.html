@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Corso di Alimentazione Naturale del Cane – MyRealVet</title>
+
+  
+  <!-- FONT OPTIMIZED IMPORT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500&family=Quicksand:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  </noscript>
+
+  <style>
+    :root{
+      --brand:#1697c7;
+      --brand-2:#28a745;
+      --dark:#0c1117;
+      --text:#0b1220;
+      --muted:#5b677a;
+      --bg:#f6f9fc;
+      --card:#ffffff;
+      --shadow:0 10px 30px rgba(2,12,27,.08);
+      --radius:16px;
+      --focus: 0 0 0 3px rgba(22,151,199,.25);
+    }
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:'Lato',system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,Arial,sans-serif;
+      font-weight:400;
+      line-height:1.6;
+      color:var(--text);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    img{max-width:100%;display:block;height:auto}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,92%);margin:0 auto}
+
+    /* Bottoni */
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:18px 32px; /* aumentato per desktop */
+      border-radius:999px;border:0;cursor:pointer;
+      font-family:'Quicksand',sans-serif;font-weight:700;text-decoration:none;
+      box-shadow:var(--shadow);transition:all .2s ease;
+      font-size:20px; /* aumentato per desktop */
+    }
+    .btn-primary{background:var(--brand);color:#fff}
+    .btn-primary:hover{background:#127aa0}
+    .btn-outline{background:#fff;color:var(--brand);border:2px solid var(--brand)}
+    .btn-outline:hover{background:var(--brand);color:#fff}
+
+    .btn:focus-visible,
+    .carousel-dots button:focus-visible{outline:none;box-shadow:var(--focus)}
+
+    /* Titoli & testi */
+    h1,h2,h3,h4,h5,h6{
+      font-family:'Quicksand',sans-serif;
+      font-weight:700;line-height:1.2;margin:12px 0;
+    }
+    h1{font-size:clamp(28px,6vw,48px);text-align:center}
+    h2{font-size:clamp(22px,4vw,32px);text-align:center;margin-bottom:16px}
+    h3{font-size:20px}
+    p.lead{
+      font-size:clamp(16px,4vw,20px);
+      color:var(--muted);
+      margin:12px 0 24px;
+      text-align:center;
+    }
+    h1 { color: var(--brand); }
+    h2 { color: var(--brand); }
+    /* HERO */
+    .hero{
+      background:linear-gradient(180deg,#f7fbff,#eef6fb);
+      padding:40px 20px;
+    }
+    .hero-inner{
+      display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;
+    }
+
+        /* CAROUSEL – immagine non tagliata, pallini sotto */
+    .carousel {
+  position: relative;                /* serve per posizionare elementi figli (es. dots) */
+  width: 100%;                       /* il carosello occupa tutta la larghezza disponibile */
+  max-width: 780px;                  /* larghezza massima su desktop */
+  margin: 32px auto 0 auto;          /* centrato orizzontalmente, margine sopra */
+  overflow: hidden;                  /* nasconde ciò che esce dal box */
+  background: transparent;           /* nessun colore di sfondo */
+  border: none;                      /* nessun bordo */
+  border-radius: 0;                  /* nessun arrotondamento */
+  /*box-shadow: 0 8px 24px rgba(0,0,0,0.12);                 /* ombra sul box */
+  box-shadow: none;                  /* nessuna ombra sul box */
+  padding: 0;                        /* nessun padding interno */
+  display: flex;                     /* layout flessibile verticale */
+  flex-direction: column;            /* impila track e dots verticalmente */
+  align-items: center;               /* centra i figli orizzontalmente */
+}
+
+.carousel-track {
+  display: flex;                     /* le immagini sono affiancate in orizzontale */
+  width: 100%;                       /* track largo quanto il carosello */
+  transition: transform .6s ease;    /* animazione fluida per lo slide */
+}
+
+.carousel-track img {
+  width: 100%;                       /* ogni immagine occupa tutto lo spazio del track */
+  flex: 0 0 100%;                    /* ogni slide occupa il 100% della larghezza del track */
+  height: auto;                      /* altezza automatica in base all’immagine */
+  object-fit: contain;               /* l’immagine viene adattata senza essere tagliata */
+  display: block;                    /* elimina spazi sotto l’immagine */
+  margin: 0 auto;                    /* centra l’immagine nel track */
+  background: transparent;           /* nessun colore di sfondo sull’immagine */
+  border-radius: none;               /* arrotonda i bordi dell’immagine */
+  box-shadow: 0 8px 16px rgba(64, 110, 106, 0.18); /* ombra solo sull’immagine */
+}
+
+/* pallini sotto l’immagine, NON sovrapposti */
+.carousel-dots {
+  position: static;                  /* i dots sono sotto il track, non sovrapposti */
+  margin-top: 18px;                  /* spazio sopra i dots */
+  display: flex;                     /* layout orizzontale per i dots */
+  justify-content: center;           /* centra i dots orizzontalmente */
+  gap: 10px;                         /* spazio tra i dots */
+  padding: 8px;                        /* nessun padding */
+  background: transparent;           /* nessun colore di sfondo */
+  border: none;                      /* nessun bordo */
+  box-shadow: none;                  /* nessuna ombra */
+}
+
+.carousel-dots button {
+  width: 10px; height: 10px;         /* dimensione dei pallini */
+  border-radius: 999px;              /* pallini completamente rotondi */
+  border: 2px solid rgba(0,0,0,.25); /* bordo leggero */
+  background: rgba(255,255,255,.65); /* pallino semitrasparente */
+  box-shadow: 0 2px 6px rgba(0,0,0,.15); /* piccola ombra */
+  transition: transform .2s, background .2s, border-color .2s; /* animazione al cambio stato */
+}
+
+.carousel-dots button.active {
+  background: linear-gradient(135deg, var(--brand-2), var(--brand)); /* colore attivo */
+  border-color: transparent;           /* nessun bordo attivo */
+  transform: scale(1.25);              /* pallino attivo più grande */
+}
+
+@media (max-width: 600px){
+  .carousel { max-width: 100%; }       /* su mobile il carosello è largo quanto il contenitore */
+  .carousel-track img { border-radius: none; } /* arrotondamento minore su mobile */
+    }
+
+
+
+    /* Bullets */
+    .bullets{display:grid;gap:14px;margin:28px 0;max-width:720px;margin-left:auto;margin-right:auto}
+    .bullet{display:flex;align-items:flex-start;gap:12px;font-size:17px}
+    .bullet svg{flex-shrink:0;width:22px;height:22px;color:var(--brand-2)}
+
+    /* Mockup */
+    .mockup-img{
+      max-width:520px;width:100%;height:auto;display:block;margin:0 auto;
+      border-radius:20px;box-shadow:0 8px 20px rgba(0,0,0,.15);
+    }
+
+    /* Features */
+    .features{padding:56px 0}
+    .feature-grid{display:grid;gap:18px}
+    @media(min-width:900px){.feature-grid{grid-template-columns:repeat(3,1fr)}}
+    .feature{padding:20px;border-radius:var(--radius);background:#fff;border:1px solid #eef3f8;text-align:center}
+    .feature h3{margin:8px 0 6px;font-size:18px}
+    .feature p{margin:0;color:var(--muted)}
+
+    /* Curriculum */
+    .curriculum{padding:56px 0;background:linear-gradient(180deg,#eef6fb,#f7fbff)}
+    .curriculum h2{color:var(--brand)}
+    .curriculum p{color:var(--muted)}
+    .course-curriculum-section-list{list-style:none;padding:0;margin:0}
+    .course-curriculum-section-item{margin-bottom:18px;border:1px solid #e5eef5;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.05);overflow:hidden;background:#fff}
+    .course-curriculum-section-item-number{display:inline-block;font-weight:700;color:#fff;background:#1697c7;border-radius:50%;width:26px;height:26px;text-align:center;line-height:26px;margin:12px}
+    .course-curriculum-section-item-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#f7fbff;cursor:pointer}
+    .course-curriculum-section-item-title{font-weight:600;color:#1697c7}
+    .course-curriculum-section-item-header-toggle button{background:none;border:0;font-size:18px;color:#1697c7;cursor:pointer}
+    .course-curriculum-section-item-content{display:none;padding:0;margin:0}
+    .course-curriculum-section-item-content li{border-top:1px solid #f0f4f8;padding:10px 16px}
+    .course-curriculum-section-item-content li a{display:block;color:#0b1220;font-weight:500;text-decoration:none}
+    .lesson-title{font-weight:500;color:var(--text)}
+    .lesson-free-preview-badge{display:inline-block;margin-top:4px;background:#28a745;color:#fff;font-size:12px;padding:2px 8px;border-radius:6px}
+    .course-curriculum-section-item.open .course-curriculum-section-item-content{display:block}
+    .course-curriculum-section-item-header-toggle button {
+    font-size: 18px;
+    color: #1697c7;  /* colore della freccia */
+    transition: transform .3s ease; /* animazione fluida */
+    }
+    /* quando il modulo è aperto */
+    .course-curriculum-section-item.open 
+    .course-curriculum-section-item-header-toggle button {
+    transform: rotate(180deg); /* ruota la freccia ▼ → ▲ */
+    }
+    /* Animazioni a comparsa (reveal-on-scroll) */
+    .reveal{opacity:0;transform:translateY(40px);transition:all .8s ease-out}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    /* Badge moderno “Anteprima gratuita” */
+    .lesson-free-preview-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+    background: #28a745;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 999px; 
+    }
+
+    .lesson-free-preview-badge::before {
+    content: "▶";
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 50%;
+    color: #fff;
+    }
+    /* CTA intermedia */
+    .cta-mid{padding:60px 0;background:#f7fbff;text-align:center}
+    .cta-mid h2{color:var(--brand);margin-bottom:10px}
+    .cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+    .trust-row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:14px;color:var(--muted);font-size:14px}
+    .trust-row li{list-style:none;position:relative;padding-left:18px}
+    .trust-row li::before{content:"";position:absolute;left:0;top:.45em;width:8px;height:8px;border-radius:50%;background:var(--brand-2)}
+
+    /* Recensioni */
+    .reviews{padding:60px 0;background:#fff}
+    .reviews h2{text-align:center;color:var(--brand);margin-bottom:22px}
+    .review-grid{display:grid;gap:18px}
+    @media(min-width:900px){.review-grid{grid-template-columns:repeat(3,1fr)}}
+    .review{padding:20px;border-radius:16px;background:#f9fcff;border:1px solid #eef3f8;box-shadow:var(--shadow)}
+    .review .stars{display:flex;gap:4px;margin-bottom:8px;color:#f5a623}
+    .review .stars svg{width:18px;height:18px;fill:currentColor}
+    .review blockquote{margin:0;color:var(--text);line-height:1.6}
+    .review footer{margin-top:10px;color:var(--muted);font-weight:600}
+
+    /* Recap + CTA */
+    .recap-offer{padding:40px 0;text-align:center}
+    .recap-figure{max-width:520px;margin:0 auto}
+    .recap-figure img{width:100%;height:auto;border-radius:16px;box-shadow:var(--shadow)}
+    .recap-cta{margin-top:16px}
+    .btn-lg{font-size:20px;padding:16px 28px}
+
+    /* Mini chiusura */
+   .final-cta{padding:56px 0;background:linear-gradient(180deg,#eef6fb,#f7fbff);text-align:center}
+   .final-cta h2{color:var(--brand)}
+   .why-list{max-width:680px;margin:12px auto 18px;padding:0;list-style:none;text-align:left;color:var(--text)}
+   .why-list li{padding-left:22px;position:relative;margin:8px 0}
+   .why-list li::before{content:"✓";position:absolute;left:0;top:0;color:var(--brand-2);font-weight:700}
+   .small{font-size:13px}
+   .muted{color:var(--muted)}
+
+  </style>
+</head>
+
+
+
+
+
+<body>
+  <main>
+    <!-- HERO -->
+    <header class="hero reveal">
+      <div class="container hero-inner">
+        <h1>Corso per Alimentazione del cane</h1>
+        <p class="lead">Finalmente una guida veterinaria chiara e pratica: impara a nutrire il tuo cane senza più dubbi o errori.</p>
+        <div style="margin-top:10px;">
+          <a class="btn btn-primary btn-lg"
+            href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&ref=recap"
+            aria-label="Acquista il corso di alimentazione del cane">
+            👉 Inizia ora
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- CAROUSEL -->
+    <div class="carousel reveal">
+      <div class="carousel-track">
+        <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@v2.1/img/payhip/pg-alimentazione-cane/etichette-chiare-cane-sereno.png" alt="Slide 1" loading="eager" fetchpriority="high">
+        <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-alimentazione-cane/dieta-casalinga-sicura.png" alt="Slide 2" loading="lazy">
+      </div>
+      <div class="carousel-dots"></div>
+    </div>
+
+    <!-- TESTO HERO SECONDA PARTE -->
+    <div class="container hero-inner reveal" style="margin-top:40px;gap:30px;flex-direction:row;flex-wrap:wrap;justify-content:center">
+      <div style="flex:1;min-width:280px;max-width:600px">
+        <h2>Il benessere del tuo cane comincia da qui</h2>
+        <p class="lead">Hai mai avuto il dubbio di non sapere cosa stai davvero dando da mangiare al tuo cane?</p>
+        <p class="lead">Etichette poco chiare, consigli online contrastanti, pubblicità ingannevoli... È normale sentirsi confusi. Ma l'alimentazione è troppo importante per affidarsi al caso.</p>
+        <p class="lead">Con questo corso impari a fare scelte consapevoli, senza stress.</p>
+        <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-alimentazione-cane/no-stress.png"
+          alt="Angelica mostra come leggere l’etichetta di un cibo per cani"
+          loading="lazy" style="margin-top:24px;max-width:100%;border-radius:16px;">
+
+        <h2>“Alimentazione del cane”</h2>
+        <p class="lead">Un corso semplice, diretto, fatto apposta per chi ama il proprio cane e vuole nutrirlo al meglio, senza diventare un nutrizionista.</p>
+
+        <div class="bullets">
+          <div class="bullet"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M13.485 1.929a.75.75 0 0 1 1.06 1.06l-8.25 8.25a.75.75 0 0 1-1.06 0l-4-4a.75.75 0 0 1 1.06-1.06L5.75 9.189z"/></svg> <div><strong>Leggere un’etichetta</strong> e capire cosa contiene veramente.</div></div>
+          <div class="bullet"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M13.485 1.929a.75.75 0 0 1 1.06 1.06l-8.25 8.25a.75.75 0 0 1-1.06 0l-4-4a.75.75 0 0 1 1.06-1.06L5.75 9.189z"/></svg> <div><strong>Riconoscere</strong> cosa fa bene e cosa può causare disturbi digestivi.</div></div>
+          <div class="bullet"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M13.485 1.929a.75.75 0 0 1 1.06 1.06l-8.25 8.25a.75.75 0 0 1-1.06 0l-4-4a.75.75 0 0 1 1.06-1.06L5.75 9.189z"/></svg> <div><strong>Capire le differenze</strong> tra alimentazione casalinga, crocchette e <strong>BARF</strong>.</div></div>
+          <div class="bullet"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M13.485 1.929a.75.75 0 0 1 1.06 1.06l-8.25 8.25a.75.75 0 0 1-1.06 0l-4-4a.75.75 0 0 1 1.06-1.06L5.75 9.189z"/></svg> <div><strong>Creare una dieta</strong> equilibrata per il tuo cane, anche da zero.</div></div>
+          <div class="bullet"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M13.485 1.929a.75.75 0 0 1 1.06 1.06l-8.25 8.25a.75.75 0 0 1-1.06 0l-4-4a.75.75 0 0 1 1.06-1.06L5.75 9.189z"/></svg> <div><strong>Evitare gli errori</strong> più comuni nell’alimentazione del cane.</div></div>
+          <div class="bullet"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M13.485 1.929a.75.75 0 0 1 1.06 1.06l-8.25 8.25a.75.75 0 0 1-1.06 0l-4-4a.75.75 0 0 1 1.06-1.06L5.75 9.189z"/></svg> <div><strong>Bonus esclusivo</strong>: accesso gratuito a <strong>DietApp Premium <span style="color:#28a745;">0€</span> invece di <s style="color:#c00;">29,99€</s></strong>.</div></div>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;justify-content:center">
+          <a class="btn btn-primary btn-lg"
+            href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&ref=recap"
+            aria-label="Acquista il corso di alimentazione del cane">
+            👉 Inizia ora
+          </a>
+          <a class="btn btn-outline" href="#curriculum">Guarda il programma</a>
+        </div>
+      
+
+      <!-- MOCKUP SOTTO CTA -->
+        <div style="margin-top:30px;max-width:500px;width:100%">
+          <img class="mockup-img" alt="Mockup del corso MyRealVet"
+          src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-alimentazione-cane/Mockup-corso-alimentazione.png"
+          loading="lazy">
+
+          <p class="muted" style="margin-top:10px;text-align:center">Accesso immediato, al tuo ritmo, su qualsiasi dispositivo.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+    <section class="features container reveal">
+      <h2>Cosa imparerai subito</h2>
+      <div class="feature-grid" style="margin-top:18px">
+        <div class="feature"><h3>1) Basi e falsi miti</h3><p>Macronutrienti, fabbisogni per età e stile di vita.</p></div>
+        <div class="feature"><h3>2) Ingredienti giusti</h3><p>Carni, pesci, carboidrati, fibre, oli, verdure.</p></div>
+        <div class="feature"><h3>3) Cotture e sicurezza</h3><p>Crudo vs cotto, conservazione, HACCP domestico.</p></div>
+        <div class="feature"><h3>4) Formule equilibrate</h3><p>Proporzioni % per ricette bilanciate.</p></div>
+        <div class="feature"><h3>5) Lettura etichette</h3><p>Compresi analitici, additivi e marketing.</p></div>
+        <div class="feature"><h3>6) Problemi comuni</h3><p>Feci molli, prurito, sovrappeso: cosa correggere.</p></div>
+      </div>
+    </section>
+
+    <!-- CURRICULUM INTRO -->
+    <section id="curriculum" class="curriculum reveal">
+      <div class="container">
+        <h2>Programma del corso</h2>
+        <p>Ecco tutti i moduli e le lezioni incluse nel corso.</p>
+        <p>Guarda le lezioni gratuite in omaggio</p>
+        <ul class="course-curriculum-section-list">
+          <!-- Modulo 1 -->
+          <li class="course-curriculum-section-item open" id="modulo-1">
+            <div class="course-curriculum-section-item-content-wrapper">
+              <span class="course-curriculum-section-item-number">1</span>
+              <div class="course-curriculum-section-item-header">
+                <div class="course-curriculum-section-item-title">Modulo 1 – Introduzione e Obiettivi del Corso</div>
+                <span class="course-curriculum-section-item-header-toggle">
+                  <button tabindex="0" aria-expanded="true" aria-controls="modulo-1-content">▼</button>
+                </span>
+              </div>
+              <ul class="course-curriculum-section-item-content" id="modulo-1-content">
+                <li>
+                  <a href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&free_preview_mode=1" target="_blank" rel="noopener">
+                    <div class="lesson-title">Benvenuti</div>
+                    <div class="lesson-free-preview-badge">Anteprima gratuita</div>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&free_preview_mode=1" target="_blank" rel="noopener">
+                    <div class="lesson-title">Cosa imparerai</div>
+                    <div class="lesson-free-preview-badge">Anteprima gratuita</div>
+                  </a>
+                </li>
+                <li><span class="lesson-title">Introduzione all’alimentazione canina</span></li>
+                <li><span class="lesson-title">Mens sana in corpore sano</span></li>
+                <li><span class="lesson-title">Differenze tra alimentazione umana e canina</span></li>
+                <li><span class="lesson-title">Bisogni nutrizionali del cane</span></li>
+                <li><span class="lesson-title">Scarica le slide del corso</span></li>
+                <li><span class="lesson-title">Quiz Finale – Modulo 1</span></li>
+              </ul>
+            </div>
+          </li>
+          <!-- Modulo 2 -->
+          <li class="course-curriculum-section-item collapsed" id="modulo-2">
+            <div class="course-curriculum-section-item-content-wrapper">
+              <span class="course-curriculum-section-item-number">2</span>
+              <div class="course-curriculum-section-item-header">
+                <div class="course-curriculum-section-item-title">Modulo 2 – Anatomia e Digestione del Cane</div>
+                <span class="course-curriculum-section-item-header-toggle">
+                  <button tabindex="0" aria-expanded="false" aria-controls="modulo-2-content">▼</button>
+                </span>
+              </div>
+              <ul class="course-curriculum-section-item-content" id="modulo-2-content">
+                <li>
+                  <a href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&free_preview_mode=1" target="_blank" rel="noopener">
+                    <div class="lesson-title">Apparato digerente del cane</div>
+                    <div class="lesson-free-preview-badge">Anteprima gratuita</div>
+                  </a>
+                </li>
+                <li><span class="lesson-title">Stomaco</span></li>
+                <li><span class="lesson-title">Tempi di digestione</span></li>
+                <li><span class="lesson-title">Dove avviene la digestione</span></li>
+                <li><span class="lesson-title">La flora microbica intestinale</span></li>
+                <li><span class="lesson-title">Quiz Finale – Modulo 2</span></li>
+              </ul>
+            </div>
+          </li>
+          <!-- Modulo 3 -->
+          <li class="course-curriculum-section-item collapsed" id="modulo-3">
+            <div class="course-curriculum-section-item-content-wrapper">
+              <span class="course-curriculum-section-item-number">3</span>
+              <div class="course-curriculum-section-item-header">
+                <div class="course-curriculum-section-item-title">Modulo 3 – Metabolismo e Fabbisogni Energetici</div>
+                <span class="course-curriculum-section-item-header-toggle">
+                  <button tabindex="0" aria-expanded="false" aria-controls="modulo-3-content">▼</button>
+                </span>
+              </div>
+              <ul class="course-curriculum-section-item-content" id="modulo-3-content">
+                <li><span class="lesson-title">Il metabolismo</span></li>
+                <li>
+                  <a href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&free_preview_mode=1" target="_blank" rel="noopener">
+                    <div class="lesson-title">Fabbisogno energetico giornaliero</div>
+                    <div class="lesson-free-preview-badge">Anteprima gratuita</div>
+                  </a>
+                </li>
+                <li><span class="lesson-title">Differenze tra cuccioli, adulti e anziani</span></li>
+                <li><span class="lesson-title">Quanto conta la taglia e la razza</span></li>
+                <li><span class="lesson-title">Quiz Finale – Modulo 3</span></li>
+              </ul>
+            </div>
+          </li>
+          <!-- Modulo 4 -->
+          <li class="course-curriculum-section-item collapsed" id="modulo-4">
+            <div class="course-curriculum-section-item-content-wrapper">
+              <span class="course-curriculum-section-item-number">4</span>
+              <div class="course-curriculum-section-item-header">
+                <div class="course-curriculum-section-item-title">Modulo 4 – Alimentazione Secca (Crocchette)</div>
+                <span class="course-curriculum-section-item-header-toggle">
+                  <button tabindex="0" aria-expanded="false" aria-controls="modulo-4-content">▼</button>
+                </span>
+              </div>
+              <ul class="course-curriculum-section-item-content" id="modulo-4-content">
+                <li><span>Le crocchette</span></li>
+                <li><span>Vantaggi e svantaggi alimentazione secca</span></li>
+                <li><span>Cosa leggere in etichetta</span></li>
+                <li>
+                  <a href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&free_preview_mode=1" target="_blank" rel="noopener">
+                    Quando non sceglierle 
+                    <span class="lesson-free-preview-badge">Anteprima gratuita</span>
+                  </a>
+                </li>
+                <li><span>Quiz Finale – Modulo 4</span></li>
+              </ul>
+            </div>
+          </li>
+          <!-- Modulo 5 -->
+          <li class="course-curriculum-section-item collapsed" id="modulo-5">
+            <div class="course-curriculum-section-item-content-wrapper">
+              <span class="course-curriculum-section-item-number">5</span>
+              <div class="course-curriculum-section-item-header">
+                <div class="course-curriculum-section-item-title">Modulo 5 – Alimentazione Umida</div>
+                <span class="course-curriculum-section-item-header-toggle">
+                  <button tabindex="0" aria-expanded="false" aria-controls="modulo-5-content">▼</button>
+                </span>
+              </div>
+              <ul class="course-curriculum-section-item-content" id="modulo-5-content">
+                <li><span>Alimentazione umida</span></li>
+                <li><span>Vantaggi alimentazione umida</span></li>
+                <li>
+                  <a href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&free_preview_mode=1" target="_blank" rel="noopener">
+                    Svantaggi alimentazione umida 
+                    <span class="lesson-free-preview-badge">Anteprima gratuita</span>
+                  </a>
+                </li>
+                <li><span>Come valutare un buon cibo umido</span></li>
+                <li><span>Quando scegliere l’umido</span></li>
+                <li>
+                  <a href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&free_preview_mode=1" target="_blank" rel="noopener">
+                    Riassunto cibo umido 
+                    <span class="lesson-free-preview-badge">Anteprima gratuita</span>
+                  </a>
+                </li>
+                <li><span>Quiz Finale – Modulo 5</span></li>
+              </ul>
+            </div>
+          </li>
+          <!-- Modulo 6 -->
+          <li class="course-curriculum-section-item collapsed" id="modulo-6">
+            <div class="course-curriculum-section-item-content-wrapper">
+              <span class="course-curriculum-section-item-number">6</span>
+              <div class="course-curriculum-section-item-header">
+                <div class="course-curriculum-section-item-title">Modulo 6 – Dieta Casalinga e BARF</div>
+                <span class="course-curriculum-section-item-header-toggle">
+                  <button tabindex="0" aria-expanded="false" aria-controls="modulo-6-content">▼</button>
+                </span>
+              </div>
+              <ul class="course-curriculum-section-item-content" id="modulo-6-content">
+                <li><span>Dieta casalinga cotta</span></li>
+                <li>
+                  <a href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&free_preview_mode=1" target="_blank" rel="noopener">
+                    Dieta BARF 
+                    <span class="lesson-free-preview-badge">Anteprima gratuita</span>
+                  </a>
+                </li>
+                <li><span>Benefici dieta BARF</span></li>
+                <li><span>Rischi dieta BARF</span></li>
+                <li><span>Quando è sconsigliata la dieta BARF</span></li>
+                <li><span>Quiz Finale – Modulo 6</span></li>
+              </ul>
+            </div>
+          </li>
+          <!-- Modulo 7 -->
+          <li class="course-curriculum-section-item collapsed" id="modulo-7">
+            <div class="course-curriculum-section-item-content-wrapper">
+              <span class="course-curriculum-section-item-number">7</span>
+              <div class="course-curriculum-section-item-header">
+                <div class="course-curriculum-section-item-title">Modulo 7 – Nutrienti Essenziali</div>
+                <span class="course-curriculum-section-item-header-toggle">
+                  <button tabindex="0" aria-expanded="false" aria-controls="modulo-7-content">▼</button>
+                </span>
+              </div>
+              <ul class="course-curriculum-section-item-content" id="modulo-7-content">
+                <li><span>Macronutrienti</span></li>
+                <li>
+                  <a href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&free_preview_mode=1" target="_blank" rel="noopener">
+                    Micronutrienti 
+                    <span class="lesson-free-preview-badge">Anteprima gratuita</span>
+                  </a>
+                </li>
+                <li><span>Quiz Finale – Modulo 7</span></li>
+              </ul>
+            </div>
+          </li>
+          <!-- Modulo 8 -->
+          <li class="course-curriculum-section-item collapsed" id="modulo-8">
+            <div class="course-curriculum-section-item-content-wrapper">
+              <span class="course-curriculum-section-item-number">8</span>
+              <div class="course-curriculum-section-item-header">
+                <div class="course-curriculum-section-item-title">Modulo 8 – Errori Frequenti</div>
+                <span class="course-curriculum-section-item-header-toggle">
+                  <button tabindex="0" aria-expanded="false" aria-controls="modulo-8-content">▼</button>
+                </span>
+              </div>
+              <ul class="course-curriculum-section-item-content" id="modulo-8-content">
+                <li><span>Non seguire una dieta equilibrata</span></li>
+                <li><span>Dare troppi snack</span></li>
+                <li>
+                  <a href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&free_preview_mode=1" target="_blank" rel="noopener">
+                    Dieta sbagliata per la fase della vita <span class="lesson-free-preview-badge">Anteprima gratuita</span>
+                  </a>
+                </li>
+                <li><span>Non controllare il peso e condizione corporea</span></li>
+                <li><span>Sovralimentare i cani con patologie</span></li>
+                <li><span>Quiz Finale – Modulo 8</span></li>
+              </ul>
+            </div>
+          </li>
+          <!-- Modulo 9 -->
+          <li class="course-curriculum-section-item collapsed" id="modulo-9">
+            <div class="course-curriculum-section-item-content-wrapper">
+              <span class="course-curriculum-section-item-number">9</span>
+              <div class="course-curriculum-section-item-header">
+                <div class="course-curriculum-section-item-title">Modulo 9 – Alimenti tossici</div>
+                <span class="course-curriculum-section-item-header-toggle">
+                  <button tabindex="0" aria-expanded="false" aria-controls="modulo-9-content">▼</button>
+                </span>
+              </div>
+              <ul class="course-curriculum-section-item-content" id="modulo-9-content">
+                <li>
+                  <a href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&free_preview_mode=1" target="_blank" rel="noopener">
+                    Alimenti tossici – cioccolato <span class="lesson-free-preview-badge">Anteprima gratuita</span>
+                  </a>
+                </li>
+                <li><span>Alimenti tossici – cipolla e aglio</span></li>
+                <li><span>Alimenti tossici – uva e uvetta</span></li>
+                <li><span>Alimenti tossici – Xilitolo</span></li>
+                <li><span>Quiz Finale – Modulo 9</span></li>
+              </ul>
+            </div>
+          </li>
+          <!-- Modulo 10 -->
+          <li class="course-curriculum-section-item collapsed" id="modulo-10">
+            <div class="course-curriculum-section-item-content-wrapper">
+              <span class="course-curriculum-section-item-number">10</span>
+              <div class="course-curriculum-section-item-header">
+                <div class="course-curriculum-section-item-title">Modulo 10 – Miti popolari</div>
+                <span class="course-curriculum-section-item-header-toggle">
+                  <button tabindex="0" aria-expanded="false" aria-controls="modulo-10-content">▼</button>
+                </span>
+              </div>
+              <ul class="course-curriculum-section-item-content" id="modulo-10-content">
+                <li><span>Il cane non ha bisogno di acqua se mangia cibo umido</span></li>
+                <li>
+                  <a href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&free_preview_mode=1" target="_blank" rel="noopener">
+                    Alcuni cani possono mangiare solo carne <span class="lesson-free-preview-badge">Anteprima gratuita</span>
+                  </a>
+                </li>
+                <li><span>Il cane deve essere sempre alimentato con le stesse quantità ogni giorno</span></li>
+                <li><span>Se il cane mangia troppo velocemente, non è un problema</span></li>
+                <li><span>I cani non dovrebbero mai mangiare frutta</span></li>
+                <li><span>Quiz Finale – Modulo 10</span></li>
+              </ul>
+            </div>
+          </li>
+          <!-- Modulo 11 -->
+          <li class="course-curriculum-section-item collapsed" id="modulo-11">
+            <div class="course-curriculum-section-item-content-wrapper">
+              <span class="course-curriculum-section-item-number">11</span>
+              <div class="course-curriculum-section-item-header">
+                <div class="course-curriculum-section-item-title">Modulo 11 – Lettura dell’Etichetta e Approfondimenti</div>
+                <span class="course-curriculum-section-item-header-toggle">
+                  <button tabindex="0" aria-expanded="false" aria-controls="modulo-11-content">▼</button>
+                </span>
+              </div>
+              <ul class="course-curriculum-section-item-content" id="modulo-11-content">
+                <li><span>Come leggere l’etichetta</span></li>
+                <li><span>Approfondimenti – Carboidrati</span></li>
+                <li><span>Approfondimenti – Fonti proteiche</span></li>
+                <li>
+                  <a href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&free_preview_mode=1" target="_blank" rel="noopener">
+                    Approfondimenti – Grassi <span class="lesson-free-preview-badge">Anteprima gratuita</span>
+                  </a>
+                </li>
+                <li><span>Approfondimenti – Fibre e verdure</span></li>
+                <li><span>Approfondimenti – Additivi</span></li>
+                <li><span>Approfondimenti – Quantità e calorie</span></li>
+                <li><span>Approfondimenti – Valutare le esigenze</span></li>
+                <li><span>Approfondimenti – Farsi seguire</span></li>
+                <li><span>Quiz Finale – Modulo 11</span></li>
+              </ul>
+            </div>
+          </li>
+          <!-- Modulo 12 -->
+          <li class="course-curriculum-section-item collapsed" id="modulo-12">
+            <div class="course-curriculum-section-item-content-wrapper">
+              <span class="course-curriculum-section-item-number">12</span>
+              <div class="course-curriculum-section-item-header">
+                <div class="course-curriculum-section-item-title">Modulo 12 – Ricette</div>
+                <span class="course-curriculum-section-item-header-toggle">
+                  <button tabindex="0" aria-expanded="false" aria-controls="modulo-12-content">▼</button>
+                </span>
+              </div>
+              <ul class="course-curriculum-section-item-content" id="modulo-12-content">
+                <li><span>Ricette – Zucca e avena</span></li>
+                <li><span>Ricette – Cubetti al tonno</span></li>
+                <li><span>Ricette – Striscioline di pollo essiccato</span></li>
+                <li>
+                  <a href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&free_preview_mode=1" target="_blank" rel="noopener">
+                    Ricette – Polpette di manzo e riso <span class="lesson-free-preview-badge">Anteprima gratuita</span>
+                  </a>
+                </li>
+                <li><span>Ricette – Biscottini di carne e patate</span></li>
+              </ul>
+            </div>
+          </li>
+          <!-- Finale -->
+          <li class="course-curriculum-section-item collapsed" id="modulo-finale">
+            <div class="course-curriculum-section-item-content-wrapper">
+              <span class="course-curriculum-section-item-number">13</span>
+              <div class="course-curriculum-section-item-header">
+                <div class="course-curriculum-section-item-title">Conclusione</div>
+                <span class="course-curriculum-section-item-header-toggle"></span>
+              </div>
+              <ul class="course-curriculum-section-item-content" id="modulo-finale-content">
+                <li><span>Grazie</span></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <!-- CTA INTERMEDIA (più mirata e con micro‐trust) -->
+<section class="cta-mid reveal">
+  <div class="container">
+    <h2>Pronto a nutrire meglio il tuo cane, con sicurezza?</h2>
+    <p class="lead">Ricette bilanciate, etichette chiare, errori evitati. Inizia oggi: ti guidiamo passo passo.</p>
+
+    <div class="cta-actions">
+      <a class="btn btn-primary btn-lg"
+        href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&ref=recap"
+        aria-label="Acquista il corso di alimentazione del cane">
+        Registrati ora 
+      </a>
+      <a href="#curriculum" class="btn btn-outline">Rivedi il programma</a>
+    </div>
+
+    <ul class="trust-row" aria-label="Punti di fiducia">
+      <li>Accesso immediato</li>
+      <li>Materiali scaricabili</li>
+      <li>DietApp Premium inclusa</li>
+    </ul>
+  </div>
+</section>
+
+<!-- RECENSIONI (più autorevoli: stelle + blockquote) -->
+<section class="reviews reveal">
+  <div class="container">
+    <h2>La parola a chi ha già iniziato</h2>
+
+    <div class="review-grid">
+      <article class="review" aria-label="Recensione di Giulia R.">
+        <div class="stars" aria-label="Valutazione: 5 su 5">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
+        </div>
+        <blockquote>“Non sapevo come bilanciare i pasti del mio Labrador. Ora ha più energia e un pelo lucidissimo.”</blockquote>
+        <footer>— Giulia R.</footer>
+      </article>
+
+      <article class="review">
+        <div class="stars" aria-label="5 su 5">
+          <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
+        </div>
+        <blockquote>“Angelica spiega in modo semplice: ora preparo ricette sane senza paura di sbagliare.”</blockquote>
+        <footer>— Marco T.</footer>
+      </article>
+
+      <article class="review">
+        <div class="stars" aria-label="5 su 5">
+          <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"/></svg>
+        </div>
+        <blockquote>“Chiaro, pratico e pieno di spunti utili. La DietApp Premium è la ciliegina.”</blockquote>
+        <footer>— Sara L.</footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- RECAP OFFERTA (immagine Canva) + CTA HTML cliccabile -->
+<section class="recap-offer reveal">
+  <div class="container">
+    <!-- Inserisci QUI l'immagine Canva del recap -->
+    <figure class="recap-figure">
+      <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-alimentazione-cane/recap.png"
+           alt="Recap offerta del corso: contenuti inclusi, valore complessivo 169,99 € barrato, oggi solo 69,99 €"
+           loading="lazy">
+    </figure>
+
+    <!-- Bottone Payhip JS -->
+    <div class="recap-cta">
+      <a class="btn btn-primary btn-lg"
+        href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&ref=recap"
+        aria-label="Acquista il corso di alimentazione del cane">
+        👉 Inizia ora
+      </a>
+
+      <p class="small muted" style="margin-top:10px;">Offerta valida fino al 01/01/2026.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- MINI CHIUSURA (snella, senza ripetere tutto) -->
+<section class="final-cta reveal">
+  <div class="container">
+    <h2>Perché funziona</h2>
+    <ul class="why-list">
+      <li>Metodo veterinario: teoria essenziale → pratica applicabile.</li>
+      <li>Ricette e schede già pronte, aggiornamenti inclusi.</li>
+      <li>DietApp Premium inclusa per guidarti ogni giorno.</li>
+    </ul>
+    <a class="btn btn-primary btn-lg"
+        href="https://angelica-spaccini.myrealvet.it/order?link=IeAUs&ref=recap"
+        aria-label="Acquista il corso di alimentazione del cane">
+        Voglio iniziare a nutrire meglio il mio cane!
+    </a>
+  </div>
+</section>
+
+
+  <!-- SCRIPT CAROUSEL -->
+  <script>
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const dotsContainer = document.querySelector('.carousel-dots');
+  let index = 0, autoplayInterval;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.setAttribute('aria-label', `Vai alla slide ${i + 1}`);
+    dot.setAttribute('tabindex', '0');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => { index = i; updateCarousel(); resetAutoplay(); });
+    dotsContainer.appendChild(dot);
+  });
+  const dots = Array.from(dotsContainer.children);
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach(d => d.classList.remove('active'));
+    dots[index].classList.add('active');
+  }
+  function startAutoplay() {
+    autoplayInterval = setInterval(() => { index = (index + 1) % slides.length; updateCarousel(); }, 5400);
+  }
+  function resetAutoplay() {
+    clearInterval(autoplayInterval); startAutoplay();
+  }
+  startAutoplay();
+
+  // Pausa autoplay su hover
+  track.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+  track.addEventListener('mouseleave', resetAutoplay);
+
+  // swipe mobile
+  let startX = 0;
+  track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  track.addEventListener('touchend', e => {
+    let diff = e.changedTouches[0].clientX - startX;
+    if (diff > 50) { index = (index - 1 + slides.length) % slides.length; updateCarousel(); resetAutoplay(); }
+    if (diff < -50) { index = (index + 1) % slides.length; updateCarousel(); resetAutoplay(); }
+  });
+  </script>
+
+  <!-- SCRIPT ANIMAZIONI -->
+  <script>
+    const revealSections = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.2});
+
+    revealSections.forEach(section=>observer.observe(section));
+  </script>
+    <!-- SCRIPT CURRICULUM -->
+  <script>
+    // Accordion accessibile: apre solo un modulo alla volta e aggiorna aria-expanded
+    document.querySelectorAll('.course-curriculum-section-item').forEach(item => {
+  const header = item.querySelector('.course-curriculum-section-item-header');
+  const btn = item.querySelector('.course-curriculum-section-item-header-toggle button');
+
+  // funzione comune per aprire/chiudere
+  function toggleItem() {
+    const allItems = document.querySelectorAll('.course-curriculum-section-item');
+    allItems.forEach(other => {
+      if (other !== item) {
+        other.classList.remove('open');
+        const b = other.querySelector('.course-curriculum-section-item-header-toggle button');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      }
+    });
+    const isOpen = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
+  // cliccando sulla freccia
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    toggleItem();
+  });
+
+  // cliccando sul titolo o sull’intero header
+  header.addEventListener('click', e => {
+    // eviti doppio trigger se clicchi sulla freccia dentro header
+    if (!e.target.closest('button')) {
+      toggleItem();
+    }
+  });
+});
+
+  </script>   
+</body>
+</html>
