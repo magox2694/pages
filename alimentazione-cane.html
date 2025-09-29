@@ -160,7 +160,6 @@
         color: var(--brand);
       }
 
-
       /* CAROUSEL */
       .mrv-course-wrapper .carousel {
         position: relative;
@@ -581,7 +580,7 @@
       }
     </style>
 
-    <link rel="stylesheet" href="./corso-alimentazione-isolato.css">
+    <link rel="stylesheet" href="./corso-alimentazione-isolato.css" />
   </head>
 
   <body>
@@ -1525,14 +1524,20 @@
         </div>
       </section>
 
-      <!-- RECENSIONI (più autorevoli: stelle + blockquote) -->
+      <!-- RECENSIONI (accessibilità corretta) -->
       <section class="reviews reveal">
         <div class="container">
           <h2>La parola a chi ha già iniziato</h2>
 
           <div class="review-grid">
-            <article class="review" aria-label="Recensione di Giulia R.">
-              <div class="stars" aria-label="Valutazione: 5 su 5">
+            <!-- Recensione 1 -->
+            <article class="review">
+              <div
+                class="stars"
+                role="img"
+                aria-label="Valutazione: 5 stelle su 5"
+                title="5 su 5"
+              >
                 <svg viewBox="0 0 20 20" aria-hidden="true">
                   <path
                     d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
@@ -1566,29 +1571,35 @@
               <footer>— Giulia R.</footer>
             </article>
 
+            <!-- Recensione 2 -->
             <article class="review">
-              <div class="stars" aria-label="5 su 5">
-                <svg viewBox="0 0 20 20">
+              <div
+                class="stars"
+                role="img"
+                aria-label="Valutazione: 5 stelle su 5"
+                title="5 su 5"
+              >
+                <svg viewBox="0 0 20 20" aria-hidden="true">
                   <path
                     d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
                   />
                 </svg>
-                <svg viewBox="0 0 20 20">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
                   <path
                     d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
                   />
                 </svg>
-                <svg viewBox="0 0 20 20">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
                   <path
                     d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
                   />
                 </svg>
-                <svg viewBox="0 0 20 20">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
                   <path
                     d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
                   />
                 </svg>
-                <svg viewBox="0 0 20 20">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
                   <path
                     d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
                   />
@@ -1601,29 +1612,35 @@
               <footer>— Marco T.</footer>
             </article>
 
+            <!-- Recensione 3 -->
             <article class="review">
-              <div class="stars" aria-label="5 su 5">
-                <svg viewBox="0 0 20 20">
+              <div
+                class="stars"
+                role="img"
+                aria-label="Valutazione: 5 stelle su 5"
+                title="5 su 5"
+              >
+                <svg viewBox="0 0 20 20" aria-hidden="true">
                   <path
                     d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
                   />
                 </svg>
-                <svg viewBox="0 0 20 20">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
                   <path
                     d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
                   />
                 </svg>
-                <svg viewBox="0 0 20 20">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
                   <path
                     d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
                   />
                 </svg>
-                <svg viewBox="0 0 20 20">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
                   <path
                     d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
                   />
                 </svg>
-                <svg viewBox="0 0 20 20">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
                   <path
                     d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.7L10 14.9 4.8 17.4l1-5.7-4.2-4.1 5.8-.8L10 1.5z"
                   />

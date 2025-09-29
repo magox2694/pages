@@ -504,34 +504,44 @@
           </div>
         </header>
 
-        <!-- CAROUSEL -->
-        <div class="carousel">
-          <div class="carousel-track">
+        <!-- CAROUSEL ACCESSIBILE -->
+        <div
+          class="carousel"
+          role="region"
+          aria-label="Carosello immagini sul pronto soccorso canino"
+        >
+          <div class="carousel-track" aria-live="polite">
             <img
               src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-pronto-soccorso/slide-1-pronto-soccorso.png"
-              alt="Slide 1 - pronto soccorso canino"
+              alt="Slide 1: Primo soccorso per cani – Introduzione"
               loading="lazy"
               decoding="async"
             />
             <img
               src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-pronto-soccorso/slide-2-pronto-soccorso-v2.png"
-              alt="Slide 2 - pronto soccorso canino"
+              alt="Slide 2: Tecniche di emergenza per cani"
               loading="lazy"
               decoding="async"
             />
             <img
               src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-pronto-soccorso/slide-3-pronto-soccorso.png"
-              alt="Slide 3 - pronto soccorso canino"
+              alt="Slide 3: Kit e check-list pronto soccorso"
               loading="lazy"
               decoding="async"
             />
           </div>
+
           <div class="carousel-btn-slide3">
             <a href="#curriculum" class="btn btn-primary btn-lg">
               👉 Guarda il programma completo
             </a>
           </div>
-          <div class="carousel-dots" aria-label="Navigazione carosello"></div>
+
+          <div
+            class="carousel-dots"
+            role="navigation"
+            aria-label="Navigazione carosello immagini"
+          ></div>
         </div>
 
         <!-- INTRO -->
