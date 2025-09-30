@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Viaggiare con il gatto – MyRealVet</title>
+  <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
+  <style>
+    /* --- REVEAL ANIMATION --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* --- WRAPPER --- */
+    .mrv-gatto-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Benefits */
+    .mrv-gatto-benefits {
+      margin: 60px auto;
+    }
+    .mrv-gatto-benefits ul {
+      list-style: none;
+      padding: 0;
+    }
+    .mrv-gatto-benefits li {
+      margin: 12px 0;
+      padding-left: 28px;
+      position: relative;
+    }
+    .mrv-gatto-benefits li::before {
+      content: "✅";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    /* CTA */
+    .mrv-gatto-cta {
+      text-align: center;
+      margin: 40px auto;
+    }
+
+    /* Bottoni */
+    .custom-js-btn {
+      background-color: #1697c7; /* Celeste brand */
+      color: white !important;
+      font-size: 1.3rem;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      border: none;
+      font-weight: 700;
+      font-family: 'Quicksand', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .custom-js-btn:hover {
+      background-color: #0e7ca5;
+      transform: translateY(-2px);
+    }
+    .pulse {
+      animation: pulse 2s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(22, 151, 199, 0.4);
+      }
+      50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 12px rgba(22, 151, 199, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(22, 151, 199, 0);
+      }
+    }
+    @media (max-width: 480px) {
+      .custom-js-btn {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.4rem;
+      }
+    }
+
+    /* Recensioni */
+    .mrv-gatto-recensioni {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(2,12,27,.08);
+      padding: 30px;
+      margin: 60px auto;
+    }
+    .mrv-gatto-recensioni p {
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    /* FAQ Accordion */
+    .mrv-gatto-faq {
+      margin: 60px auto;
+      padding: 30px;
+      background: #f9fbfd;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(2,12,27,.06);
+    }
+    .mrv-gatto-faq h2 {
+      color: #1697c7;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .faq-item {
+      margin-bottom: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      outline: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 12px;
+      cursor: pointer;
+      color: #0b1220;
+      transition: color 0.3s ease;
+    }
+    .faq-question:hover {
+      color: #1697c7;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 12px;
+    }
+    .faq-answer p {
+      margin: 12px 0;
+      color: #333;
+      line-height: 1.5em;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding: 12px;
+    }
+
+    /* BONUS SECTION */
+    .mrv-bonus {
+        margin: 80px auto;
+        padding: 60px 20px;
+        background: #000; /* sfondo nero */
+        color: #fff;
+        border-radius: 16px;
+        text-align: center;
+        overflow: hidden;
+    }
+    .mrv-bonus h2 {
+        color: #1697c7;
+        margin-bottom: 16px;
+    }
+
+    /* Stato iniziale */
+    .mrv-bonus-inner {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    /* Attivazione al reveal */
+    .mrv-bonus.visible .mrv-bonus-inner {
+        animation: bounceIn 2.5s ease 0.5s forwards;
+    }
+
+    @keyframes bounceIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.3);
+        }
+        40% {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+        60% {
+          transform: scale(0.9);
+        }
+        80% {
+          transform: scale(1.05);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="mrv-gatto-wrapper">
+
+    <!-- SEZIONE BENEFICI -->
+    <section class="mrv-gatto-benefits reveal">
+      <h2>Perché leggere questo eBook?</h2>
+      <p>
+        Viaggiare con il gatto richiede attenzioni particolari: un ambiente sicuro, comfort durante gli spostamenti e riduzione dello stress. 
+        Questa guida ti accompagna passo passo per organizzare viaggi sereni con il tuo micio.
+      </p>
+      <ul>
+        <li>Preparare il gatto al trasportino senza traumi</li>
+        <li>Consigli per viaggiare in auto, treno o aereo</li>
+        <li>Documenti e regole per viaggi nazionali e internazionali</li>
+        <li>Checklist essenziale per non dimenticare nulla</li>
+        <li>Rimedi naturali per ridurre ansia e malessere</li>
+      </ul>
+    </section>
+
+    <!-- CTA EXTRA -->
+    <section class="mrv-gatto-cta reveal">
+      <button class="custom-js-btn payhip-btn">
+        🐾 Acquista subito l’eBook
+      </button>
+    </section>
+
+    <!-- RECENSIONI -->
+    <section class="mrv-gatto-recensioni reveal">
+      <h2>Cosa dicono i lettori</h2>
+      <p>“Il mio gatto soffriva ogni viaggio, ora grazie ai consigli riesce a stare più tranquillo. Guida preziosa!” – Laura</p>
+      <p>“Non sapevo servissero certi documenti per l’estero, l’eBook mi ha evitato problemi. Utilissimo.” – Gianni</p>
+      <p>“Chiaro, pratico e pieno di esempi concreti. Consigliatissimo a chiunque viaggi con il proprio gatto.” – Serena</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mrv-gatto-faq reveal">
+      <h2>Domande frequenti</h2>
+      <div class="faq-item">
+        <button class="faq-question">In che formato riceverò l’eBook?</button>
+        <div class="faq-answer">
+          <p>Riceverai un file PDF, leggibile su computer, tablet e smartphone.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">È utile anche per viaggi brevi?</button>
+        <div class="faq-answer">
+          <p>Certo, troverai consigli per ridurre lo stress del gatto anche in piccoli spostamenti.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Ci sono esempi pratici?</button>
+        <div class="faq-answer">
+          <p>Sì, checklist e casi reali spiegati passo passo per applicare subito le soluzioni.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Il mio gatto ha paura del trasportino, troverò consigli?</button>
+        <div class="faq-answer">
+          <p>Assolutamente sì: nell’eBook ci sono metodi graduali e naturali per abituarlo senza stress.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINALE -->
+    <section class="mrv-gatto-cta reveal">
+      <button class="custom-js-btn payhip-btn pulse">
+        👉 Scarica subito “Viaggiare con il gatto”
+      </button>
+    </section>
+
+    <!-- SEZIONE BONUS: STARTERPACK GRATUITO -->
+    <section class="mrv-bonus reveal">
+      <div class="mrv-bonus-inner">
+        <h2>🎁 Bonus gratuito per te</h2>
+        <p>Scarica lo <strong>StarterPack per viaggiare con il gatto</strong> e organizza al meglio ogni spostamento.</p>
+        <a href="https://angelica-spaccini.myrealvet.it/starterpack-viaggiare-con-il-gatto" 
+           class="custom-js-btn" target="_blank">
+           👉 Scarica gratis
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- SCRIPT REVEAL -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const reveals = document.querySelectorAll(".reveal");
+      const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        reveals.forEach(el => {
+          const elementTop = el.getBoundingClientRect().top;
+          if (elementTop < windowHeight - 100) {
+            el.classList.add("visible");
+          }
+        });
+      };
+      window.addEventListener("scroll", revealOnScroll);
+      revealOnScroll();
+    });
+  </script>
+
+  <!-- SCRIPT FAQ -->
+  <script>
+    document.querySelectorAll(".faq-question").forEach(button => {
+      button.addEventListener("click", () => {
+        const faqItem = button.parentElement;
+        faqItem.classList.toggle("active");
+      });
+    });
+  </script>
+
+  <!-- SCRIPT CHECKOUT PAYHIP -->
+  <script type="text/javascript">
+    document.querySelectorAll(".payhip-btn").forEach(btn => {
+      btn.addEventListener("click", function () {
+        Payhip.Checkout.open({
+          product: "E4oVg", /* codice prodotto Payhip viaggiare con il gatto */
+          message: "Grazie per aver scelto di viaggiare sereno con il tuo gatto 🐾🐱"
+        });
+      });
+    });
+  </script>
+</body>
+</html>
