@@ -172,34 +172,35 @@
     /* Stato iniziale */
     .mrv-bonus-inner {
         opacity: 0;
-        transform: scale(0.8);
-        transition: opacity 0.5s ease;
+        transform: translateX(-100px) scale(0.8); /* parte spostato a sinistra */
     }
 
     /* Attivazione al reveal */
     .mrv-bonus.visible .mrv-bonus-inner {
-        animation: bounceIn 2s ease 0.5s forwards; /* durata 2s, delay 0.5s */
+        animation: bounceInLeft 2.5s ease 0.5s forwards; /* durata 2.5s, delay 0.5s */
     }
 
-    @keyframes bounceIn {
+    @keyframes bounceInLeft {
         0% {
-        opacity: 0;
-        transform: scale(0.3);
+            opacity: 0;
+            transform: translateX(-200px) scale(0.7);
         }
         40% {
-        opacity: 1;
-        transform: scale(1.1);
+            opacity: 1;
+            transform: translateX(30px) scale(1.05); /* oltre la posizione finale */
         }
         60% {
-        transform: scale(0.9);
+            transform: translateX(-15px) scale(0.95);
         }
         80% {
-        transform: scale(1.05);
+            transform: translateX(8px) scale(1.02);
         }
         100% {
-        transform: scale(1);
+            opacity: 1;
+            transform: translateX(0) scale(1);
         }
     }
+
     
   </style>
 </head>
