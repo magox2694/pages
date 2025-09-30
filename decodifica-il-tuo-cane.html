@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Decodifica il tuo cane – MyRealVet</title>
+  <style>
+    /* --- REVEAL ANIMATION --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* --- WRAPPER --- */
+    .mrv-decodifica-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Hero */
+    .mrv-decodifica-hero {
+      text-align: center;
+      margin: 40px auto;
+    }
+    .mrv-decodifica-hero img {
+      max-width: 260px;
+      margin: 20px auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(2,12,27,.08);
+    }
+
+    /* Benefits */
+    .mrv-decodifica-benefits {
+      margin: 60px auto;
+    }
+    .mrv-decodifica-benefits ul {
+      list-style: none;
+      padding: 0;
+    }
+    .mrv-decodifica-benefits li {
+      margin: 12px 0;
+      padding-left: 28px;
+      position: relative;
+    }
+    .mrv-decodifica-benefits li::before {
+      content: "✅";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    /* CTA */
+    .mrv-decodifica-cta {
+      text-align: center;
+      margin: 40px auto;
+    }
+
+    /* Recensioni */
+    .mrv-decodifica-recensioni {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(2,12,27,.08);
+      padding: 30px;
+      margin: 60px auto;
+    }
+    .mrv-decodifica-recensioni p {
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="mrv-decodifica-wrapper">
+
+    <!-- HERO -->
+    <section class="mrv-decodifica-hero reveal">
+      <h1>Decodifica il tuo cane</h1>
+      <h2>Impara a leggere i segnali nascosti e a capire davvero il tuo amico a 4 zampe</h2>
+      <img src="INSERISCI-LINK-COPERTINA.jpg" alt="Copertina ebook Decodifica il tuo cane" loading="lazy">
+      <p>
+        Ogni giorno il tuo cane ti parla… ma spesso non sappiamo interpretare quei segnali.<br>
+        Con questa guida pratica, scritta dalla <strong>Dott.ssa Angelica Spaccini</strong>, impari a riconoscere i messaggi del tuo cane, ridurre i fraintendimenti e costruire una relazione più serena e profonda.
+      </p>
+    </section>
+
+    <!-- BENEFICI -->
+    <section class="mrv-decodifica-benefits reveal">
+      <h2>Cosa troverai dentro l’eBook</h2>
+      <ul>
+        <li>Capire i segnali calmanti e cosa significano davvero</li>
+        <li>Interpretare posture, sguardi, movimenti della coda e delle orecchie</li>
+        <li>Gestire meglio le passeggiate e gli incontri con altri cani</li>
+        <li>Evitare gli errori più comuni di comunicazione</li>
+        <li>Consigli pratici e casi reali spiegati passo passo</li>
+      </ul>
+    </section>
+
+    <!-- CTA -->
+    <section class="mrv-decodifica-cta reveal">
+      <a href="https://angelica-spaccini.myrealvet.it/b/mIJi4" class="button">📘 Acquista ora l’eBook</a>
+    </section>
+
+    <!-- RECENSIONI -->
+    <section class="mrv-decodifica-recensioni reveal">
+      <h2>Cosa dicono i lettori</h2>
+      <p>“Finalmente ho capito perché il mio cane abbassa lo sguardo in certe situazioni. Una guida illuminante!” – Marta</p>
+      <p>“Pensavo di conoscere il mio cane, ma questo libro mi ha aperto gli occhi. Consigliatissimo.” – Luca</p>
+      <p>“Semplice, chiaro e pratico. Ogni proprietario dovrebbe leggerlo.” – Silvia</p>
+    </section>
+
+    <!-- CTA finale -->
+    <section class="mrv-decodifica-cta reveal">
+      <a href="https://angelica-spaccini.myrealvet.it/b/mIJi4" class="button">👉 Scarica subito “Decodifica il tuo cane”</a>
+    </section>
+
+  </div>
+
+  <!-- SCRIPT REVEAL -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const reveals = document.querySelectorAll(".reveal");
+      const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        reveals.forEach(el => {
+          const elementTop = el.getBoundingClientRect().top;
+          if (elementTop < windowHeight - 100) {
+            el.classList.add("visible");
+          }
+        });
+      };
+      window.addEventListener("scroll", revealOnScroll);
+      revealOnScroll();
+    });
+  </script>
+</body>
+</html>
