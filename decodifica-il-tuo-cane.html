@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Decodifica il tuo cane – MyRealVet</title>
+  <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
   <style>
     /* --- REVEAL ANIMATION --- */
     .reveal {
@@ -98,6 +99,51 @@
       margin-bottom: 16px;
       font-style: italic;
     }
+    /*-- Stile bottone brand MyRealVet */
+      .pulse {
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(22, 151, 199, 0.4);
+      }
+      50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 12px rgba(22, 151, 199, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(22, 151, 199, 0);
+      }
+    }
+
+    .custom-js-btn {
+      background-color: #1697c7; /* Celeste brand */
+      color: white !important;
+      font-size: 1.3rem;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      border: none;
+      font-weight: 700;
+      font-family: 'Quicksand', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .custom-js-btn:hover {
+      background-color: #0e7ca5; /* Celeste più scuro */
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 480px) {
+      .custom-js-btn {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.4rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -136,10 +182,11 @@
 
     <!-- CTA FINALE -->
     <section class="mrv-decodifica-cta reveal">
-      <a href="https://angelica-spaccini.myrealvet.it/order?link=mIJi4" class="button">
+      <button class="custom-js-btn pulse">
         👉 Scarica subito “Decodifica il tuo cane”
-      </a>
+      </button>
     </section>
+
 
   </div>
 
@@ -159,6 +206,15 @@
       };
       window.addEventListener("scroll", revealOnScroll);
       revealOnScroll();
+    });
+  </script>
+  <!-- Script checkout Payhip -->
+  <script type="text/javascript">
+    document.querySelector(".custom-js-btn").addEventListener("click", function () {
+      Payhip.Checkout.open({
+        product: "mIJi4",
+        message: "Grazie per aver scelto di capire meglio il tuo cane 🐾❤️"
+      });
     });
   </script>
 </body>
