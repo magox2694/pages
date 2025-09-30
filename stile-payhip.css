@@ -66,7 +66,7 @@ input[type="submit"] {
   justify-content: center;
   gap: .5rem;
   background: #1697c7;   /* Celeste brand */
-  color: #fff;
+  color: #fff !important;
   font-family: 'Quicksand', sans-serif;
   font-weight: 700;
   font-size: clamp(1rem, 0.5vw + 0.9rem, 1.2rem);
@@ -84,6 +84,7 @@ a.button:hover,
 button:hover,
 input[type="submit"]:hover {
   background: #0e7ca5;   /* Celeste più scuro */
+  color: #fff !important;
   transform: translateY(-2px);
   box-shadow: 0 12px 34px rgba(2,12,27,.12);
 }
