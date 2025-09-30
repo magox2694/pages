@@ -1,0 +1,124 @@
+/* ===============================
+TITOLI =============================== */
+h1 {
+  font-weight: 700;
+  color: #1697c7;
+  font-size: clamp(2rem, 2vw + 1rem, 3rem);
+  line-height: 1.2;
+}
+
+h2 {
+  font-weight: 500;
+  color: #1697c7;
+  font-size: clamp(1.5rem, 1.5vw + 0.8rem, 2.2rem);
+  line-height: 1.3;
+}
+
+h3 {
+  font-weight: 400;
+  color: #0b1220 !important;
+  font-size: clamp(1.2rem, 1vw + 0.7rem, 1.5rem);
+  line-height: 1.4;
+}
+
+h4 {
+  font-weight: 400;
+  color: #0b1220 !important;
+  font-size: clamp(1rem, 0.8vw + 0.6rem, 1.2rem);
+  line-height: 1.5;
+}
+
+/* ===============================
+PREZZO PRODOTTO PAYHIP =============================== */
+.product-price span,
+span.product-price,
+.price,
+.current-price {
+  color: #0b1220 !important; /* Nero/grigio scuro */
+}
+
+/* ===============================
+TITOLI DEI PRODOTTI NELLE COLLEZIONI IN NERO/GRIGIO =============================== */
+.card__information h4 a,
+.product-list-block h4 a {
+  color: #0b1220 !important;   /* Nero/grigio scuro */
+  text-decoration: none !important; /* Niente sottolineatura */
+}
+
+/* Hover effetto più chiaro */
+.card__information h4 a:hover,
+.product-list-block h4 a:hover {
+  color: #5b677a !important;   /* Grigio più chiaro al passaggio */
+}
+
+
+
+/* ===============================
+   BOTTONI GLOBALI
+   =============================== */
+
+/* Bottone primario (CTA principale) */
+a.button, 
+button, 
+input[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  background: #1697c7;   /* Celeste brand */
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 0.5vw + 0.9rem, 1.2rem);
+  padding: 14px 28px;
+  border: none;
+  border-radius: 16px;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(2,12,27,.08);
+  transition: background-color .3s ease, transform .2s ease, box-shadow .3s ease;
+}
+
+a.button:hover,
+button:hover,
+input[type="submit"]:hover {
+  background: #0e7ca5;   /* Celeste più scuro */
+  transform: translateY(-2px);
+  box-shadow: 0 12px 34px rgba(2,12,27,.12);
+}
+
+/* Bottone secondario (stile outline) */
+a.button.secondary,
+button.secondary {
+  background: #fff;
+  color: #1697c7;
+  border: 2px solid #1697c7;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 0.4vw + 0.8rem, 1.1rem);
+  padding: 12px 24px;
+  border-radius: 16px;
+  transition: background-color .3s ease, color .3s ease, transform .2s ease;
+}
+
+a.button.secondary:hover,
+button.secondary:hover {
+  background: #f0f9fc;  /* Celestino chiaro */
+  color: #0e7ca5;
+  border-color: #0e7ca5;
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   BOTTONI SOCIAL
+=============================== */
+.social-media-buttons-wrapper button {
+  background-color: #6c757d !important; /* Grigio neutro */
+  color: #fff !important;
+  border: none !important;
+}
+
+/* Hover più scuro */
+.social-media-buttons-wrapper button:hover {
+  background-color: #5a6268 !important;
+}
