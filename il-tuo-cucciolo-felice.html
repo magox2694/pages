@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Il tuo cucciolo felice – MyRealVet</title>
+  <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
+  <style>
+    /* --- REVEAL ANIMATION --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* --- WRAPPER --- */
+    .mrv-cucciolo-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Benefits / Punti Chiave */
+    .mrv-cucciolo-benefits {
+      margin: 60px auto;
+    }
+    .mrv-cucciolo-benefits ul {
+      list-style: none;
+      padding: 0;
+    }
+    .mrv-cucciolo-benefits li {
+      margin: 12px 0;
+      padding-left: 28px;
+      position: relative;
+    }
+    .mrv-cucciolo-benefits li::before {
+      content: "✅";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    /* CTA */
+    .mrv-cucciolo-cta {
+      text-align: center;
+      margin: 40px auto;
+    }
+
+    /* Bottoni */
+    .custom-js-btn {
+      background-color: #1697c7;
+      color: white !important;
+      font-size: 1.3rem;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      border: none;
+      font-weight: 700;
+      font-family: 'Quicksand', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .custom-js-btn:hover {
+      background-color: #0e7ca5;
+      transform: translateY(-2px);
+    }
+    .pulse {
+      animation: pulse 2s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(22, 151, 199, 0.4);
+      }
+      50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 12px rgba(22, 151, 199, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(22, 151, 199, 0);
+      }
+    }
+    @media (max-width: 480px) {
+      .custom-js-btn {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.4rem;
+      }
+    }
+
+    /* Recensioni */
+    .mrv-cucciolo-recensioni {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(2,12,27,.08);
+      padding: 30px;
+      margin: 60px auto;
+    }
+    .mrv-cucciolo-recensioni p {
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    /* FAQ Accordion */
+    .mrv-cucciolo-faq {
+      margin: 60px auto;
+      padding: 30px;
+      background: #f9fbfd;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(2,12,27,.06);
+    }
+    .mrv-cucciolo-faq h2 {
+      color: #1697c7;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .faq-item {
+      margin-bottom: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      outline: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 12px;
+      cursor: pointer;
+      color: #0b1220;
+      transition: color 0.3s ease;
+    }
+    .faq-question:hover {
+      color: #1697c7;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 12px;
+    }
+    .faq-answer p {
+      margin: 12px 0;
+      color: #333;
+      line-height: 1.5em;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding: 12px;
+    }
+
+    /* BONUS SECTION */
+    .mrv-bonus {
+      margin: 80px auto;
+      padding: 60px 20px;
+      background: #000; /* nero */
+      color: #fff;
+      border-radius: 16px;
+      text-align: center;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(100px) scale(0.95);
+    }
+    .mrv-bonus h2 {
+      color: #1697c7;
+      margin-bottom: 16px;
+    }
+    .mrv-bonus.visible {
+      animation: bounceUp 2.5s ease forwards;
+    }
+    @keyframes bounceUp {
+      0% {
+        opacity: 0;
+        transform: translateY(200px) scale(0.9);
+      }
+      40% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1.02);
+      }
+      60% {
+        transform: translateY(10px) scale(0.98);
+      }
+      80% {
+        transform: translateY(-10px) scale(1.01);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="mrv-cucciolo-wrapper">
+
+    <!-- SEZIONE BENEFICI / Punti Chiave -->
+    <section class="mrv-cucciolo-benefits reveal">
+      <h2>Punti chiave della guida</h2>
+      <p>Scopri come crescere un cucciolo sereno, equilibrato e sano con metodi naturali e amorevoli.</p>
+      <ul>
+        <li>I Primi Mesi: affrontare pianto, bisognini, iperattività</li>
+        <li>Routine equilibrata tra gioco, relax e stimoli</li>
+        <li>Alimentazione consapevole, rimedi naturali e prevenzione</li>
+        <li>Socializzazione, linguaggio del corpo e gestione emozioni</li>
+        <li>Kit pratici: checklist ed oggetti indispensabili</li>
+      </ul>
+    </section>
+
+    <!-- CTA EXTRA -->
+    <section class="mrv-cucciolo-cta reveal">
+      <button class="custom-js-btn payhip-btn">
+        🐶 Acquista subito l’eBook
+      </button>
+    </section>
+
+    <!-- RECENSIONI -->
+    <section class="mrv-cucciolo-recensioni reveal">
+      <h2>Cosa dicono i lettori</h2>
+      <p>“Finalmente una guida completa, tenera ma anche concreta. Il mio cucciolo ora dorme, mangia e gioca con serenità.” – Laura P.</p>
+      <p>“Ogni pagina mi ha fatto sentire meno sola. Angelica è una guida gentile e sicura.” – Simone D.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mrv-cucciolo-faq reveal">
+      <h2>Domande frequenti</h2>
+      <div class="faq-item">
+        <button class="faq-question">In che formato riceverò l’eBook?</button>
+        <div class="faq-answer">
+          <p>Riceverai versioni PDF, EPUB e TXT, leggibili su tutti i dispositivi.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Il metodo è adatto a qualsiasi razza?</button>
+        <div class="faq-answer">
+          <p>Sì, i principi sono generali e adattabili alle diverse esigenze del cucciolo.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Ci sono esempi pratici presenti?</button>
+        <div class="faq-answer">
+          <p>Sono incluse checklist, schede, casi reali e strategie passo passo.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Cosa comprende il bonus gratuito?</button>
+        <div class="faq-answer">
+          <p>Lo StarterPack contiene schede pre-adozione, oggetti consigliati, routine prime 48 ore e molto altro.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINALE -->
+    <section class="mrv-cucciolo-cta reveal">
+      <button class="custom-js-btn payhip-btn pulse">
+        👉 Scarica subito “Il tuo cucciolo felice”
+      </button>
+    </section>
+
+    <!-- SEZIONE BONUS -->
+    <section class="mrv-bonus reveal">
+      <div class="mrv-bonus-inner">
+        <h2>🎁 StarterPack gratuito</h2>
+        <p>Scarica lo StarterPack “Cucciolo Felice” per avviare il cammino con il tuo cucciolo in serenità.</p>
+        <a href="https://angelica-spaccini.myrealvet.it/starterpack-cucciolo-felice" 
+           class="custom-js-btn" target="_blank">
+           👉 Scarica gratis
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- SCRIPT REVEAL -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const reveals = document.querySelectorAll(".reveal");
+      const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        reveals.forEach(el => {
+          const elementTop = el.getBoundingClientRect().top;
+          if (elementTop < windowHeight - 100) {
+            el.classList.add("visible");
+          }
+        });
+      };
+      window.addEventListener("scroll", revealOnScroll);
+      revealOnScroll();
+    });
+  </script>
+
+  <!-- SCRIPT FAQ -->
+  <script>
+    document.querySelectorAll(".faq-question").forEach(button => {
+      button.addEventListener("click", () => {
+        const faqItem = button.parentElement;
+        faqItem.classList.toggle("active");
+      });
+    });
+  </script>
+
+  <!-- SCRIPT CHECKOUT PAYHIP -->
+  <script type="text/javascript">
+    document.querySelectorAll(".payhip-btn").forEach(btn => {
+      btn.addEventListener("click", function () {
+        Payhip.Checkout.open({
+          product: "jGCpy", // qui inserisci il codice Payhip per “Il tuo cucciolo felice”
+          message: "Grazie per aver scelto di far crescere un cucciolo felice 🐾"
+        });
+      });
+    });
+  </script>
+</body>
+</html>
