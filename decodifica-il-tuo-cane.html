@@ -144,6 +144,107 @@
         padding: 0.8rem 1.4rem;
       }
     }
+
+    /* FAQ Accordion */
+    .mrv-decodifica-faq {
+      margin: 60px auto;
+      padding: 30px;
+      background: #f9fbfd;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(2,12,27,.06);
+    }
+
+    .mrv-decodifica-faq h2 {
+      color: #1697c7;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .faq-item {
+      margin-bottom: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      outline: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 12px;
+      cursor: pointer;
+      color: #0b1220;
+      transition: color 0.3s ease;
+    }
+
+    .faq-question:hover {
+      color: #1697c7;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 12px;
+    }
+
+    .faq-answer p {
+      margin: 12px 0;
+      color: #333;
+      line-height: 1.5em;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px; /* abbastanza per una risposta media */
+      padding: 12px;
+    }
+    
+    /* BONUS SECTION */
+    .mrv-bonus {
+      margin: 80px auto;
+      padding: 60px 20px;
+      background: #000; /* sfondo nero */
+      color: #fff;
+      border-radius: 16px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mrv-bonus-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .mrv-bonus h2 {
+      color: #1697c7;
+      margin-bottom: 16px;
+    }
+
+    /* layer pixel sopra */
+    .pixel-layer {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 6px); /* grandezza pixel */
+      grid-auto-rows: 6px;
+      z-index: 3; /* sopra tutto */
+      pointer-events: none; /* non blocca più i click */
+    }
+
+    .pixel {
+      background: #1697c7; /* colore pixel brand */
+      opacity: 1;
+      transition: opacity 0.2s ease;
+    }
+
+
+
+
+
   </style>
 </head>
 <body>
@@ -167,7 +268,7 @@
 
     <!-- CTA EXTRA -->
     <section class="mrv-decodifica-cta reveal">
-      <button class="custom-js-btn">
+      <button class="custom-js-btn payhip-btn">
         👉 Scarica subito L'ebook
       </button>
     </section>
@@ -180,12 +281,55 @@
       <p>“Semplice, chiaro e pratico. Ogni proprietario dovrebbe leggerlo.” – Silvia</p>
     </section>
 
+    <!-- FAQ -->
+    <section class="mrv-decodifica-faq reveal">
+      <h2>Domande frequenti</h2>
+      <div class="faq-item">
+        <button class="faq-question">In che formato riceverò l’eBook?</button>
+        <div class="faq-answer">
+          <p>Riceverai un file PDF, leggibile su computer, tablet e smartphone. Potrai anche stamparlo se preferisci.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Serve esperienza con i cani per capire il libro?</button>
+        <div class="faq-answer">
+          <p>No, l’eBook è pensato sia per chi è alle prime armi sia per chi convive con un cane da anni.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Ci sono esempi pratici?</button>
+        <div class="faq-answer">
+          <p>Sì, troverai casi reali spiegati passo passo con indicazioni concrete da applicare subito.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Posso contattare l’autrice se ho dubbi?</button>
+        <div class="faq-answer">
+          <p>Certo, la Dott.ssa Angelica Spaccini mette a disposizione consulenze e corsi di approfondimento. email: my.real.vet@gmail.com</p>
+        </div>
+      </div>
+    </section>
+
+
     <!-- CTA FINALE -->
     <section class="mrv-decodifica-cta reveal">
-      <button class="custom-js-btn pulse">
+      <button class="custom-js-btn payhip-btn pulse">
         👉 Scarica subito “Decodifica il tuo cane”
       </button>
     </section>
+
+    <!-- SEZIONE BONUS: GUIDA GRATUITA -->
+    <section class="mrv-bonus reveal">
+      <div class="mrv-bonus-inner">
+        <h2>🎁 Bonus gratuito per te</h2>
+        <p>Vuoi fare un passo in più? Scarica la guida <strong>“7 giorni per capire meglio il tuo cane”</strong> e inizia subito il tuo percorso.</p>
+        <a href="https://angelica-spaccini.myrealvet.it/7-giorni-per-capire-meglio-il-tuo-cane" 
+          class="custom-js-btn pulse" target="_blank">
+          👉 Scarica gratis
+        </a>
+      </div>
+    </section>
+
 
 
   </div>
@@ -208,12 +352,63 @@
       revealOnScroll();
     });
   </script>
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll(".faq-question").forEach(button => {
+      button.addEventListener("click", () => {
+        const faqItem = button.parentElement;
+        faqItem.classList.toggle("active");
+      });
+    });
+  </script>
+
+  <!-- SCRIPT BONUS: layer pixel sopra -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const bonus = document.querySelector(".mrv-bonus");
+      const pixelLayer = document.createElement("div");
+      pixelLayer.classList.add("pixel-layer");
+      bonus.appendChild(pixelLayer);
+
+      const pixelSize = 6; // grandezza lato pixel
+      const maxPixels = 20000; // limite massimo
+      const area = bonus.offsetWidth * bonus.offsetHeight;
+      let total = Math.ceil(area / (pixelSize * pixelSize));
+
+      if (total > maxPixels) total = maxPixels; // non superare il limite
+
+      for (let i = 0; i < total; i++) {
+        const pixel = document.createElement("div");
+        pixel.classList.add("pixel");
+        pixelLayer.appendChild(pixel);
+      }
+
+      // reveal tipo Telegram: pixel spariscono random
+      const observer = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          const pixels = document.querySelectorAll(".pixel");
+          pixels.forEach(p => {
+            setTimeout(() => {
+              p.style.opacity = 0;
+            }, Math.random() * 1500); // spariscono entro 1.5s
+          });
+          observer.disconnect();
+        }
+      }, { threshold: 0.3 });
+
+      observer.observe(bonus);
+    });
+    </script>
+
   <!-- Script checkout Payhip -->
   <script type="text/javascript">
-    document.querySelector(".custom-js-btn").addEventListener("click", function () {
-      Payhip.Checkout.open({
-        product: "mIJi4",
-        message: "Grazie per aver scelto di capire meglio il tuo cane 🐾❤️"
+    document.querySelectorAll(".payhip-btn").forEach(btn => {
+      btn.addEventListener("click", function () {
+        Payhip.Checkout.open({
+          product: "mIJi4",
+          message: "Grazie per aver scelto di capire meglio il tuo cane 🐾❤️"
+        });
       });
     });
   </script>
