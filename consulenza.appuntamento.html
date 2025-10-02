@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prenota la tua consulenza</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <style>
+    body { font-family: Lato, sans-serif; background: #f6f9fc; margin: 0; padding: 20px; }
+    .container { max-width: 900px; margin: auto; background: #fff; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,.08); display: flex; flex-wrap: wrap; overflow: hidden; }
+    .calendar, .times { flex: 1; min-width: 300px; padding: 20px; }
+    h2 { font-family: Quicksand, sans-serif; color: #1697c7; margin-bottom: 15px; }
+    label { font-weight: bold; display: block; margin-top: 10px; }
+    input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; margin-top: 6px; }
+
+    .time-slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; margin-top: 15px; }
+    .slot { padding: 12px; background: #f0faff; border: 2px solid #1697c7; border-radius: 10px; text-align: center; font-weight: bold; cursor: pointer; transition: 0.2s; }
+    .slot:hover { background: #1697c7; color: #fff; }
+    .slot.disabled { background: #eee; color: #999; border-color: #ccc; cursor: not-allowed; }
+    .slot.active { background: #1697c7; color: #fff; border-color: #1179a1; }
+
+    .summary { margin-top: 20px; padding: 15px; background: #f0faff; border-radius: 12px; font-weight: bold; display: none; }
+
+    button { width: 100%; margin-top: 15px; padding: 12px; border: none; border-radius: 10px; background: #1697c7; color: #fff; font-size: 16px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+    button:hover { background: #1179a1; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Colonna calendario -->
+    <div class="calendar">
+      <h2>Seleziona la data</h2>
+      <input type="text" id="data" placeholder="Scegli il giorno" required>
+      <label>Nome</label>
+      <input type="text" id="nome" required>
+      <label>Email</label>
+      <input type="email" id="email" required>
+    </div>
+
+    <!-- Colonna orari -->
+    <div class="times">
+      <h2>Seleziona l'orario</h2>
+      <div class="time-slots" id="timeSlots"></div>
+      <div class="summary" id="summary"></div>
+      <button onclick="generaWhatsApp()">Conferma su WhatsApp</button>
+    </div>
+  </div>
+
+  <!-- FLATPICKR -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/it.js"></script>
+  <script>
+    function disableWeekends(date) {
+      const day = date.getDay();
+      return (day === 0 || day === 6); // blocca sab/dom
+    }
+
+    flatpickr("#data", {
+      dateFormat: "d/m/Y",
+      locale: "it",
+      minDate: "today",
+      disable: [disableWeekends],
+      onChange: aggiornaOrari // ogni volta che cambia data aggiorna slot
+    });
+
+    const allSlots = ["13:30", "14:00", "14:30", "15:00", "15:30"];
+    let selectedSlot = "";
+
+    function aggiornaOrari(selectedDates) {
+      const container = document.getElementById("timeSlots");
+      container.innerHTML = ""; // reset
+      selectedSlot = "";
+
+      if (!selectedDates.length) return;
+
+      const today = new Date();
+      const selectedDate = selectedDates[0];
+      const sameDay = today.toDateString() === selectedDate.toDateString();
+
+      allSlots.forEach(time => {
+        const div = document.createElement("div");
+        div.className = "slot";
+        div.innerText = time;
+
+        let [hour, minute] = time.split(":").map(Number);
+
+        // Se oggi → blocca slot passati
+        if (sameDay) {
+          if (hour < today.getHours() || (hour === today.getHours() && minute <= today.getMinutes())) {
+            div.classList.add("disabled");
+          }
+        }
+
+        // click sugli slot
+        div.onclick = () => {
+          if (div.classList.contains("disabled")) return;
+          document.querySelectorAll(".slot").forEach(s => s.classList.remove("active"));
+          div.classList.add("active");
+          selectedSlot = time;
+          mostraRiepilogo();
+        };
+
+        container.appendChild(div);
+      });
+    }
+
+    function mostraRiepilogo() {
+      const data = document.getElementById("data").value.trim();
+      const summary = document.getElementById("summary");
+      if(data && selectedSlot) {
+        summary.style.display = "block";
+        summary.innerText = `Hai scelto il ${data} alle ${selectedSlot}`;
+      }
+    }
+
+    function generaWhatsApp() {
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const data = document.getElementById("data").value.trim();
+      if(!nome || !email || !data || !selectedSlot) {
+        alert("Per favore compila tutti i campi e seleziona data e orario.");
+        return;
+      }
+      const numero = "393348906079"; // <-- tuo numero senza +
+      const msg = `Ciao, sono ${nome} (${email}). Ho acquistato una consulenza e scelto il ${data} alle ${selectedSlot}. 👉 Confermo la prenotazione.`;
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
