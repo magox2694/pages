@@ -220,12 +220,6 @@
       <button class="custom-js-btn payhip-btn pulse">👉 Prenota subito la tua consulenza – 70€</button>
     </section>
 
-    <section class="mrv-consulenza-cta reveal">
-        <a href="https://angelica-spaccini.myrealvet.it/b/consulenza" target="_blank" class="custom-js-btn pulse">
-            🔗 Test acquisto Payhip
-        </a>
-    </section>
-
 
   </div>
 
@@ -261,7 +255,7 @@
     document.querySelectorAll(".payhip-btn").forEach(btn => {
       btn.addEventListener("click", function () {
         Payhip.Checkout.open({
-          product: "2pZBR", // <--- QUI inserisci l'ID prodotto Payhip della consulenza
+          product: "Iokda", // <--- QUI inserisci l'ID prodotto Payhip della consulenza
           message: "Grazie per aver scelto la consulenza MyRealVet 🐾"
         });
       });
