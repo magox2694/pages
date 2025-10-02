@@ -6,23 +6,106 @@
   <title>Prenota la tua consulenza</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <style>
-    body { font-family: Lato, sans-serif; background: #f6f9fc; margin: 0; padding: 20px; }
-    .container { max-width: 900px; margin: auto; background: #fff; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,.08); display: flex; flex-wrap: wrap; overflow: hidden; }
-    .calendar, .times { flex: 1; min-width: 300px; padding: 20px; }
-    h2 { font-family: Quicksand, sans-serif; color: #1697c7; margin-bottom: 15px; }
+    body {
+      font-family: Lato, sans-serif;
+      background: #f6f9fc;
+      margin: 0; padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.08);
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+    }
+    .calendar, .times {
+      flex: 1;
+      min-width: 300px;
+      padding: 25px;
+    }
+    h2 {
+      font-family: Quicksand, sans-serif;
+      color: #1697c7;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
     label { font-weight: bold; display: block; margin-top: 10px; }
-    input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; margin-top: 6px; }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 6px;
+      font-size: 16px;
+    }
 
-    .time-slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; margin-top: 15px; }
-    .slot { padding: 12px; background: #f0faff; border: 2px solid #1697c7; border-radius: 10px; text-align: center; font-weight: bold; cursor: pointer; transition: 0.2s; }
+    .time-slots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 12px;
+      margin-top: 15px;
+    }
+    .slot {
+      padding: 14px;
+      background: #f0faff;
+      border: 2px solid #1697c7;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 16px;
+    }
     .slot:hover { background: #1697c7; color: #fff; }
     .slot.disabled { background: #eee; color: #999; border-color: #ccc; cursor: not-allowed; }
     .slot.active { background: #1697c7; color: #fff; border-color: #1179a1; }
 
-    .summary { margin-top: 20px; padding: 15px; background: #f0faff; border-radius: 12px; font-weight: bold; display: none; }
+    .summary {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f0faff;
+      border-radius: 12px;
+      font-weight: bold;
+      display: none;
+      font-size: 16px;
+    }
 
-    button { width: 100%; margin-top: 15px; padding: 12px; border: none; border-radius: 10px; background: #1697c7; color: #fff; font-size: 16px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: #1697c7;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
     button:hover { background: #1179a1; }
+
+    /* MOBILE FIX */
+    @media (max-width: 768px) {
+    .container {
+        flex-direction: column;   /* 🔥 forza colonna singola */
+    }
+    .calendar, .times {
+        min-width: 100%;          /* 🔥 ogni sezione prende tutta la larghezza */
+        padding: 20px;
+    }
+    h2 { font-size: 18px; }
+    .slot { font-size: 15px; padding: 12px; }
+    button { font-size: 16px; padding: 12px; }
+    }
+
   </style>
 </head>
 <body>
@@ -42,7 +125,7 @@
       <h2>Seleziona l'orario</h2>
       <div class="time-slots" id="timeSlots"></div>
       <div class="summary" id="summary"></div>
-      <button onclick="generaWhatsApp()">Conferma su WhatsApp</button>
+      <button onclick="generaWhatsApp()">Conferma su WhatsApp 👉</button>
     </div>
   </div>
 
@@ -52,7 +135,7 @@
   <script>
     function disableWeekends(date) {
       const day = date.getDay();
-      return (day === 0 || day === 6); // blocca sab/dom
+      return (day === 0 || day === 6);
     }
 
     flatpickr("#data", {
@@ -60,7 +143,7 @@
       locale: "it",
       minDate: "today",
       disable: [disableWeekends],
-      onChange: aggiornaOrari // ogni volta che cambia data aggiorna slot
+      onChange: aggiornaOrari
     });
 
     const allSlots = ["13:30", "14:00", "14:30", "15:00", "15:30"];
@@ -68,7 +151,7 @@
 
     function aggiornaOrari(selectedDates) {
       const container = document.getElementById("timeSlots");
-      container.innerHTML = ""; // reset
+      container.innerHTML = "";
       selectedSlot = "";
 
       if (!selectedDates.length) return;
@@ -84,14 +167,12 @@
 
         let [hour, minute] = time.split(":").map(Number);
 
-        // Se oggi → blocca slot passati
         if (sameDay) {
           if (hour < today.getHours() || (hour === today.getHours() && minute <= today.getMinutes())) {
             div.classList.add("disabled");
           }
         }
 
-        // click sugli slot
         div.onclick = () => {
           if (div.classList.contains("disabled")) return;
           document.querySelectorAll(".slot").forEach(s => s.classList.remove("active"));
@@ -121,8 +202,8 @@
         alert("Per favore compila tutti i campi e seleziona data e orario.");
         return;
       }
-      const numero = "393348906079"; // <-- tuo numero senza +
-      const msg = `Ciao, sono ${nome} (${email}). Ho acquistato una consulenza e scelto il ${data} alle ${selectedSlot}. 👉 Confermo la prenotazione.`;
+      const numero = "393348906079"; 
+      const msg = `Ciao, sono ${nome} (${email}). Ho acquistato una consulenza e scelto il ${data} alle ${selectedSlot}.`;
       const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
       window.location.href = url;
     }
