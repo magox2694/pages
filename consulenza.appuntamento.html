@@ -127,6 +127,20 @@
       color: #333;
     }
 
+    /* Email warning */
+    .email-warning {
+      margin-top: 6px;
+    }
+    .warning-text {
+      font-size: 13px;
+      color: #c0392b; /* rosso avviso */
+      margin: 6px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+
 
   </style>
 </head>
@@ -144,6 +158,10 @@
       <label>Nome</label>
       <input type="text" id="nome" required>
       <label>Email</label>
+      <div class="email-warning">
+        <input type="email" id="email" required>
+        <p class="warning-text">⚠️ Utilizza la stessa email inserita in fase d'acquisto</p>
+      </div>
       <input type="email" id="email" required>
     </div>
 
@@ -158,7 +176,6 @@
         </svg>
         Conferma su WhatsApp
       </button>
-
     </div>
   </div>
 
