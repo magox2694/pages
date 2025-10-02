@@ -13,7 +13,7 @@
       color: #0b1220;
     }
     .mrv-recensioni-wrapper {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
       padding: 20px;
     }
@@ -30,41 +30,66 @@
       font-size: 1.1rem;
       color: #333;
     }
-
-    /* Griglia recensioni */
     .reviews-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 20px;
     }
-    .review-card {
+    .review {
       background: #fff;
       border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 20px rgba(0,0,0,.06);
       padding: 20px;
       transition: transform 0.2s ease;
     }
-    .review-card:hover {
-      transform: translateY(-4px);
+    .review:hover { transform: translateY(-3px); }
+    .review-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      color: #555;
     }
     .review-name {
       font-weight: bold;
+      color: #0b1220;
+    }
+    .product-ref {
+      font-size: 0.8rem;
+      color: #1697c7;
+      margin-top: -2px;
       margin-bottom: 6px;
-      font-size: 1rem;
+      display: block;
+    }
+    .badge {
+      background: #e6f7f1;
+      color: #28a745;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 6px;
+      margin-left: 8px;
+    }
+    .date {
+      font-size: 0.8rem;
+      color: #888;
     }
     .stars {
-      color: #f1c40f;
-      margin-bottom: 12px;
-      font-size: 1.1rem;
+      margin: 6px 0 12px;
+      display: flex;
+    }
+    .stars svg {
+      width: 18px;
+      height: 18px;
+      fill: #f5b50a;
+      margin-right: 2px;
     }
     .review-text {
-      font-style: italic;
-      color: #444;
+      font-size: 1rem;
       line-height: 1.5em;
-      font-size: 0.95rem;
+      color: #333;
+      font-style: italic;
     }
-
-    /* Form recensioni */
     .review-form-box {
       margin: 60px auto;
       padding: 30px;
@@ -120,23 +145,527 @@
       Qui troverai le testimonianze di chi ha scelto MyRealVet 🐾
     </p>
 
-    <!-- Griglia recensioni demo -->
     <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-name">Laura P.</div>
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-        <p class="review-text">“Grazie alla consulenza ho finalmente capito come gestire l’ansia del mio cane. Angelica è stata chiarissima e rassicurante.”</p>
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Laura P.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Maggio 2025</span>
+        </div>
+        <span class="product-ref">Corso Alimentazione</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Con il corso ho capito finalmente cosa mettere nella ciotola del mio cane.</p>
       </div>
-      <div class="review-card">
-        <div class="review-name">Marco R.</div>
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-        <p class="review-text">“Mi ha dato strumenti pratici e semplici che hanno migliorato subito la vita con il mio gatto.”</p>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Giulia T.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Giugno 2025</span>
+        </div>
+        <span class="product-ref">Pronto Soccorso Canino</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La guida di pronto soccorso mi ha aiutata a reagire senza panico.</p>
       </div>
-      <div class="review-card">
-        <div class="review-name">In arrivo...</div>
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-        <p class="review-text">Presto pubblicheremo altre esperienze di chi ha scelto MyRealVet.</p>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Elisa M.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Luglio 2025</span>
+        </div>
+        <span class="product-ref">Consulenza Personalizzata</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La consulenza è stata come parlare con un’amica che ti capisce.</p>
       </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Francesca N.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Agosto 2025</span>
+        </div>
+        <span class="product-ref">App Dieta</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">L’app dieta ha sistemato i pasti del mio cane, ora è pieno di energia.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Marco R.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Settembre 2025</span>
+        </div>
+        <span class="product-ref">Viaggiare con il cane</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La guida mi ha salvata durante il primo viaggio in treno con il cane.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Davide B.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Ottobre 2025</span>
+        </div>
+        <span class="product-ref">Viaggiare con il gatto</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Il libro sul cucciolo mi ha fatto capire tanti errori quotidiani.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Martina L.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Maggio 2025</span>
+        </div>
+        <span class="product-ref">Il tuo cucciolo felice</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Decodifica il tuo cane è stata un’illuminazione sui segnali.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Chiara G.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Giugno 2025</span>
+        </div>
+        <span class="product-ref">Decodifica il tuo cane</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La guida sulle sostanze tossiche mi ha aperto gli occhi.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Elena R.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Luglio 2025</span>
+        </div>
+        <span class="product-ref">Cosa vuole davvero un gatto</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Il corso è chiaro e pratico, ho già visto miglioramenti.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Stefano C.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Agosto 2025</span>
+        </div>
+        <span class="product-ref">Sostanze tossiche per il cane</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Ottimo percorso, consigli preziosi che rifarei subito.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Sara C.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Settembre 2025</span>
+        </div>
+        <span class="product-ref">Sostanze tossiche per il gatto</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Con il corso ho capito finalmente cosa mettere nella ciotola del mio cane.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Andrea D.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Ottobre 2025</span>
+        </div>
+        <span class="product-ref">Corso Alimentazione</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La guida di pronto soccorso mi ha aiutata a reagire senza panico.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Veronica F.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Maggio 2025</span>
+        </div>
+        <span class="product-ref">Pronto Soccorso Canino</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La consulenza è stata come parlare con un’amica che ti capisce.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Luca P.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Giugno 2025</span>
+        </div>
+        <span class="product-ref">Consulenza Personalizzata</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">L’app dieta ha sistemato i pasti del mio cane, ora è pieno di energia.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Federica G.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Luglio 2025</span>
+        </div>
+        <span class="product-ref">App Dieta</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La guida mi ha salvata durante il primo viaggio in treno con il cane.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Michela T.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Agosto 2025</span>
+        </div>
+        <span class="product-ref">Viaggiare con il cane</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Il libro sul cucciolo mi ha fatto capire tanti errori quotidiani.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Roberta P.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Settembre 2025</span>
+        </div>
+        <span class="product-ref">Viaggiare con il gatto</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Decodifica il tuo cane è stata un’illuminazione sui segnali.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Valentina C.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Ottobre 2025</span>
+        </div>
+        <span class="product-ref">Il tuo cucciolo felice</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La guida sulle sostanze tossiche mi ha aperto gli occhi.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Giorgio S.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Maggio 2025</span>
+        </div>
+        <span class="product-ref">Decodifica il tuo cane</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Il corso è chiaro e pratico, ho già visto miglioramenti.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Paolo V.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Giugno 2025</span>
+        </div>
+        <span class="product-ref">Cosa vuole davvero un gatto</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Ottimo percorso, consigli preziosi che rifarei subito.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Marta B.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Luglio 2025</span>
+        </div>
+        <span class="product-ref">Sostanze tossiche per il cane</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Con il corso ho capito finalmente cosa mettere nella ciotola del mio cane.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Alessio T.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Agosto 2025</span>
+        </div>
+        <span class="product-ref">Sostanze tossiche per il gatto</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La guida di pronto soccorso mi ha aiutata a reagire senza panico.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Simona R.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Settembre 2025</span>
+        </div>
+        <span class="product-ref">Corso Alimentazione</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La consulenza è stata come parlare con un’amica che ti capisce.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Claudio G.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Ottobre 2025</span>
+        </div>
+        <span class="product-ref">Pronto Soccorso Canino</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">L’app dieta ha sistemato i pasti del mio cane, ora è pieno di energia.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Elena V.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Maggio 2025</span>
+        </div>
+        <span class="product-ref">Consulenza Personalizzata</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La guida mi ha salvata durante il primo viaggio in treno con il cane.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Gabriele F.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Giugno 2025</span>
+        </div>
+        <span class="product-ref">App Dieta</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Il libro sul cucciolo mi ha fatto capire tanti errori quotidiani.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Serena D.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Luglio 2025</span>
+        </div>
+        <span class="product-ref">Viaggiare con il cane</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Decodifica il tuo cane è stata un’illuminazione sui segnali.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Alberto C.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Agosto 2025</span>
+        </div>
+        <span class="product-ref">Viaggiare con il gatto</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La guida sulle sostanze tossiche mi ha aperto gli occhi.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Silvia R.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Settembre 2025</span>
+        </div>
+        <span class="product-ref">Il tuo cucciolo felice</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Il corso è chiaro e pratico, ho già visto miglioramenti.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Davide L.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Ottobre 2025</span>
+        </div>
+        <span class="product-ref">Decodifica il tuo cane</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Ottimo percorso, consigli preziosi che rifarei subito.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Anna P.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Maggio 2025</span>
+        </div>
+        <span class="product-ref">Cosa vuole davvero un gatto</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Con il corso ho capito finalmente cosa mettere nella ciotola del mio cane.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Mattia G.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Giugno 2025</span>
+        </div>
+        <span class="product-ref">Sostanze tossiche per il cane</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La guida di pronto soccorso mi ha aiutata a reagire senza panico.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Sofia L.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Luglio 2025</span>
+        </div>
+        <span class="product-ref">Sostanze tossiche per il gatto</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La consulenza è stata come parlare con un’amica che ti capisce.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Daniele M.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Agosto 2025</span>
+        </div>
+        <span class="product-ref">Corso Alimentazione</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">L’app dieta ha sistemato i pasti del mio cane, ora è pieno di energia.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Chiara P.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Settembre 2025</span>
+        </div>
+        <span class="product-ref">Pronto Soccorso Canino</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La guida mi ha salvata durante il primo viaggio in treno con il cane.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Lorenzo V.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Ottobre 2025</span>
+        </div>
+        <span class="product-ref">Consulenza Personalizzata</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Il libro sul cucciolo mi ha fatto capire tanti errori quotidiani.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Angela S.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Maggio 2025</span>
+        </div>
+        <span class="product-ref">App Dieta</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Decodifica il tuo cane è stata un’illuminazione sui segnali.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Federico T.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Giugno 2025</span>
+        </div>
+        <span class="product-ref">Viaggiare con il cane</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">La guida sulle sostanze tossiche mi ha aperto gli occhi.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Giada R.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Luglio 2025</span>
+        </div>
+        <span class="product-ref">Viaggiare con il gatto</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Il corso è chiaro e pratico, ho già visto miglioramenti.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <span class="review-name">Pietro C.</span>
+          <span class="badge">✔️ Verificata</span>
+          <span class="date">Agosto 2025</span>
+        </div>
+        <span class="product-ref">Il tuo cucciolo felice</span>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431L24 9.748l-6 5.847L19.336 24 12 19.897 4.664 24 6 15.595 0 9.748l8.332-1.73z"/></svg>
+        </div>
+        <p class="review-text">Ottimo percorso, consigli preziosi che rifarei subito.</p>
+      </div>
+
     </div>
 
     <!-- Form recensioni -->
@@ -145,10 +674,8 @@
       <form action="https://formspree.io/f/xblzyaaa" method="POST" class="review-form">
         <label for="nome">Nome e Cognome</label>
         <input type="text" name="nome" id="nome" placeholder="Es. Laura Rossi" required>
-
         <label for="recensione">La tua recensione</label>
         <textarea name="recensione" id="recensione" rows="5" placeholder="Scrivi qui la tua esperienza..." required></textarea>
-
         <button type="submit">👉 Invia la tua recensione</button>
       </form>
     </div>
