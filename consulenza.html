@@ -6,6 +6,12 @@
   <title>Consulenza personalizzata – MyRealVet</title>
   <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
   <style>
+    /* Fix overflow su mobile */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     /* Reveal base */
     .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -28,7 +34,7 @@
     .mrv-consulenza-benefits ul { list-style: none; padding: 0; }
     .mrv-consulenza-benefits li {
       margin: 12px 0;
-      padding-left: 28px;
+      padding-inline-start: 28px;
       position: relative;
     }
     .mrv-consulenza-benefits li::before {
@@ -47,7 +53,7 @@
       box-shadow: 0 6px 18px rgba(2,12,27,.06);
     }
     .mrv-consulenza-steps h2 { color: #1697c7; margin-bottom: 20px; text-align: center; }
-    .mrv-consulenza-steps ol { padding-left: 20px; }
+    .mrv-consulenza-steps ol { padding-inline-start: 20px; }
     .mrv-consulenza-steps li { margin: 10px 0; font-size: 1.1rem; }
 
     /* Quando utile */
@@ -56,7 +62,7 @@
     .mrv-consulenza-quando ul { list-style: none; padding: 0; }
     .mrv-consulenza-quando li {
       margin: 10px 0;
-      padding-left: 28px;
+      padding-inline-start: 28px;
       position: relative;
     }
     .mrv-consulenza-quando li::before {
