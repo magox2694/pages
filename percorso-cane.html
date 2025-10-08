@@ -212,7 +212,7 @@
     </style>
         <!-- IMPORTA FILE SPECIFICO “PRONTO SOCCORSO” -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@0953a82/percorso-cane/pronto-soccorso/mrv-prontosoccorso.css">
-    <script src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-cane@0953a82/pronto-soccorso/mrv-prontosoccorso.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@0953a82/percorso-cane/pronto-soccorso/mrv-prontosoccorso.js"></script>
   </head>
 
 
@@ -232,45 +232,42 @@
 
       <main class="container reveal">
         <div class="grid">
-          <!-- 1️⃣ Mini guida pronto soccorso -->
+          <!-- ✅ Mini Guida Pronto Soccorso -->
           <div class="card">
             <div class="card-inner">
-              <div class="card-front">
+                <div class="card-front">
                 <img
-                  src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-prontosoccorso/mini-guida.webp"
-                  alt="Mini guida pronto soccorso canino"
-                  loading="lazy"
+                    src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-prontosoccorso/mini-guida.webp"
+                    alt="Mini guida pronto soccorso canino"
+                    loading="lazy"
                 />
                 <h3>Mini Guida Pronto Soccorso</h3>
                 <p>
-                  Impara come reagire subito in caso di emergenze e piccoli
-                  incidenti del tuo cane.
+                    Impara come reagire subito in caso di emergenze e piccoli incidenti del tuo cane.
                 </p>
-              </div>
-              <div class="card-back">
+                </div>
+
+                <div class="card-back">
                 <h3>Scarica ora</h3>
-                <form
-                  action="/subscribe-prontosoccorso"
-                  method="POST"
-                  class="form"
-                >
-                  <input
+                <form id="mrv-form-prontosoccorso" class="mrv-form-wrapper">
+                    <input
+                    type="text"
+                    name="name"
+                    placeholder="Il tuo nome"
+                    required
+                    class="mrv-input"
+                    />
+                    <input
                     type="email"
                     name="email"
                     placeholder="La tua email"
                     required
-                    style="
-                      padding: 10px 14px;
-                      border-radius: 8px;
-                      border: none;
-                      width: 100%;
-                      max-width: 260px;
-                      margin-bottom: 10px;
-                    "
-                  />
-                  <button type="submit" class="btn">Scarica gratis</button>
+                    class="mrv-input"
+                    />
+                    <button type="submit" class="btn">Scarica gratis</button>
+                    <div class="mrv-success-message">✅ Guida inviata! Controlla la tua email.</div>
                 </form>
-              </div>
+                </div>
             </div>
           </div>
 
