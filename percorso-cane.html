@@ -14,30 +14,32 @@
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: 'Lato', sans-serif;
       background: #f9fbfd;
       color: #0b1220;
       overflow-x: hidden;
+      padding: 20px;
     }
-
     h1 {
       font-family: 'Quicksand', sans-serif;
       color: #1697c7;
       text-align: center;
       font-size: clamp(1.8rem, 2vw + 1rem, 3rem);
-      margin: 40px 0 60px;
+      margin-bottom: 10px;
       font-weight: 700;
     }
-
+    h2.subtitle {
+      text-align: center;
+      color: #333;
+      margin-bottom: 40px;
+    }
     .mrv-percorso-wrapper {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 20px;
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 2rem;
     }
 
@@ -51,7 +53,6 @@
       perspective: 1000px;
       cursor: pointer;
     }
-
     .mrv-flip-inner {
       position: relative;
       width: 100%;
@@ -59,11 +60,9 @@
       transition: transform 0.8s ease;
       transform-style: preserve-3d;
     }
-
     .mrv-flip-card.active .mrv-flip-inner {
       transform: rotateY(180deg);
     }
-
     .mrv-flip-front,
     .mrv-flip-back {
       position: absolute;
@@ -85,30 +84,27 @@
       text-align: center;
       padding: 30px;
     }
-
     .mrv-flip-front img {
       width: 160px;
       height: 160px;
       object-fit: contain;
       margin-bottom: 20px;
     }
-
     .mrv-flip-front h2 {
       color: #1697c7;
       font-family: 'Quicksand', sans-serif;
       font-size: 1.5rem;
       margin-bottom: 12px;
     }
-
     .mrv-flip-front p {
       font-size: 1rem;
       color: #333;
-      line-height: 1.5em;
+      line-height: 1.4em;
     }
 
     /* BACK */
     .mrv-flip-back {
-      background: #dbe0e1;
+      background: #4cbfe9;
       color: #fff;
       transform: rotateY(180deg);
       display: flex;
@@ -118,13 +114,11 @@
       padding: 30px;
       text-align: center;
     }
-
     .mrv-flip-back h3 {
       font-family: 'Quicksand', sans-serif;
       font-size: 1.3rem;
       margin-bottom: 20px;
     }
-
     .mrv-flip-back form {
       display: flex;
       flex-direction: column;
@@ -132,84 +126,233 @@
       max-width: 260px;
       gap: 12px;
     }
-
     .mrv-flip-back input[type="text"],
     .mrv-flip-back input[type="email"] {
       padding: 12px;
-      border: none;
+      /*border: none;*/
       border-radius: 8px;
       font-size: 1rem;
       outline: none;
     }
-
     .mrv-flip-back button {
+      background: #1697c7;
       color: #ffffff;
-      /*background: #ffffff;*/
       border: none;
-      border-radius: 12px;
+      border-radius: 8px;
       padding: 12px;
       font-size: 1.1rem;
       font-weight: 700;
       cursor: pointer;
       transition: background 0.3s ease, transform 0.2s ease;
     }
-
-    /*.mrv-flip-back button:hover {
+    .mrv-flip-back button:hover {
       background: #f1f1f1;
       transform: translateY(-2px);
-    }*/
+    }
 
-    /* =========================
-       RESPONSIVE
-    ========================= */
+    /* RESPONSIVE */
     @media (max-width: 480px) {
       .mrv-flip-card {
         width: 90%;
         height: 380px;
       }
-
       .mrv-flip-front img {
         width: 130px;
         height: 130px;
       }
-
       h1 {
         font-size: 1.8rem;
-        margin: 30px 0 40px;
+        margin-bottom: 20px;
       }
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@2847160/percorso-cane/pronto-soccorso/mrv-prontosoccorso.js"></script>
+
+  <!-- Includi il JS unificato -->
+  <script src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@dad2f72/percorso-cane/mrv-percorso-cane.js"></script>
 </head>
 <body>
 
-  <h1>🐾 Inizia facilmente il tuo percorso</h1>
-  <h3>Scarica gratuitamente i prodotti qui sotto</h3>
+  <h1>🐾 Inizia il tuo percorso gratuito</h1>
+  <h2 class="subtitle">Scarica le guide gratuite che ti aiutano davvero</h2>
 
-  <div
-    class="mrv-flip-card"
-    data-endpoint="https://myrealvet.it/subscribe-prontosoccorso"
-    data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-cane/pronto-soccorso/MINI-GUIDA-DI-PRONTO-SOCCORSO-PER-IL-TUO-CANE.pdf"
-  >
-    <div class="mrv-flip-inner">
-      <!-- FRONTE -->
-      <div class="mrv-flip-front">
-        <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-cane/pronto-soccorso/mini-guida-pronto-soccorso.webp" alt="Cane pronto soccorso" loading="lazy"/>
-        <h2>Pronto Soccorso</h2>
-        <p>Scopri come intervenire subito e in sicurezza nelle emergenze del tuo cane.</p>
-      </div>
+  <div class="mrv-percorso-wrapper">
 
-      <!-- RETRO -->
-      <div class="mrv-flip-back">
-        <h3>Iscriviti gratuitamente</h3>
-        <form class="mrv-form">
-          <input type="text" name="name" placeholder="Il tuo nome" required />
-          <input type="email" name="email" placeholder="La tua email" required />
-          <button type="submit">Download immediato</button>
-          <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
-        </form>
+    <!-- Card: Pronto Soccorso -->
+    <div
+      class="mrv-flip-card"
+      data-slug="prontosoccorso"
+      data-endpoint="https://myrealvet.it/subscribe/prontosoccorso"
+      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-cane/pronto-soccorso/MINI-GUIDA-DI-PRONTO-SOCCORSO-PER-IL-TUO-CANE.pdf"
+    >
+      <div class="mrv-flip-inner">
+        <div class="mrv-flip-front">
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-cane/pronto-soccorso/mini-guida-pronto-soccorso.webp" alt="Mini Guida Pronto Soccorso" />
+          <h2>Mini Guida Pronto Soccorso Canino</h2>
+          <p>Scopri come affrontare emergenze con calma e sicurezza.</p>
+        </div>
+        <div class="mrv-flip-back">
+          <h3>Iscriviti gratuitamente</h3>
+          <form class="mrv-form">
+            <input type="text" name="name" placeholder="Il tuo nome" required />
+            <input type="email" name="email" placeholder="La tua email" required />
+            <button type="submit">Download immediato</button>
+            <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
+
+    <!-- Card: StarterPack Cucciolo Felice -->
+    <div
+      class="mrv-flip-card"
+      data-slug="cucciolo"
+      data-endpoint="https://myrealvet.it/subscribe/cucciolo"
+      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-cane/cucciolo-felice/StarterPack-Cucciolo-Felice.pdf"
+    >
+      <div class="mrv-flip-inner">
+        <div class="mrv-flip-front">
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-cane/cucciolo-felice/copertina-starterpack-cucciolo-felice.webp" alt="StarterPack Cucciolo Felice" />
+          <h2>StarterPack Cucciolo Felice</h2>
+          <p>Tutto ciò che serve nei primi giorni con il tuo cucciolo.</p>
+        </div>
+        <div class="mrv-flip-back">
+          <h3>Iscriviti gratuitamente</h3>
+          <form class="mrv-form">
+            <input type="text" name="name" placeholder="Il tuo nome" required />
+            <input type="email" name="email" placeholder="La tua email" required />
+            <button type="submit">Download immediato</button>
+            <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: StarterPack Viaggiare con il Gatto -->
+    <div
+      class="mrv-flip-card"
+      data-slug="viaggiaregatto"
+      data-endpoint="https://myrealvet.it/subscribe/viaggiaregatto"
+      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-cane/viaggiaregatto/StarterPack_Viaggiare_Con_Il_Gatto.pdf"
+    >
+      <div class="mrv-flip-inner">
+        <div class="mrv-flip-front">
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-cane/viaggiaregatto/viaggiaregatto.webp" alt="StarterPack Viaggiare con il Gatto" />
+          <h2>StarterPack Viaggiare con il Gatto</h2>
+          <p>Consigli e check-list per viaggiare sereni col tuo felino.</p>
+        </div>
+        <div class="mrv-flip-back">
+          <h3>Iscriviti gratuitamente</h3>
+          <form class="mrv-form">
+            <input type="text" name="name" placeholder="Il tuo nome" required />
+            <input type="email" name="email" placeholder="La tua email" required />
+            <button type="submit">Download immediato</button>
+            <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Sostanze Tossiche -->
+    <div
+      class="mrv-flip-card"
+      data-slug="sostanzetossiche"
+      data-endpoint="https://myrealvet.it/subscribe/sostanzetossiche"
+      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-cane/sostanze-tossiche/Guida_Sostanze_Tossiche.pdf"
+    >
+      <div class="mrv-flip-inner">
+        <div class="mrv-flip-front">
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-cane/sostanze-tossiche/sostanze.webp" alt="Guida Sostanze Tossiche" />
+          <h2>Sostanze Tossiche per Cane & Gatto</h2>
+          <p>Scopri ciò che è pericoloso e come proteggere il tuo animale.</p>
+        </div>
+        <div class="mrv-flip-back">
+          <h3>Iscriviti gratuitamente</h3>
+          <form class="mrv-form">
+            <input type="text" name="name" placeholder="Il tuo nome" required />
+            <input type="email" name="email" placeholder="La tua email" required />
+            <button type="submit">Download immediato</button>
+            <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Checklist Viaggiare con il Cane -->
+    <div
+      class="mrv-flip-card"
+      data-slug="cheklistviaggiare"
+      data-endpoint="https://myrealvet.it/subscribe/cheklistviaggiare"
+      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-cane/cheklist-viaggiare/Checklist_Viaggiare_Cane.pdf"
+    >
+      <div class="mrv-flip-inner">
+        <div class="mrv-flip-front">
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-cane/cheklist-viaggiare/checklist.webp" alt="Checklist Viaggiare con il Cane" />
+          <h2>Checklist Viaggiare con il Cane</h2>
+          <p>Prepara il viaggio ideale, tranquillo e sicuro insieme.</p>
+        </div>
+        <div class="mrv-flip-back">
+          <h3>Iscriviti gratuitamente</h3>
+          <form class="mrv-form">
+            <input type="text" name="name" placeholder="Il tuo nome" required />
+            <input type="email" name="email" placeholder="La tua email" required />
+            <button type="submit">Download immediato</button>
+            <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: 7 Giorni per Capire il Tuo Cane -->
+    <div
+      class="mrv-flip-card"
+      data-slug="7giorni"
+      data-endpoint="https://myrealvet.it/subscribe/7giorni"
+      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-cane/7-giorni/7_Giorni_Per_Capire_Il_Tuo_Cane.pdf"
+    >
+      <div class="mrv-flip-inner">
+        <div class="mrv-flip-front">
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-cane/7-giorni/7giorni.webp" alt="7 Giorni per Capire il Tuo Cane" />
+          <h2>7 Giorni per Capire il Tuo Cane</h2>
+          <p>Una guida per iniziare il cammino in una settimana.</p>
+        </div>
+        <div class="mrv-flip-back">
+          <h3>Iscriviti gratuitamente</h3>
+          <form class="mrv-form">
+            <input type="text" name="name" placeholder="Il tuo nome" required />
+            <input type="email" name="email" placeholder="La tua email" required />
+            <button type="submit">Download immediato</button>
+            <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Guida 5 Errori Alimentazione -->
+    <div
+      class="mrv-flip-card"
+      data-slug="errorialimentazione"
+      data-endpoint="https://myrealvet.it/subscribe/errorialimentazione"
+      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/footer-payhip/regalo-corso-alimentazione/Guida_5_errori_alimentazione.pdf"
+    >
+      <div class="mrv-flip-inner">
+        <div class="mrv-flip-front">
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/footer-payhip/regalo-corso-alimentazione/guida_errori_alimentazione.webp" alt="Guida 5 Errori Alimentazione" />
+          <h2>Guida 5 Errori Alimentazione</h2>
+          <p>Evita gli errori più comuni nell’alimentazione del tuo animale.</p>
+        </div>
+        <div class="mrv-flip-back">
+          <h3>Iscriviti gratuitamente</h3>
+          <form class="mrv-form">
+            <input type="text" name="name" placeholder="Il tuo nome" required />
+            <input type="email" name="email" placeholder="La tua email" required />
+            <button type="submit">Download immediato</button>
+            <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- /.mrv-percorso-wrapper -->
+
 </body>
 </html>
