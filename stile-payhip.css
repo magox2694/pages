@@ -123,3 +123,108 @@ button.secondary:hover {
 .social-media-buttons-wrapper button:hover {
   background-color: #5a6268 !important;
 }
+
+/* ===============================
+   FIX GLOBALE SEZIONE FAQ PAYHIP
+   =============================== */
+.faq-section,
+.product-faqs,
+.faq-item,
+.faq-question,
+.faq-answer {
+  font-family: 'Lato', sans-serif !important;
+  color: #0b1220 !important; /* Nero/grigio scuro */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Stile del bottone FAQ (domanda) */
+.faq-question {
+  all: unset;
+  display: block !important;
+  width: 100%;
+  text-align: left;
+  background-color: #f1f8fb !important; /* Azzurrino chiaro brand */
+  color: #0b1220 !important;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 14px 16px !important;
+  border-radius: 12px !important;
+  border: 1px solid #d6edf6 !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: #1697c7 !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(22,151,199,0.15);
+}
+
+/* Risposta (contenuto FAQ) */
+.faq-answer {
+  background: #ffffff !important;
+  border-radius: 0 0 12px 12px;
+  padding: 14px 18px !important;
+  color: #0b1220 !important;
+  line-height: 1.6;
+}
+
+/* Margine tra le FAQ */
+.faq-item {
+  margin-bottom: 10px !important;
+  border-bottom: none !important;
+}
+
+/* Titolo sezione FAQ */
+.faq-section h2, 
+.product-faqs h2 {
+  color: #1697c7 !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  margin-bottom: 20px !important;
+}
+
+/* ===============================
+   FIX GLOBALE BOTTONI SECONDARI PAYHIP
+   =============================== */
+
+/* Tutti i bottoni "secondari" di Payhip */
+button.btn.btn-secondary,
+a.btn.btn-secondary,
+.payhip-buy-button.btn-secondary,
+.payhip-button.btn-secondary,
+.btn-secondary {
+  background-color: #ffffff !important;       /* Sfondo bianco */
+  color: #1697c7 !important;                  /* Testo celeste brand */
+  border: 2px solid #1697c7 !important;       /* Bordo celeste */
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: clamp(0.9rem, 0.4vw + 0.8rem, 1.1rem) !important;
+  padding: 12px 24px !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 24px rgba(2,12,27,0.06);
+  transition: all 0.3s ease !important;
+}
+
+/* Hover effetto */
+button.btn.btn-secondary:hover,
+a.btn.btn-secondary:hover,
+.payhip-buy-button.btn-secondary:hover,
+.payhip-button.btn-secondary:hover,
+.btn-secondary:hover {
+  background-color: #f0f9fc !important;       /* Azzurrino chiaro */
+  color: #0e7ca5 !important;                  /* Celeste più scuro */
+  border-color: #0e7ca5 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(22,151,199,0.15);
+}
+
+/* Stato attivo/focus per accessibilità */
+button.btn.btn-secondary:focus,
+a.btn.btn-secondary:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(22,151,199,0.25) !important;
+}

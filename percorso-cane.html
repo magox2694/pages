@@ -1,449 +1,224 @@
 <!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Percorso gratuito per il tuo cane – MyRealVet</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Percorso Cane – MyRealVet</title>
 
-    <!-- FONT OPTIMIZED IMPORT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500&family=Quicksand:wght@600;700&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500&family=Quicksand:wght@600;700&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
+  <style>
+    /* =========================
+       RESET & BASE
+    ========================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <style>
-      :root {
-        --brand: #1697c7;
-        --brand-2: #28a745;
-        --text: #0b1220;
-        --muted: #5b677a;
-        --bg: #f6f9fc;
-        --card: #fff;
-        --shadow: 0 10px 30px rgba(2, 12, 27, 0.08);
-        --radius: 18px;
-        --focus: 0 0 0 3px rgba(22, 151, 199, 0.25);
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #f9fbfd;
+      color: #0b1220;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-family: 'Quicksand', sans-serif;
+      color: #1697c7;
+      text-align: center;
+      font-size: clamp(1.8rem, 2vw + 1rem, 3rem);
+      margin: 40px 0 60px;
+      font-weight: 700;
+    }
+
+    .mrv-percorso-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    /* =========================
+       FLIP CARD BASE
+    ========================= */
+    .mrv-flip-card {
+      background: transparent;
+      width: 320px;
+      height: 420px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .mrv-flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s ease;
+      transform-style: preserve-3d;
+    }
+
+    .mrv-flip-card.active .mrv-flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .mrv-flip-front,
+    .mrv-flip-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    /* FRONT */
+    .mrv-flip-front {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .mrv-flip-front img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    .mrv-flip-front h2 {
+      color: #1697c7;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .mrv-flip-front p {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.5em;
+    }
+
+    /* BACK */
+    .mrv-flip-back {
+      background: #1697c7;
+      color: #fff;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .mrv-flip-back h3 {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .mrv-flip-back form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 260px;
+      gap: 12px;
+    }
+
+    .mrv-flip-back input[type="text"],
+    .mrv-flip-back input[type="email"] {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .mrv-flip-back button {
+      background: #fff;
+      color: #1697c7;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .mrv-flip-back button:hover {
+      background: #f1f1f1;
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+    @media (max-width: 480px) {
+      .mrv-flip-card {
+        width: 90%;
+        height: 380px;
       }
 
-      * {
-        box-sizing: border-box;
+      .mrv-flip-front img {
+        width: 130px;
+        height: 130px;
       }
 
-      .mrv-path-wrapper {
-        all: initial;
-        display: block;
-        font-family: "Lato", sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.6;
+      h1 {
+        font-size: 1.8rem;
+        margin: 30px 0 40px;
       }
+    }
+  </style>
+</head>
+<body>
 
-      .mrv-path-wrapper * {
-        all: unset;
-        display: revert;
-        box-sizing: border-box;
-      }
+  <h1>🐾 Percorso Cane</h1>
 
-      .mrv-path-wrapper h1,
-      .mrv-path-wrapper h2,
-      .mrv-path-wrapper h3 {
-        font-family: "Quicksand", sans-serif;
-        color: var(--brand);
-        font-weight: 700;
-        line-height: 1.2;
-      }
+  <div
+    class="mrv-flip-card"
+    data-endpoint="https://myrealvet.it/subscribe-prontosoccorso"
+    data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-cane/pronto-soccorso/Guida_Pronto_Soccorso.pdf"
+  >
+    <div class="mrv-flip-inner">
+      <!-- FRONTE -->
+      <div class="mrv-flip-front">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Cane pronto soccorso" />
+        <h2>Percorso gratuito – Pronto Soccorso</h2>
+        <p>Scopri come intervenire subito e in sicurezza nelle emergenze del tuo cane.</p>
+      </div>
 
-      .mrv-path-wrapper h1 {
-        font-size: clamp(28px, 6vw, 48px);
-        text-align: center;
-      }
-
-      .mrv-path-wrapper p {
-        color: var(--muted);
-      }
-
-      .mrv-path-wrapper .container {
-        width: min(1100px, 92%);
-        margin: 0 auto;
-        padding: 40px 0;
-      }
-
-      /* HERO */
-      .mrv-path-wrapper .hero {
-        background: linear-gradient(180deg, #f7fbff, #eef6fb);
-        padding: 60px 20px 30px;
-        text-align: center;
-      }
-
-      .mrv-path-wrapper .hero h1 {
-        color: var(--brand);
-      }
-
-      .mrv-path-wrapper .hero p {
-        font-size: 18px;
-        color: var(--muted);
-        margin-top: 10px;
-      }
-
-      /* GRID BOXES */
-      .mrv-path-wrapper .grid {
-        display: grid;
-        gap: 26px;
-        padding: 40px 0;
-      }
-
-      @media (min-width: 800px) {
-        .mrv-path-wrapper .grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
-      }
-
-      .mrv-path-wrapper .card {
-        perspective: 1000px;
-      }
-
-      .mrv-path-wrapper .card-inner {
-        position: relative;
-        width: 100%;
-        aspect-ratio: 3/4;
-        transform-style: preserve-3d;
-        transition: transform 0.8s;
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-      }
-
-      .mrv-path-wrapper .card:hover .card-inner {
-        transform: rotateY(180deg);
-      }
-
-      .mrv-path-wrapper .card-front,
-      .mrv-path-wrapper .card-back {
-        position: absolute;
-        inset: 0;
-        border-radius: var(--radius);
-        backface-visibility: hidden;
-        overflow: hidden;
-      }
-
-      .mrv-path-wrapper .card-front {
-        background: var(--card);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 24px;
-        text-align: center;
-      }
-
-      .mrv-path-wrapper .card-front img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        border-radius: 14px;
-        margin-bottom: 16px;
-      }
-
-      .mrv-path-wrapper .card-front h3 {
-        margin-top: 8px;
-        font-size: 20px;
-      }
-
-      .mrv-path-wrapper .card-front p {
-        font-size: 15px;
-        margin-top: 8px;
-      }
-
-      .mrv-path-wrapper .card-back {
-        background: var(--brand);
-        color: #fff;
-        transform: rotateY(180deg);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 26px;
-        text-align: center;
-      }
-
-      .mrv-path-wrapper .card-back h3 {
-        font-size: 22px;
-        margin-bottom: 14px;
-      }
-
-      .mrv-path-wrapper .btn {
-        display: inline-block;
-        margin-top: 12px;
-        padding: 12px 28px;
-        border-radius: 999px;
-        background: #fff;
-        color: var(--brand);
-        font-weight: 700;
-        font-family: "Quicksand", sans-serif;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        cursor: pointer;
-        text-decoration: none;
-        transition: all 0.3s ease;
-      }
-
-      .mrv-path-wrapper .btn:hover {
-        transform: scale(1.05);
-        background: #f0faff;
-      }
-
-      /* REVEAL */
-      .mrv-path-wrapper .reveal {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: all 0.8s ease-out;
-      }
-
-      .mrv-path-wrapper .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    </style>
-        <!-- IMPORTA FILE SPECIFICO “PRONTO SOCCORSO” -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@a1741c8/percorso-cane/pronto-soccorso/mrv-prontosoccorso.css">
-    <script src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@a1741c8/percorso-cane/pronto-soccorso/mrv-prontosoccorso.js"></script>
-  </head>
-
-
-  </head>
-
-  <body>
-    <div class="mrv-path-wrapper">
-      <header class="hero reveal">
-        <div class="container">
-          <h1>Inizia il percorso gratuito per il tuo cane 🐾</h1>
-          <p>
-            Scegli il prodotto gratuito, inserisci la tua email e ricevi subito
-            la guida + il download diretto.
-          </p>
-        </div>
-      </header>
-
-      <main class="container reveal">
-        <div class="grid">
-          <!-- ✅ Mini Guida Pronto Soccorso -->
-          <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                <img
-                    src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-prontosoccorso/mini-guida.webp"
-                    alt="Mini guida pronto soccorso canino"
-                    loading="lazy"
-                />
-                <h3>Mini Guida Pronto Soccorso</h3>
-                <p>
-                    Impara come reagire subito in caso di emergenze e piccoli incidenti del tuo cane.
-                </p>
-                </div>
-
-                <div class="card-back">
-                <h3>Scarica ora</h3>
-                <form id="mrv-form-prontosoccorso" class="mrv-form-wrapper">
-                    <input
-                    type="text"
-                    name="name"
-                    placeholder="Il tuo nome"
-                    required
-                    class="mrv-input"
-                    />
-                    <input
-                    type="email"
-                    name="email"
-                    placeholder="La tua email"
-                    required
-                    class="mrv-input"
-                    />
-                    <button type="submit" class="btn">Scarica gratis</button>
-                    <div class="mrv-success-message">✅ Guida inviata! Controlla la tua email.</div>
-                </form>
-                </div>
-            </div>
-          </div>
-
-          <!-- 2️⃣ 7 giorni per capire meglio il tuo cane -->
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-front">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-7giorni/7giorni.webp"
-                  alt="7 giorni per capire meglio il tuo cane"
-                  loading="lazy"
-                />
-                <h3>7 giorni per capire meglio il tuo cane</h3>
-                <p>
-                  Ogni giorno un esercizio, un segnale da osservare e una
-                  riflessione per creare più sintonia.
-                </p>
-              </div>
-              <div class="card-back">
-                <h3>Ricevila via email</h3>
-                <form
-                  action="/subscribe-7giorni"
-                  method="POST"
-                  class="form"
-                >
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="La tua email"
-                    required
-                    style="
-                      padding: 10px 14px;
-                      border-radius: 8px;
-                      border: none;
-                      width: 100%;
-                      max-width: 260px;
-                      margin-bottom: 10px;
-                    "
-                  />
-                  <button type="submit" class="btn">Invia e scarica</button>
-                </form>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3️⃣ Checklist per viaggiare con il cane -->
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-front">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-checklist/checklist.webp"
-                  alt="Checklist per viaggiare con il cane"
-                  loading="lazy"
-                />
-                <h3>Checklist Viaggi con il Cane</h3>
-                <p>
-                  Tutto quello che serve per partire sereni: documenti,
-                  sicurezza, salute e comfort.
-                </p>
-              </div>
-              <div class="card-back">
-                <h3>Scarica ora</h3>
-                <form
-                  action="/subscribe-checklist"
-                  method="POST"
-                  class="form"
-                >
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="La tua email"
-                    required
-                    style="
-                      padding: 10px 14px;
-                      border-radius: 8px;
-                      border: none;
-                      width: 100%;
-                      max-width: 260px;
-                      margin-bottom: 10px;
-                    "
-                  />
-                  <button type="submit" class="btn">Scarica gratis</button>
-                </form>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4️⃣ Sostanze tossiche per il cane e gatto -->
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-front">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-tossiche/sostanze.webp"
-                  alt="Sostanze tossiche per cane e gatto"
-                  loading="lazy"
-                />
-                <h3>Sostanze tossiche per cane e gatto</h3>
-                <p>
-                  Riconosci i pericoli nascosti in casa e scopri come agire in
-                  caso di ingestione accidentale.
-                </p>
-              </div>
-              <div class="card-back">
-                <h3>Scarica ora</h3>
-                <form
-                  action="/subscribe-tossiche"
-                  method="POST"
-                  class="form"
-                >
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="La tua email"
-                    required
-                    style="
-                      padding: 10px 14px;
-                      border-radius: 8px;
-                      border: none;
-                      width: 100%;
-                      max-width: 260px;
-                      margin-bottom: 10px;
-                    "
-                  />
-                  <button type="submit" class="btn">Ricevi la guida</button>
-                </form>
-              </div>
-            </div>
-          </div>
-
-          <!-- 5️⃣ Guida 5 errori alimentazione -->
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-front">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/pg-alimentazione/5errori.webp"
-                  alt="Guida 5 errori alimentazione cane"
-                  loading="lazy"
-                />
-                <h3>I 5 errori nell’alimentazione del cane</h3>
-                <p>
-                  Scopri gli errori più comuni e come evitarli per garantire al
-                  tuo cane salute e vitalità.
-                </p>
-              </div>
-              <div class="card-back">
-                <h3>Download diretto</h3>
-                <a
-                  href="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/footer-payhip/regalo-corso-alimentazione/Guida_5_errori_alimentazione.pdf"
-                  target="_blank"
-                  class="btn"
-                  rel="noopener"
-                  >Scarica subito</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const revealSections = document.querySelectorAll(".reveal");
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("visible");
-                  observer.unobserve(entry.target);
-                }
-              });
-            },
-            { threshold: 0.2 }
-          );
-          revealSections.forEach((section) => observer.observe(section));
-        });
-      </script>
+      <!-- RETRO -->
+      <div class="mrv-flip-back">
+        <h3>Iscriviti gratuitamente</h3>
+        <form class="mrv-form">
+          <input type="text" name="name" placeholder="Il tuo nome" required />
+          <input type="email" name="email" placeholder="La tua email" required />
+          <button type="submit">Inizia ora</button>
+          <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
+        </form>
+      </div>
     </div>
-  </body>
+  </div>
+
+
+
+  <script>
+    // Effetto flip su click
+    document.querySelectorAll('.mrv-flip-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
 </html>
