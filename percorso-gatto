@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Percorso Cane – MyRealVet</title>
+  <title>Percorso Gatto – MyRealVet</title>
 
   <style>
     /* =========================
@@ -177,69 +177,69 @@
 
   <div class="mrv-percorso-wrapper">
 
-    <!-- Card: Pronto Soccorso -->
-    <div
-      class="mrv-flip-card"
-      data-slug="prontosoccorso"
-      data-endpoint="https://myrealvet.it/subscribe/prontosoccorso"
-      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-cane/pronto-soccorso/MINI-GUIDA-DI-PRONTO-SOCCORSO-PER-IL-TUO-CANE.pdf"
-    >
-      <div class="mrv-flip-inner">
-        <div class="mrv-flip-front">
-          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-cane/pronto-soccorso/mini-guida-pronto-soccorso.webp" alt="Mini Guida Pronto Soccorso" />
-          <h2>Mini Guida Pronto Soccorso Canino</h2>
-          <p>Scopri come affrontare emergenze con calma e sicurezza.</p>
-        </div>
-        <div class="mrv-flip-back">
-          <h3>Iscriviti gratuitamente</h3>
-          <form class="mrv-form">
-            <input type="text" name="name" placeholder="Il tuo nome" required />
-            <input type="email" name="email" placeholder="La tua email" required />
-            <button type="submit">Download immediato</button>
-            <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card: StarterPack Cucciolo Felice -->
-    <div
-      class="mrv-flip-card"
-      data-slug="cucciolo"
-      data-endpoint="https://myrealvet.it/subscribe/cucciolo"
-      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-cane/cucciolo-felice/StarterPack-Cucciolo-Felice.pdf"
-    >
-      <div class="mrv-flip-inner">
-        <div class="mrv-flip-front">
-          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-cane/cucciolo-felice/copertina-starterpack-cucciolo-felice.webp" alt="StarterPack Cucciolo Felice" />
-          <h2>StarterPack Cucciolo Felice</h2>
-          <p>Tutto ciò che serve nei primi giorni con il tuo cucciolo.</p>
-        </div>
-        <div class="mrv-flip-back">
-          <h3>Iscriviti gratuitamente</h3>
-          <form class="mrv-form">
-            <input type="text" name="name" placeholder="Il tuo nome" required />
-            <input type="email" name="email" placeholder="La tua email" required />
-            <button type="submit">Download immediato</button>
-            <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
-          </form>
-        </div>
-      </div>
-    </div>
-
     
+
+    <!-- Card: La mappa del gatto felice -->
+    <div
+      class="mrv-flip-card"
+      data-slug="mappagatto"
+      data-endpoint="https://myrealvet.it/subscribe/mappagatto"
+      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-gatto/mappa-gatto/La-Mappa-del-Gatto-Felice.pdf"
+    >
+      <div class="mrv-flip-inner">
+        <div class="mrv-flip-front">
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-gatto/mappa-gatto/cover-mappa-gatto-felice.webp" alt="StarterPack Mappa del Gatto Felice" loading="lazy" />
+          <h2>La Mappa del Gatto Felice</h2>
+          <p>Una guida sul gatto indoor.</p>
+        </div>
+        <div class="mrv-flip-back">
+          <h3>Iscriviti gratuitamente</h3>
+          <form class="mrv-form">
+            <input type="text" name="name" placeholder="Il tuo nome" required />
+            <input type="email" name="email" placeholder="La tua email" required />
+            <button type="submit">Download immediato</button>
+            <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: StarterPack Viaggiare con il Gatto -->
+    <div
+      class="mrv-flip-card"
+      data-slug="viaggiaregatto"
+      data-endpoint="https://myrealvet.it/subscribe/viaggiaregatto"
+      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-gatto/viaggiare-gatto/Checklist-essenziale-per-viaggiare-sereni-con-il-tuo-gatto.pdf"
+    >
+      <div class="mrv-flip-inner">
+        <div class="mrv-flip-front">
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-gatto/viaggiare-gatto/copertina-viaggiare-gatto.webp" alt="StarterPack Viaggiare con il Gatto" loading="lazy"/>
+          <h2>StarterPack Viaggiare con il Gatto</h2>
+          <p>Consigli e check-list per viaggiare sereni col tuo felino.</p>
+        </div>
+        <div class="mrv-flip-back">
+          <h3>Iscriviti gratuitamente</h3>
+          <form class="mrv-form">
+            <input type="text" name="name" placeholder="Il tuo nome" required />
+            <input type="email" name="email" placeholder="La tua email" required />
+            <button type="submit">Download immediato</button>
+            <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <!-- Card: Sostanze Tossiche -->
     <div
       class="mrv-flip-card"
-      data-slug="sostanzetossichecane"
-      data-endpoint="https://myrealvet.it/subscribe/sostanzetossichecane"
-      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-cane/sostanze-tossiche-cane/Sostanze-Tossiche-per-il-cane.pdf"
+      data-slug="sostanzetossichegatto"
+      data-endpoint="https://myrealvet.it/subscribe/sostanzetossichegatto"
+      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-gatto/sostanze-tossiche-gatto/Sostanze-Tossiche-per-il-gatto.pdf"
     >
       <div class="mrv-flip-inner">
         <div class="mrv-flip-front">
-          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-cane/sostanze-tossiche-cane/sostanze-tossiche-cane.webp" alt="Guida Sostanze Tossiche" />
-          <h2>Sostanze Tossiche per il Cane </h2>
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-gatto/sostanze-tossiche-gatto/copertina-sostanze-tossiche-gatto.webp" alt="Guida Sostanze Tossiche" loading="lazy"/>
+          <h2>Sostanze Tossiche per il Gatto </h2>
           <p>Scopri ciò che è pericoloso e come proteggere il tuo animale.</p>
         </div>
         <div class="mrv-flip-back">
@@ -254,80 +254,6 @@
       </div>
     </div>
 
-    <!-- Card: Checklist Viaggiare con il Cane -->
-    <div
-      class="mrv-flip-card"
-      data-slug="viaggiarecane"
-      data-endpoint="https://myrealvet.it/subscribe/viaggiarecane"
-      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-cane/viaggiare-cane/Checklist essenziale per viaggiare sereni.pdf"
-    >
-      <div class="mrv-flip-inner">
-        <div class="mrv-flip-front">
-          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-cane/viaggiare-cane/copertina-viaggiare-cane.webp" alt="Checklist Viaggiare con il Cane" />
-          <h2>Checklist Viaggiare con il Cane</h2>
-          <p>Prepara il viaggio ideale, tranquillo e sicuro insieme.</p>
-        </div>
-        <div class="mrv-flip-back">
-          <h3>Iscriviti gratuitamente</h3>
-          <form class="mrv-form">
-            <input type="text" name="name" placeholder="Il tuo nome" required />
-            <input type="email" name="email" placeholder="La tua email" required />
-            <button type="submit">Download immediato</button>
-            <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card: 7 Giorni per Capire il Tuo Cane -->
-    <div
-      class="mrv-flip-card"
-      data-slug="decodificacane"
-      data-endpoint="https://myrealvet.it/subscribe/decodificacane"
-      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-cane/decodifica-cane/7_giorni_per_capire_meglio_il_tuo_cane.pdf"
-    >
-      <div class="mrv-flip-inner">
-        <div class="mrv-flip-front">
-          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-cane/decodifica-cane/copertina-7-giorni-per-capire-meglio-il-tuo-cane.webp" alt="7 Giorni per Capire il Tuo Cane" />
-          <h2>7 Giorni per Capire il Tuo Cane</h2>
-          <p>Una guida per iniziare il cammino in una settimana.</p>
-        </div>
-        <div class="mrv-flip-back">
-          <h3>Iscriviti gratuitamente</h3>
-          <form class="mrv-form">
-            <input type="text" name="name" placeholder="Il tuo nome" required />
-            <input type="email" name="email" placeholder="La tua email" required />
-            <button type="submit">Download immediato</button>
-            <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card: Guida 5 Errori Alimentazione -->
-    <div
-      class="mrv-flip-card"
-      data-slug="errorialimentazione"
-      data-endpoint="https://myrealvet.it/subscribe/errorialimentazione"
-      data-download="https://raw.githubusercontent.com/magox2694/assets-myrealvet/main/percorso-cane/alimentazione-cane/Guida_5_errori_alimentazione.pdf"
-    >
-      <div class="mrv-flip-inner">
-        <div class="mrv-flip-front">
-          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/percorso-cane/alimentazione-cane/copertina-5-errori-alimentazione.webp" alt="Guida 5 Errori Alimentazione" />
-          <h2>Guida 5 Errori Alimentazione</h2>
-          <p>Evita gli errori più comuni nell’alimentazione del tuo animale.</p>
-        </div>
-        <div class="mrv-flip-back">
-          <h3>Iscriviti gratuitamente</h3>
-          <form class="mrv-form">
-            <input type="text" name="name" placeholder="Il tuo nome" required />
-            <input type="email" name="email" placeholder="La tua email" required />
-            <button type="submit">Download immediato</button>
-            <p class="mrv-msg" style="margin-top:10px;font-size:0.9rem;"></p>
-          </form>
-        </div>
-      </div>
-    </div>
 
   </div> <!-- /.mrv-percorso-wrapper -->
 
