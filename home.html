@@ -230,11 +230,60 @@
     /* ANIMAZIONI REVEAL */
     .mrv-homepage .reveal {opacity:0;transform:translateY(40px);transition:all .8s ease}
     .mrv-homepage .reveal.active {opacity:1;transform:translateY(0)}
+    /* CARDS HERO */
+    .mrv-homepage .mrv-hero-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .mrv-homepage .mrv-hero-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 20px;
+      text-align: center;
+      width: 240px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .mrv-homepage .mrv-hero-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(22,151,199,.2);
+    }
+
+    .mrv-homepage .mrv-hero-card img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+      border-radius: 16px;
+    }
+
+    .mrv-homepage .mrv-hero-card p {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: clamp(15px, 3vw, 17px);
+      color: var(--brand);
+    }
+
+    @media (max-width: 600px) {
+      .mrv-homepage .mrv-hero-card {
+        width: 90%;
+      }
+    }
+
   </style>
 
 <!-- IMPORTA CSS e JS PER REGALO -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@79ba103/footer-payhip/regalo/mrv-regalo.css">
-<script src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@f4ba477/footer-payhip/regalo/mrv-regalo.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@b019bd7/footer-payhip/regalo/mrv-regalo.css">
+<script src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@b019bd7/footer-payhip/regalo/mrv-regalo.js"></script>
 
 </head>
 <body>
@@ -245,20 +294,32 @@
     <div class="container">
       <h1>Più salute, più armonia, più amore per il tuo animale</h1>
       <p>Benessere di cani e gatti con la Dott.ssa Angelica Spaccini.</p>
-      <a href="https://angelica-spaccini.myrealvet.it/percorso-cane" class="btn btn-primary">Percorsi Gratuiti per cani</a>
-      <a href="https://angelica-spaccini.myrealvet.it/percorso-gatto" class="btn btn-outline">Percorsi Gratuiti per gatti</a>
+
+      <div class="mrv-hero-cards">
+        <!-- Card Cane -->
+        <a href="https://angelica-spaccini.myrealvet.it/percorso-cane" class="mrv-hero-card">
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/card-percorso-cane.svg" alt="Percorso gratuito per cani" loading="lazy" decoding="async">
+          <p>Scopri i prodotti gratuiti per il tuo cane 🐶</p>
+        </a>
+
+        <!-- Card Gatto -->
+        <a href="https://angelica-spaccini.myrealvet.it/percorso-gatto" class="mrv-hero-card">
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/card-percorso-gatto.svg" alt="Percorso gratuito per gatti" loading="lazy" decoding="async">
+          <p>Scopri i prodotti gratuiti per il tuo gatto 🐱</p>
+        </a>
+      </div>
     </div>
   </header>
 
   <!-- SEZIONI -->
   <section class="feature-grid container reveal">
     <div class="feature">
-      <h2>🐶 Cani</h2>
+      <h2>🐶Sezione Cani</h2>
       <p>Guide, ebook e corsi per migliorare la vita del tuo cane.</p>
       <a href="https://angelica-spaccini.myrealvet.it/collection/sezione-cani" class="btn btn-primary">Scopri di più</a>
     </div>
     <div class="feature">
-      <h2>🐱 Gatti</h2>
+      <h2>🐱Sezione Gatti</h2>
       <p>Consigli pratici per capire e prenderti cura del tuo gatto.</p>
       <a href="https://angelica-spaccini.myrealvet.it/collection/sezione-gatti" class="btn btn-primary">Scopri di più</a>
     </div>
