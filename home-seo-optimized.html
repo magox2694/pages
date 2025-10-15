@@ -10,6 +10,8 @@
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://angelica-spaccini.myrealvet.it/" />
   <meta name="theme-color" content="#1697c7" />
+  <meta http-equiv="Cache-Control" content="max-age=31536000, public">
+
 
   <!-- Open Graph -->
   <meta property="og:title" content="MyRealVet – Benessere naturale per cani e gatti" />
@@ -38,10 +40,10 @@
   </noscript>
 
   <!-- LCP hint: preload card cane (prima immagine visibile) -->
-  <link rel="preload" as="image"
-        href="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/card-percorso-cane.svg"
-        fetchpriority="high"
-        crossorigin="anonymous">
+  <link rel="prefetch" as="image"
+      href="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/card-percorso-cane.webp"
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+
   <meta name="lcp-element" content=".mrv-homepage .mrv-hero-card img">
 
   <style>
@@ -315,7 +317,8 @@
   <!-- IMPORTA CSS e JS PER REGALO -->
   <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@b019bd7/footer-payhip/regalo/mrv-regalo.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@b019bd7/footer-payhip/regalo/mrv-regalo.css">
-  <script src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@b019bd7/footer-payhip/regalo/mrv-regalo.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet@b019bd7/footer-payhip/regalo/mrv-regalo.js"></script>
+
 </head>
 <body>
 <div class="mrv-homepage" role="main">
@@ -329,7 +332,7 @@
       <nav class="mrv-hero-cards" aria-label="Percorsi gratuiti">
         <!-- Card Cane -->
         <a href="https://angelica-spaccini.myrealvet.it/percorso-cane" class="mrv-hero-card" aria-label="Percorso gratuito per il tuo cane">
-          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/card-percorso-cane.svg"
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/card-percorso-cane.webp"
                alt="Percorso gratuito per cani – ebook e corsi MyRealVet"
                width="100" height="100"
                loading="eager" decoding="sync" fetchpriority="high">
@@ -338,7 +341,7 @@
 
         <!-- Card Gatto -->
         <a href="https://angelica-spaccini.myrealvet.it/percorso-gatto" class="mrv-hero-card" aria-label="Percorso gratuito per il tuo gatto">
-          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/card-percorso-gatto.svg"
+          <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/img/payhip/landing-page/card-percorso-gatto.webp"
                alt="Percorso gratuito per gatti – ebook e corsi MyRealVet"
                width="100" height="100"
                loading="lazy" decoding="async">
@@ -544,6 +547,25 @@
   }, { threshold: 0.1 });
   reveals.forEach(r => observer.observe(r));
 </script>
+
+<!-- Lazy load immagini -->
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  const imgs=document.querySelectorAll("img[loading='lazy']");
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const i=e.target;
+        i.src=i.dataset.src||i.src;
+        obs.unobserve(i);
+      }
+    });
+  });
+  imgs.forEach(i=>obs.observe(i));
+});
+</script>
+
+
 
 <!-- JSON-LD -->
 <script type="application/ld+json">
