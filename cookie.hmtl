@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cookie Policy ufficiale di My Real Vet, conforme al GDPR e alle normative europee. Informazioni dettagliate sull'uso dei cookie e sulla gestione del consenso." />
+  <meta name="keywords" content="cookie policy, GDPR, privacy, Klaro, My Real Vet, Angelica Spaccini, Mihai Muhulica" />
+  <meta name="author" content="My Real Vet" />
+  <title>Cookie Policy | My Real Vet</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header role="banner">
+    <h1>Cookie Policy</h1>
+  </header>
+
+  <main role="main">
+    <section aria-labelledby="scopo">
+      <h2 id="scopo">1. Finalità del Documento</h2>
+      <p>
+        La presente Cookie Policy ha lo scopo di informare gli utenti del sito <strong>My Real Vet</strong> sull’utilizzo dei cookie e delle tecnologie similari, in conformità al <strong>Regolamento (UE) 2016/679</strong> (GDPR), al <strong>D.Lgs. 196/2003</strong> e alle linee guida del Garante per la protezione dei dati personali.
+      </p>
+    </section>
+
+    <section aria-labelledby="definizione">
+      <h2 id="definizione">2. Cosa sono i Cookie</h2>
+      <p>
+        I cookie sono piccoli file di testo che i siti web inviano al terminale dell’utente (computer, smartphone, tablet), dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla visita successiva. Servono per migliorare la navigazione, analizzare il traffico e offrire contenuti personalizzati.
+      </p>
+    </section>
+
+    <section aria-labelledby="tipologie">
+      <h2 id="tipologie">3. Tipologie di Cookie Utilizzati</h2>
+      <ul>
+        <li><strong>Cookie Tecnici Necessari</strong>: indispensabili per il funzionamento del sito e l’erogazione dei servizi (Payhip, Stripe, PayPal).</li>
+        <li><strong>Cookie Funzionali</strong>: migliorano l’esperienza utente (Formspree, Tawk.to).</li>
+        <li><strong>Cookie Analitici</strong>: raccolgono dati aggregati e anonimi per analisi statistiche (Google Analytics).</li>
+        <li><strong>Cookie di Marketing</strong>: utilizzati per attività promozionali e remarketing (EmailOctopus, popup MRV).</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="klaro">
+      <h2 id="klaro">4. Gestione del Consenso con Klaro</h2>
+      <p>
+        Il sito utilizza il sistema <strong>Klaro</strong> per la gestione granulare del consenso. Al primo accesso, l’utente può:
+      </p>
+      <ul>
+        <li>Accettare tutti i cookie</li>
+        <li>Selezionare solo alcune categorie</li>
+        <li>Revocare o modificare il consenso in qualsiasi momento</li>
+      </ul>
+      <p>
+        Le preferenze sono salvate nel browser e possono essere aggiornate tramite il pannello “Gestisci preferenze”.
+      </p>
+    </section>
+
+    <section aria-labelledby="durata">
+      <h2 id="durata">5. Durata dei Cookie</h2>
+      <p>
+        La durata varia in base alla tipologia:
+      </p>
+      <ul>
+        <li>Sessione: eliminati alla chiusura del browser</li>
+        <li>Persistenti: restano attivi per un periodo definito (es. 1 anno per _ga)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="servizi">
+      <h2 id="servizi">6. Servizi di Terze Parti</h2>
+      <p>
+        Alcuni cookie sono gestiti da terze parti, ciascuna con la propria informativa:
+      </p>
+      <ul>
+        <li>Google Analytics – <a href="https://policies.google.com/privacy?hl=it" target="_blank" rel="noopener">Privacy Policy</a></li>
+        <li>Stripe – <a href="https://stripe.com/it/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
+        <li>PayPal – <a href="https://www.paypal.com/it/webapps/mpp/ua/privacy-full" target="_blank" rel="noopener">Privacy Policy</a></li>
+        <li>Tawk.to – <a href="https://www.tawk.to/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a></li>
+        <li>EmailOctopus – <a href="https://emailoctopus.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
+        <li>Formspree – <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="revoca">
+      <h2 id="revoca">7. Revoca e Gestione del Consenso</h2>
+      <p>
+        L’utente può revocare il consenso in qualsiasi momento tramite il pannello Klaro o cancellando i cookie dal proprio browser. Per assistenza, è possibile contattare il titolare.
+      </p>
+    </section>
+
+    <section aria-labelledby="diritti">
+      <h2 id="diritti">8. Diritti dell’Interessato</h2>
+      <p>
+        Ai sensi degli articoli 15-22 del GDPR, l’utente ha diritto di:
+      </p>
+      <ul>
+        <li>Accedere ai propri dati</li>
+        <li>Chiedere la rettifica o cancellazione</li>
+        <li>Limitare o opporsi al trattamento</li>
+        <li>Richiedere la portabilità</li>
+      </ul>
+      <p>
+        Per esercitare tali diritti, scrivere a: <a href="mailto:my.real.vet@gmail.com">my.real.vet@gmail.com</a>
+      </p>
+    </section>
+
+    <section aria-labelledby="titolare">
+      <h2 id="titolare">9. Titolare del Trattamento</h2>
+      <p>
+        <strong>Dott.ssa Angelica Spaccini</strong><br />
+        <strong>Gestore tecnico:</strong> Mihai Muhulica<br />
+        <strong>Email:</strong> <a href="mailto:my.real.vet@gmail.com">my.real.vet@gmail.com</a>
+      </p>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2025 My Real Vet – Tutti i diritti riservati.</p>
+  </footer>
+</body>
+</html>
