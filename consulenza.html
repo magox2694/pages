@@ -1,314 +1,483 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Consulenza personalizzata | MyRealVet</title>
-  <meta name="description" content="Prenota una consulenza personalizzata per il tuo cane o gatto con MyRealVet. Ascolto, empatia e indicazioni pratiche per migliorare la vita insieme." />
-  <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
-  <style>
-    html, body { max-width: 100%; overflow-x: hidden; }
-    .mrv-consulenza-wrapper { max-width: 1000px; margin: 0 auto; padding: 20px 16px 40px; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #111827; }
-    .mrv-consulenza-wrapper p, .mrv-consulenza-wrapper li { font-size: 1rem; line-height: 1.6; }
-    .mrv-consulenza-wrapper .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .mrv-consulenza-wrapper .reveal.visible { opacity: 1; transform: translateY(0); }
-    .mrv-consulenza-hero { text-align: center; margin: 40px auto 60px; }
-    .mrv-consulenza-hero h1 { font-size: 2.2rem; margin-top: 20px; color: #0c6ea0; }
-    .mrv-consulenza-hero p { font-size: 1.1rem; margin: 18px auto 0; color: #374151; }
-    .mrv-consulenza-hero strong { color: #0c6ea0; }
-    .mrv-consulenza-hero img { max-width: 100%; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); aspect-ratio: 16 / 9; object-fit: cover; height: auto; }
-    .mrv-consulenza-benefits { margin: 40px auto 60px; }
-    .mrv-consulenza-benefits h2 { color: #0c6ea0; margin-bottom: 12px; }
-    .mrv-consulenza-benefits ul { list-style: none; padding: 0; }
-    .mrv-consulenza-benefits li { margin: 10px 0; padding-inline-start: 28px; position: relative; }
-    .mrv-consulenza-benefits li::before { content: "✅"; position: absolute; left: 0; top: 0; }
-    .mrv-consulenza-steps { margin: 40px auto 60px; padding: 24px 20px; background: #f9fbfd; border-radius: 16px; box-shadow: 0 6px 18px rgba(2, 12, 27, 0.06); }
-    .mrv-consulenza-steps h2 { color: #0c6ea0; margin-bottom: 16px; text-align: center; }
-    .mrv-consulenza-steps ol { padding-inline-start: 20px; }
-    .mrv-consulenza-steps li { margin: 8px 0; font-size: 1.05rem; }
-    .mrv-consulenza-quando { margin: 40px auto 60px; }
-    .mrv-consulenza-quando h2 { color: #0c6ea0; margin-bottom: 12px; }
-    .mrv-consulenza-quando ul { list-style: none; padding: 0; }
-    .mrv-consulenza-quando li { margin: 8px 0; padding-inline-start: 28px; position: relative; }
-    .mrv-consulenza-quando li::before { content: "🐾"; position: absolute; left: 0; top: 0; }
-    .mrv-consulenza-recensioni { background: #ffffff; border-radius: 16px; box-shadow: 0 10px 30px rgba(2, 12, 27, 0.08); padding: 24px 20px; margin: 40px auto 60px; }
-    .mrv-consulenza-recensioni h2 { color: #0c6ea0; margin-bottom: 12px; }
-    .mrv-consulenza-recensioni p { margin-bottom: 14px; font-style: italic; }
-    .mrv-consulenza-faq { margin: 40px auto 60px; padding: 24px 20px; background: #f9fbfd; border-radius: 16px; box-shadow: 0 6px 18px rgba(2, 12, 27, 0.06); }
-    .mrv-consulenza-faq h2 { color: #0c6ea0; margin-bottom: 20px; text-align: center; }
-    .mrv-consulenza-faq .faq-item { margin-bottom: 12px; border-bottom: 1px solid #e5e7eb; }
-    .mrv-consulenza-faq .faq-question { width: 100%; text-align: left; background: none; border: none; padding: 12px 0; font-size: 1.05rem; font-weight: 600; color: #0b1120; cursor: pointer; }
-    .mrv-consulenza-faq .faq-question:hover { color: #0c6ea0; }
-    .mrv-consulenza-faq .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0; }
-    .mrv-consulenza-faq .faq-answer p { margin: 10px 0 16px; color: #374151; }
-    .mrv-consulenza-faq .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 10px; }
-    .mrv-consulenza-garanzia { margin: 40px auto 60px; padding: 24px 20px; background: #f0faff; border-radius: 16px; text-align: center; box-shadow: 0 6px 18px rgba(2, 12, 27, 0.06); }
-    .mrv-consulenza-garanzia h2 { color: #0c6ea0; margin-bottom: 10px; }
-    .mrv-consulenza-cta { text-align: center; margin: 40px auto 20px; }
-    .custom-js-btn { background-color: #0c6ea0; color: #ffffff !important; font-size: 1.2rem; padding: 0.9rem 1.8rem; border-radius: 999px; border: none; font-weight: 700; cursor: pointer; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; }
-    .custom-js-btn:hover { background-color: #094f73; transform: translateY(-1px); box-shadow: 0 8px 22px rgba(0, 0, 0, 0.17); }
-    .custom-js-btn:focus-visible, .faq-question:focus-visible { outline: 3px solid #0c6ea0; outline-offset: 2px; }
-    .pulse { animation: pulse 2s infinite ease-in-out; }
-    @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(12, 110, 160, 0.4); } 50% { transform: scale(1.03); box-shadow: 0 0 0 12px rgba(12, 110, 160, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(12, 110, 160, 0); } }
-    @media (max-width: 640px) { .mrv-consulenza-hero h1 { font-size: 1.7rem; } .custom-js-btn { width: 100%; max-width: 320px; } }
-  </style>
-</head>
-<body>
-  <div class="mrv-consulenza-wrapper">
-    <!-- HERO -->
-    <section class="mrv-consulenza-hero reveal" aria-labelledby="consulenza-hero-title">
-      <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/consulenza/cover-consulenza.webp" decoding="async" alt="Dott.ssa Angelica Spaccini durante una consulenza veterinaria online" />
-      <h1 id="consulenza-hero-title">Consulenza personalizzata per il tuo cane o gatto</h1>
-      <p>Un momento <strong>dedicato solo a te e al tuo animale</strong>, con ascolto, empatia e indicazioni pratiche per migliorare davvero la vostra vita insieme.</p>
-      <div class="mrv-consulenza-cta">
-        <button class="custom-js-btn payhip-btn pulse" type="button">👉 Prenota la tua consulenza – 70€</button>
-      </div>
-    </section>
-    <!-- BENEFITS -->
-    <section class="mrv-consulenza-benefits reveal" aria-labelledby="consulenza-benefits-title">
-      <h2 id="consulenza-benefits-title">Cosa ottieni dalla consulenza</h2>
-      <ul>
-        <li>Ascolto dedicato ai tuoi dubbi e difficoltà.</li>
-        <li>Indicazioni personalizzate sul tuo caso.</li>
-        <li>Suggerimenti naturali e pratici quando utili.</li>
-        <li>Un piano chiaro da seguire dopo la consulenza.</li>
-      </ul>
-    </section>
-    <!-- COME FUNZIONA -->
-    <section class="mrv-consulenza-steps reveal" aria-labelledby="consulenza-steps-title">
-      <h2 id="consulenza-steps-title">Come funziona</h2>
-      <ol>
-        <li>Acquista la consulenza online in pochi secondi.</li>
-        <li>Verrai indirizzato a una pagina di ringraziamento dove potrai fissare data e orario.</li>
-        <li>Confermerai in un click via WhatsApp e riceverai un promemoria prima della consulenza.</li>
-      </ol>
-    </section>
-    <!-- QUANDO È UTILE -->
-    <section class="mrv-consulenza-quando reveal" aria-labelledby="consulenza-quando-title">
-      <h2 id="consulenza-quando-title">Quando è utile una consulenza</h2>
-      <ul>
-        <li>Problemi comportamentali (ansia, distruzione, aggressività).</li>
-        <li>Avvio di un percorso educativo.</li>
-        <li>Dubbi su alimentazione naturale e cure complementari.</li>
-        <li>Consigli per migliorare la convivenza quotidiana.</li>
-      </ul>
-    </section>
-    <!-- RECENSIONI -->
-    <section class="mrv-consulenza-recensioni reveal" aria-labelledby="consulenza-recensioni-title">
-      <h2 id="consulenza-recensioni-title">Cosa dicono altri proprietari</h2>
-      <p>“Grazie alla consulenza ho finalmente capito come gestire l’ansia del mio cane. Angelica è stata chiara e rassicurante.” – Laura</p>
-      <p>“Mi ha dato strumenti pratici e semplici che hanno migliorato subito la vita con il mio gatto.” – Marco</p>
-    </section>
-    <!-- GARANZIA -->
-    <section class="mrv-consulenza-garanzia reveal" aria-labelledby="consulenza-garanzia-title">
-      <h2 id="consulenza-garanzia-title">🛡️ Garanzia e riservatezza</h2>
-      <p>La consulenza è <strong>100% riservata ed empatica</strong>.<br />Non ci sono giudizi, solo supporto concreto per aiutarti davvero con il tuo animale.</p>
-    </section>
-    <!-- FAQ -->
-    <section class="mrv-consulenza-faq reveal" aria-labelledby="consulenza-faq-title">
-      <h2 id="consulenza-faq-title">Domande frequenti</h2>
-      <div class="faq-item">
-        <button class="faq-question" type="button" id="faq1" aria-expanded="false" aria-controls="faq1-answer">Quanto dura la consulenza?</button>
-        <div class="faq-answer" id="faq1-answer" role="region" aria-labelledby="faq1" aria-hidden="true">
-          <p>La durata è di circa 30 minuti, tempo sufficiente per affrontare il tuo caso in modo chiaro e mirato.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consulenza personalizzata | MyRealVet</title>
+    <meta
+      name="description"
+      content="Prenota una consulenza personalizzata per il tuo cane o gatto con MyRealVet. Ascolto, empatia e indicazioni pratiche per migliorare la vita insieme."
+    />
+    <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
+    <style>
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+      .mrv-consulenza-wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px 16px 40px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          sans-serif;
+        color: #111827;
+      }
+      .mrv-consulenza-wrapper p,
+      .mrv-consulenza-wrapper li {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      .mrv-consulenza-wrapper .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      .mrv-consulenza-wrapper .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .mrv-consulenza-hero {
+        text-align: center;
+        margin: 40px auto 60px;
+      }
+      .mrv-consulenza-hero h1 {
+        font-size: 2.2rem;
+        margin-top: 20px;
+        color: #0c6ea0;
+      }
+      .mrv-consulenza-hero p {
+        font-size: 1.1rem;
+        margin: 18px auto 0;
+        color: #374151;
+      }
+      .mrv-consulenza-hero strong {
+        color: #0c6ea0;
+      }
+      .mrv-consulenza-hero img {
+        max-width: 100%;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        height: auto;
+      }
+      .mrv-consulenza-benefits {
+        margin: 40px auto 60px;
+      }
+      .mrv-consulenza-benefits h2 {
+        color: #0c6ea0;
+        margin-bottom: 12px;
+      }
+      .mrv-consulenza-benefits ul {
+        list-style: none;
+        padding: 0;
+      }
+      .mrv-consulenza-benefits li {
+        margin: 10px 0;
+        padding-inline-start: 28px;
+        position: relative;
+      }
+      .mrv-consulenza-benefits li::before {
+        content: '✅';
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .mrv-consulenza-steps {
+        margin: 40px auto 60px;
+        padding: 24px 20px;
+        background: #f9fbfd;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(2, 12, 27, 0.06);
+      }
+      .mrv-consulenza-steps h2 {
+        color: #0c6ea0;
+        margin-bottom: 16px;
+        text-align: center;
+      }
+      .mrv-consulenza-steps ol {
+        padding-inline-start: 20px;
+      }
+      .mrv-consulenza-steps li {
+        margin: 8px 0;
+        font-size: 1.05rem;
+      }
+      .mrv-consulenza-quando {
+        margin: 40px auto 60px;
+      }
+      .mrv-consulenza-quando h2 {
+        color: #0c6ea0;
+        margin-bottom: 12px;
+      }
+      .mrv-consulenza-quando ul {
+        list-style: none;
+        padding: 0;
+      }
+      .mrv-consulenza-quando li {
+        margin: 8px 0;
+        padding-inline-start: 28px;
+        position: relative;
+      }
+      .mrv-consulenza-quando li::before {
+        content: '🐾';
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .mrv-consulenza-recensioni {
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(2, 12, 27, 0.08);
+        padding: 24px 20px;
+        margin: 40px auto 60px;
+      }
+      .mrv-consulenza-recensioni h2 {
+        color: #0c6ea0;
+        margin-bottom: 12px;
+      }
+      .mrv-consulenza-recensioni p {
+        margin-bottom: 14px;
+        font-style: italic;
+      }
+      .mrv-consulenza-faq {
+        margin: 40px auto 60px;
+        padding: 24px 20px;
+        background: #f9fbfd;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(2, 12, 27, 0.06);
+      }
+      .mrv-consulenza-faq h2 {
+        color: #0c6ea0;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .mrv-consulenza-faq .faq-item {
+        margin-bottom: 12px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .mrv-consulenza-faq .faq-question {
+        width: 100%;
+        text-align: left;
+        background: none;
+        border: none;
+        padding: 12px 0;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: #0b1120;
+        cursor: pointer;
+      }
+      .mrv-consulenza-faq .faq-question:hover {
+        color: #0c6ea0;
+      }
+      .mrv-consulenza-faq .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        padding: 0;
+      }
+      .mrv-consulenza-faq .faq-answer p {
+        margin: 10px 0 16px;
+        color: #374151;
+      }
+      .mrv-consulenza-faq .faq-item.active .faq-answer {
+        max-height: 200px;
+        padding-bottom: 10px;
+      }
+      .mrv-consulenza-garanzia {
+        margin: 40px auto 60px;
+        padding: 24px 20px;
+        background: #f0faff;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 6px 18px rgba(2, 12, 27, 0.06);
+      }
+      .mrv-consulenza-garanzia h2 {
+        color: #0c6ea0;
+        margin-bottom: 10px;
+      }
+      .mrv-consulenza-cta {
+        text-align: center;
+        margin: 40px auto 20px;
+      }
+      .custom-js-btn {
+        background-color: #0c6ea0;
+        color: #ffffff !important;
+        font-size: 1.2rem;
+        padding: 0.9rem 1.8rem;
+        border-radius: 999px;
+        border: none;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        transition: background-color 0.2s ease, transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .custom-js-btn:hover {
+        background-color: #094f73;
+        transform: translateY(-1px);
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.17);
+      }
+      .custom-js-btn:focus-visible,
+      .faq-question:focus-visible {
+        outline: 3px solid #0c6ea0;
+        outline-offset: 2px;
+      }
+      .pulse {
+        animation: pulse 2s infinite ease-in-out;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(12, 110, 160, 0.4);
+        }
+        50% {
+          transform: scale(1.03);
+          box-shadow: 0 0 0 12px rgba(12, 110, 160, 0);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(12, 110, 160, 0);
+        }
+      }
+      @media (max-width: 640px) {
+        .mrv-consulenza-hero h1 {
+          font-size: 1.7rem;
+        }
+        .custom-js-btn {
+          width: 100%;
+          max-width: 320px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mrv-consulenza-wrapper">
+      <!-- HERO -->
+      <section
+        class="mrv-consulenza-hero reveal"
+        aria-labelledby="consulenza-hero-title"
+      >
+        <img
+          src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/consulenza/cover-consulenza.webp"
+          decoding="async"
+          alt="Dott.ssa Angelica Spaccini durante una consulenza veterinaria online"
+        />
+        <h1 id="consulenza-hero-title">
+          Consulenza personalizzata per il tuo cane o gatto
+        </h1>
+        <p>
+          Un momento <strong>dedicato solo a te e al tuo animale</strong>, con
+          ascolto, empatia e indicazioni pratiche per migliorare davvero la
+          vostra vita insieme.
+        </p>
+        <div class="mrv-consulenza-cta">
+          <button class="custom-js-btn payhip-btn pulse" type="button">
+            👉 Prenota la tua consulenza – 70€
+          </button>
         </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" type="button" id="faq2" aria-expanded="false" aria-controls="faq2-answer">È adatta anche se ho un cucciolo?</button>
-        <div class="faq-answer" id="faq2-answer" role="region" aria-labelledby="faq2" aria-hidden="true">
-          <p>Sì, la consulenza è utile anche per impostare fin da subito la relazione corretta con il tuo cucciolo e prevenire errori comuni.</p>
+      </section>
+      <!-- BENEFITS -->
+      <section
+        class="mrv-consulenza-benefits reveal"
+        aria-labelledby="consulenza-benefits-title"
+      >
+        <h2 id="consulenza-benefits-title">Cosa ottieni dalla consulenza</h2>
+        <ul>
+          <li>Ascolto dedicato ai tuoi dubbi e difficoltà.</li>
+          <li>Indicazioni personalizzate sul tuo caso.</li>
+          <li>Suggerimenti naturali e pratici quando utili.</li>
+          <li>Un piano chiaro da seguire dopo la consulenza.</li>
+        </ul>
+      </section>
+      <!-- COME FUNZIONA -->
+      <section
+        class="mrv-consulenza-steps reveal"
+        aria-labelledby="consulenza-steps-title"
+      >
+        <h2 id="consulenza-steps-title">Come funziona</h2>
+        <ol>
+          <li>Acquista la consulenza online in pochi secondi.</li>
+          <li>
+            Verrai indirizzato a una pagina di ringraziamento dove potrai
+            fissare data e orario.
+          </li>
+          <li>
+            Confermerai in un click via WhatsApp e riceverai un promemoria prima
+            della consulenza.
+          </li>
+        </ol>
+      </section>
+      <!-- QUANDO È UTILE -->
+      <section
+        class="mrv-consulenza-quando reveal"
+        aria-labelledby="consulenza-quando-title"
+      >
+        <h2 id="consulenza-quando-title">Quando è utile una consulenza</h2>
+        <ul>
+          <li>Problemi comportamentali (ansia, distruzione, aggressività).</li>
+          <li>Avvio di un percorso educativo.</li>
+          <li>Dubbi su alimentazione naturale e cure complementari.</li>
+          <li>Consigli per migliorare la convivenza quotidiana.</li>
+        </ul>
+      </section>
+      <!-- RECENSIONI -->
+      <section
+        class="mrv-consulenza-recensioni reveal"
+        aria-labelledby="consulenza-recensioni-title"
+      >
+        <h2 id="consulenza-recensioni-title">Cosa dicono altri proprietari</h2>
+        <p>
+          “Grazie alla consulenza ho finalmente capito come gestire l’ansia del
+          mio cane. Angelica è stata chiara e rassicurante.” – Laura
+        </p>
+        <p>
+          “Mi ha dato strumenti pratici e semplici che hanno migliorato subito
+          la vita con il mio gatto.” – Marco
+        </p>
+      </section>
+      <!-- GARANZIA -->
+      <section
+        class="mrv-consulenza-garanzia reveal"
+        aria-labelledby="consulenza-garanzia-title"
+      >
+        <h2 id="consulenza-garanzia-title">🛡️ Garanzia e riservatezza</h2>
+        <p>
+          La consulenza è <strong>100% riservata ed empatica</strong>.<br />Non
+          ci sono giudizi, solo supporto concreto per aiutarti davvero con il
+          tuo animale.
+        </p>
+      </section>
+      <!-- FAQ -->
+      <section
+        class="mrv-consulenza-faq reveal"
+        aria-labelledby="consulenza-faq-title"
+      >
+        <h2 id="consulenza-faq-title">Domande frequenti</h2>
+        <div class="faq-item">
+          <button
+            class="faq-question"
+            type="button"
+            id="faq1"
+            aria-expanded="false"
+            aria-controls="faq1-answer"
+          >
+            Quanto dura la consulenza?
+          </button>
+          <div
+            class="faq-answer"
+            id="faq1-answer"
+            role="region"
+            aria-labelledby="faq1"
+            aria-hidden="true"
+          >
+            <p>
+              La durata è di circa 30 minuti, tempo sufficiente per affrontare
+              il tuo caso in modo chiaro e mirato.
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" type="button" id="faq3" aria-expanded="false" aria-controls="faq3-answer">Dopo la consulenza avrò un supporto?</button>
-        <div class="faq-answer" id="faq3-answer" role="region" aria-labelledby="faq3" aria-hidden="true">
-          <p>Sì, potrai scrivermi su WhatsApp per chiarimenti o dubbi collegati alla consulenza svolta.</p>
+        <div class="faq-item">
+          <button
+            class="faq-question"
+            type="button"
+            id="faq2"
+            aria-expanded="false"
+            aria-controls="faq2-answer"
+          >
+            È adatta anche se ho un cucciolo?
+          </button>
+          <div
+            class="faq-answer"
+            id="faq2-answer"
+            role="region"
+            aria-labelledby="faq2"
+            aria-hidden="true"
+          >
+            <p>
+              Sì, la consulenza è utile anche per impostare fin da subito la
+              relazione corretta con il tuo cucciolo e prevenire errori comuni.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
-    <!-- CTA FINALE -->
-    <section class="mrv-consulenza-cta reveal">
-      <button class="custom-js-btn payhip-btn pulse" type="button">👉 Prenota subito la tua consulenza – 70€</button>
-    </section>
-  </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      /* ---- Reveal on scroll (con listener passive) ---- */
-      const reveals = document.querySelectorAll(".mrv-consulenza-wrapper .reveal");
-      const revealOnScroll = () => {
-        const windowHeight = window.innerHeight;
-        reveals.forEach((el) => {
-          const elementTop = el.getBoundingClientRect().top;
-          if (elementTop < windowHeight - 100) {
-            el.classList.add("visible");
-          }
+        <div class="faq-item">
+          <button
+            class="faq-question"
+            type="button"
+            id="faq3"
+            aria-expanded="false"
+            aria-controls="faq3-answer"
+          >
+            Dopo la consulenza avrò un supporto?
+          </button>
+          <div
+            class="faq-answer"
+            id="faq3-answer"
+            role="region"
+            aria-labelledby="faq3"
+            aria-hidden="true"
+          >
+            <p>
+              Sì, potrai scrivermi su WhatsApp per chiarimenti o dubbi collegati
+              alla consulenza svolta.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- CTA FINALE -->
+      <section class="mrv-consulenza-cta reveal">
+        <button class="custom-js-btn payhip-btn pulse" type="button">
+          👉 Prenota subito la tua consulenza – 70€
+        </button>
+      </section>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        /* ---- Reveal on scroll (con listener passive) ---- */
+        const reveals = document.querySelectorAll(
+          '.mrv-consulenza-wrapper .reveal'
+        );
+        const revealOnScroll = () => {
+          const windowHeight = window.innerHeight;
+          reveals.forEach((el) => {
+            const elementTop = el.getBoundingClientRect().top;
+            if (elementTop < windowHeight - 100) {
+              el.classList.add('visible');
+            }
+          });
+        };
+        window.addEventListener('scroll', revealOnScroll, { passive: true });
+        revealOnScroll();
+        /* ---- FAQ accessibili ---- */
+        const faqButtons = document.querySelectorAll(
+          '.mrv-consulenza-wrapper .faq-question'
+        );
+        faqButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const item = button.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            button.setAttribute('aria-expanded', String(!isExpanded));
+            answer.setAttribute('aria-hidden', String(isExpanded));
+            item.classList.toggle('active', !isExpanded);
+          });
         });
-      };
-      window.addEventListener("scroll", revealOnScroll, { passive: true });
-      revealOnScroll();
-      /* ---- FAQ accessibili ---- */
-      const faqButtons = document.querySelectorAll(".mrv-consulenza-wrapper .faq-question");
-      faqButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const item = button.parentElement;
-          const answer = item.querySelector(".faq-answer");
-          const isExpanded = button.getAttribute("aria-expanded") === "true";
-          button.setAttribute("aria-expanded", String(!isExpanded));
-          answer.setAttribute("aria-hidden", String(isExpanded));
-          item.classList.toggle("active", !isExpanded);
-        });
-      });
-      /* ---- Payhip checkout ---- */
-      const payhipButtons = document.querySelectorAll(".mrv-consulenza-wrapper .payhip-btn");
-      payhipButtons.forEach((btn) => {
-        btn.addEventListener("click", function () {
-          if (window.Payhip && Payhip.Checkout) {
-            Payhip.Checkout.open({
-              product: "Iokda", // ID prodotto Payhip
-              message: "Grazie per aver scelto la consulenza MyRealVet 🐾",
-            });
-          }
-        });
-      });
-    });
-  </script>
-</body>
-</html>
-    .custom-js-btn:hover { background-color: #0e7ca5; transform: translateY(-2px); }
-    .pulse {
-      animation: pulse 2s infinite ease-in-out;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 151, 199, 0.4); }
-      50% { transform: scale(1.03); box-shadow: 0 0 0 12px rgba(22, 151, 199, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 151, 199, 0); }
-    }
-  </style>
-</head>
-<body>
-  <div class="mrv-consulenza-wrapper">
-
-    <!-- HERO -->
-    <section class="mrv-consulenza-hero reveal">
-      <img src="https://cdn.jsdelivr.net/gh/magox2694/assets-myrealvet/consulenza/cover-consulenza.webp" loading="lazy" decoding="async"
-       alt="Consulenza personalizzata MyRealVet" 
-       style="max-width:100%; border-radius:12px; margin-bottom:20px; box-shadow:0 6px 18px rgba(0,0,0,0.1);">
-      <h1>Consulenza personalizzata per il tuo cane o gatto</h1>
-      <p>Un momento <strong>dedicato solo a te e al tuo animale</strong>, con ascolto, empatia e indicazioni pratiche per migliorare davvero la vostra vita insieme.</p>
-      <div class="mrv-consulenza-cta">
-        <button class="custom-js-btn payhip-btn pulse">👉 Prenota la tua consulenza – 70€</button>
-      </div>
-    </section>
-
-    <!-- BENEFITS -->
-    <section class="mrv-consulenza-benefits reveal">
-      <h2>Cosa ottieni dalla consulenza</h2>
-      <ul>
-        <li>Ascolto dedicato ai tuoi dubbi e difficoltà</li>
-        <li>Indicazioni personalizzate sul tuo caso</li>
-        <li>Suggerimenti naturali e pratici quando utili</li>
-        <li>Un piano chiaro da seguire dopo la consulenza</li>
-      </ul>
-    </section>
-
-    <!-- COME FUNZIONA -->
-    <section class="mrv-consulenza-steps reveal">
-      <h2>Come funziona</h2>
-      <ol>
-        <li>Acquista la consulenza online in pochi secondi</li>
-        <li>Verrai indirizzato a una pagina di ringraziamento dove potrai fissare data e orario</li>
-        <li>Confermerai in un click via WhatsApp e riceverai un promemoria</li>
-      </ol>
-    </section>
-
-    <!-- QUANDO È UTILE -->
-    <section class="mrv-consulenza-quando reveal">
-      <h2>Quando è utile una consulenza</h2>
-      <ul>
-        <li>Problemi comportamentali (ansia, distruzione, aggressività)</li>
-        <li>Avvio di un percorso educativo</li>
-        <li>Dubbi sull’alimentazione naturale e cure complementari</li>
-        <li>Consigli per migliorare la convivenza quotidiana</li>
-      </ul>
-    </section>
-
-    <!-- RECENSIONI -->
-    <section class="mrv-consulenza-recensioni reveal">
-      <h2>Cosa dicono altri proprietari</h2>
-      <p>“Grazie alla consulenza ho finalmente capito come gestire l’ansia del mio cane. Angelica è stata chiara e rassicurante.” – Laura</p>
-      <p>“Mi ha dato strumenti pratici e semplici che hanno migliorato subito la vita con il mio gatto.” – Marco</p>
-    </section>
-
-    <!-- GARANZIA -->
-    <section class="mrv-consulenza-garanzia reveal">
-      <h2>🛡️ Garanzia e riservatezza</h2>
-      <p>La consulenza è <strong>100% riservata ed empatica</strong>.  
-      Non ci sono giudizi, solo supporto concreto per aiutarti davvero con il tuo animale.</p>
-    </section>
-
-    <!-- FAQ -->
-    <section class="mrv-consulenza-faq reveal">
-      <h2>Domande frequenti</h2>
-      <div class="faq-item">
-        <button class="faq-question">Quanto dura la consulenza?</button>
-        <div class="faq-answer"><p>La durata è di circa 30 minuti, tempo sufficiente per affrontare il tuo caso in modo chiaro e mirato.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">È adatta anche se ho un cucciolo?</button>
-        <div class="faq-answer"><p>Sì, la consulenza è utile anche per impostare fin da subito la giusta relazione con il tuo cucciolo.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Dopo la consulenza avrò un supporto?</button>
-        <div class="faq-answer"><p>Sì, potrai scrivermi su WhatsApp per chiarimenti o dubbi collegati alla consulenza svolta.</p></div>
-      </div>
-    </section>
-
-    <!-- CTA FINALE -->
-    <section class="mrv-consulenza-cta reveal">
-      <button class="custom-js-btn payhip-btn pulse">👉 Prenota subito la tua consulenza – 70€</button>
-    </section>
-
-
-  </div>
-
-  <!-- SCRIPT REVEAL -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const reveals = document.querySelectorAll(".reveal");
-      const revealOnScroll = () => {
-        const windowHeight = window.innerHeight;
-        reveals.forEach(el => {
-          const elementTop = el.getBoundingClientRect().top;
-          if (elementTop < windowHeight - 100) {
-            el.classList.add("visible");
-          }
-        });
-      };
-      window.addEventListener("scroll", revealOnScroll);
-      revealOnScroll();
-    });
-  </script>
-
-  <!-- SCRIPT FAQ -->
-  <script>
-    document.querySelectorAll(".faq-question").forEach(button => {
-      button.addEventListener("click", () => {
-        button.parentElement.classList.toggle("active");
-      });
-    });
-  </script>
-
-  <!-- SCRIPT PAYHIP CHECKOUT -->
-  <script type="text/javascript">
-    document.querySelectorAll(".payhip-btn").forEach(btn => {
-      btn.addEventListener("click", function () {
-        Payhip.Checkout.open({
-          product: "Iokda", // <--- QUI inserisci l'ID prodotto Payhip della consulenza
-          message: "Grazie per aver scelto la consulenza MyRealVet 🐾"
+        /* ---- Payhip checkout ---- */
+        const payhipButtons = document.querySelectorAll(
+          '.mrv-consulenza-wrapper .payhip-btn'
+        );
+        payhipButtons.forEach((btn) => {
+          btn.addEventListener('click', function () {
+            if (window.Payhip && Payhip.Checkout) {
+              Payhip.Checkout.open({
+                product: 'Iokda', // ID prodotto Payhip
+                message: 'Grazie per aver scelto la consulenza MyRealVet 🐾',
+              });
+            }
+          });
         });
       });
-    });
-  </script>
-
-</body>
+    </script>
+  </body>
 </html>
